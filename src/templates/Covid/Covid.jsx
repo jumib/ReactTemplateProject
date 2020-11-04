@@ -35,16 +35,13 @@ export default function Components(props) {
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/titleimg.jpg")}>
+      <Parallax>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>어떤 종목이든 검색 한 번이면 끝.</h1>
-                <br/><br/><br/>
-                <h3 className={classes.subtitle}>
-                  학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
-                </h3>
+              <div>
+               <input type="text" size="100"/>
+               <button>SEARCH</button>
               </div>
             </GridItem>
           </GridContainer>

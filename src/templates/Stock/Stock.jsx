@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -17,9 +18,11 @@ import SectionExamples from "../../containers/SectionExamples.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import { StockFinancial, StockNews } from "../../containers/stock";
 
-import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(styles);
+// const [searchName, setSearch] = useState([])
+
+
 
 export default function Components(props) {
   const classes = useStyles();
@@ -37,12 +40,14 @@ export default function Components(props) {
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/titleimg.jpg")}>
+      <Parallax>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
-            <input type="text" placeholder="종목을 검색해보세요 !"/> 
-                    <button>검색</button>
+              <div>
+               <input type="text" size="100"/>
+               <button>SEARCH</button>
+              </div>
             </GridItem>
           </GridContainer>
         </div>
