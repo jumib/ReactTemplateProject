@@ -55,7 +55,6 @@ export default function Components(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <StockNews />
         <StockFinancial />
-        <SectionExamples />
       </div>
       <Footer />
     </div>

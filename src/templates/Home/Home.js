@@ -47,7 +47,9 @@ export default function Components(props) {
                 <h3 className={classes.subtitle}>
                   학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
                 </h3>
-              </div>
+                <br/>
+                <Link to="/stock">지금 사용해보세요 ＞</Link>
+              </div>              
             </GridItem>
           </GridContainer>
         </div>

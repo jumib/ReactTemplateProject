@@ -34,7 +34,7 @@ export default function Orders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <h2>경제뉴스 크롤링</h2>
+      <h2>경제뉴스</h2>
       <Table size="small">
         <TableHead>
           <TableRow>
