@@ -1,15 +1,19 @@
 import React from "react";
 import c3 from "c3";
+import { useSelector } from "react-redux";
 
 
 const Chart = () => {
+
+    const decide = useSelector(state => (state.covidReducer.decide))
+
   React.useEffect(() => {
     c3.generate({
       bindto: "#chart",
       data: {
-        columns: [
-          ["data1", 30, 200, 100, 400, 150, 250,30, 200, 100, 400, 150, 250,30, 200, 100, 400, 150, 250, 150, 250,30, 200, 100, 400, 150, 250,30, 200],
-        ],
+        json: {
+            data: {decide}
+        },
         type: "bar",
       },
     });
