@@ -17,6 +17,7 @@ import SectionExamples from "../../containers/SectionExamples.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 import { StockFinancial, StockNews } from "../../containers/stock";
+import SearchComponent from "containers/SearchComponent.jsx";
 
 
 const useStyles = makeStyles(styles);
@@ -42,14 +43,7 @@ export default function Components(props) {
       />
       <Parallax>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div>
-               <input type="text" size="100"/>
-               <button>SEARCH</button>
-              </div>
-            </GridItem>
-          </GridContainer>
+          <SearchComponent/>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>

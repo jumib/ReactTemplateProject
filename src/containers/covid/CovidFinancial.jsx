@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Orders() {
+export default function CovidFinancial() {
   const classes = useStyles();
   return (
     <React.Fragment>

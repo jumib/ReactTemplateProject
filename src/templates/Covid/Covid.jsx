@@ -16,6 +16,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import { CovidFinancial, CovidStock } from "containers/covid";
 import SectionExamples from '../../containers/SectionExamples'
+import SearchComponent from "containers/SearchComponent";
 
 const useStyles = makeStyles(styles);
 
@@ -37,14 +38,7 @@ export default function Components(props) {
       />
       <Parallax>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div>
-               <input type="text" size="100"/>
-               <button>SEARCH</button>
-              </div>
-            </GridItem>
-          </GridContainer>
+          <SearchComponent/>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
