@@ -14,7 +14,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
-import { CovidFinancial, CovidStock } from "containers/covid";
+import { CovidFinancial, CovidStock, CovidStatus } from "containers/covid";
 import SectionExamples from '../../containers/SectionExamples'
 import SearchComponent from "containers/SearchComponent";
 
@@ -42,6 +42,7 @@ export default function Components(props) {
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
+          <CovidStatus />
           <CovidFinancial />
           <CovidStock/>
           <SectionExamples />

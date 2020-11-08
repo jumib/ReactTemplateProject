@@ -51,6 +51,7 @@ export default function Components(props) {
                 <Link to="/stock">지금 사용해보세요 ＞</Link>
               </div>              
             </GridItem>
+            <Link to="/user">User</Link>
           </GridContainer>
         </div>
       </Parallax>

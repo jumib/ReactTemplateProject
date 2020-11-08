@@ -9,12 +9,9 @@ const UserRegister = () => {
         userid: '',
         password: '',
         name: '',
-        pclass: '',
-        gender: '',
-        embarked: ''
     });
     const [submitted, setSubmitted] = useState(false);
-    const registering = useSelector(state => state.registration.registering);
+    // const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
     // reset login status
@@ -71,25 +68,6 @@ const UserRegister = () => {
                         {submitted && !user.name &&
                             <div className="invalid-feedback">User Name is required</div>
                         }
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pclass</td>
-                    <td>
-                        <input type="text" name="pclass" value={user.pclass} onChange={handleChange}  />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td>
-                        <input type="text" name="gender" value={user.gender} onChange={handleChange} />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Embarked</td>
-                    <td>
-                        <input type="text" name="password" value={user.password} onChange={handleChange} />
                     </td>
                 </tr>
                 <tr>

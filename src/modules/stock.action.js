@@ -2,9 +2,9 @@ import {createAction, handleActions} from 'redux-actions'
 import { stockService } from './stock.service'
 
 export const stockConstants = {
-    GETSTOCKDATA_REQUEST : 'GETSTOCKDATA_REQUEST',
-    GETSTOCKDATA_SUCCESS : 'GETSTOCKDATA_SUCCESS',
-    GETSTOCKDATA_FAILURE : 'GETSTOCKDATA_FAILURE'
+    GETSTOCKDATA_REQUEST : 'STOCK_GETSTOCKDATA_REQUEST',
+    GETSTOCKDATA_SUCCESS : 'STOCK_GETSTOCKDATA_SUCCESS',
+    GETSTOCKDATA_FAILURE : 'STOCK_GETSTOCKDATA_FAILURE'
 }
 
 export const getStockDataSuccess = createAction(stockConstants.GETSTOCKDATA_SUCCESS);

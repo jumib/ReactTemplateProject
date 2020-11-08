@@ -92,7 +92,7 @@ function login(userId, password){
                 user => { 
                     console.log(user.name)
                     dispatch(success(user))
-                    history.push('/user-detail')
+                    history.push('/')
              },
             error => {
                 dispatch(failure(error.toString()));

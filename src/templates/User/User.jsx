@@ -25,9 +25,9 @@ import Parallax from "components/Parallax/Parallax.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Components(props) {
+export default function Components({children}) {
   const classes = useStyles();
-  const { ...rest } = props;
+  const { ...rest } = {children};
   return (
     <div>
       <Header
@@ -60,6 +60,7 @@ export default function Components(props) {
       
       <div className={classNames(classes.main, classes.mainRaised)}>
         <Menu />
+        {children}
       </div>
       <Footer />
     </div>

@@ -8,7 +8,7 @@ export const covidService = {
 async function getDecide() {
     const req = {
         method: c.get,
-        url: './dummy/decide.json'
+        url: 'http://192.168.0.11:8080/api/status/arr/covid'
     }
     const resp = await axios(req)
 
