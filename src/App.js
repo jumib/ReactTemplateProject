@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 import { Route, Switch } from "react-router-dom";
-import UserLogin from './containers/user/UserLogin.jsx'
-import UserRegister from './containers/user/UserRegister.jsx'
+import {Signin, Signup} from './containers/user'
 
 // pages for this product
 import Home from 'templates/Home/Home'
@@ -22,8 +21,8 @@ export default function App(){
     <Route path="/user" component={User} />
     <Route path="/stock" component={Stock}/>
     <Route path="/covid" component={Covid} />
-    <Route path="/signup" component={UserRegister}/>
-    <Route path="/signin" component={UserLogin}/>
+    <Route path="/signup" component={Signup}/>
+    <Route path="/signin" component={Signin}/>
     <Route path="/mypage" component={UserPage} />
     </Switch>
 </>
