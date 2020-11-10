@@ -4,9 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Buying from 'templates/Buying/Buying';
 
 export default function Payment() {
-  return (
+  return (<Buying>
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Payment method
@@ -45,5 +46,6 @@ export default function Payment() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </Buying>
   );
 }

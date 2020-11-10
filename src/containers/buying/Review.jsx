@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import Buying from 'templates/Buying/Buying';
 
 const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Review() {
   const classes = useStyles();
 
-  return (
+  return (<Buying>
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
@@ -82,5 +83,6 @@ export default function Review() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </Buying>
   );
 }

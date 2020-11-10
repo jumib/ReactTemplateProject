@@ -37,11 +37,31 @@ export default function HeaderLinks(props) {
             </Button>
           </Link>
       </ListItem>
-      
+      <ListItem className={classes.listItem}>
+      <Link to={"/total"} className={classes.link}>
+            <Button color="transparent">
+              Total Page
+            </Button>
+          </Link>
+      </ListItem>
       <ListItem className={classes.listItem}>
       <Link to={"/login-page"} className={classes.link}>
             <Button color="transparent">
               Login Page
+            </Button>
+          </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+      <Link to={"/buying"} className={classes.link}>
+            <Button color="transparent">
+              My Page
+            </Button>
+          </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+      <Link to={"/user"} className={classes.link}>
+            <Button color="transparent">
+              User Page
             </Button>
           </Link>
       </ListItem>

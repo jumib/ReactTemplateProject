@@ -12,3 +12,11 @@ export const UserMenu = () => (<nav>
             <li><Link to='/mypage'>마이페이지</Link></li>
         </ol>
     </nav>)
+
+export const BuyMenu = () => (
+    <nav>
+            <li><Link to="/order">주문하기</Link></li>
+            <li><Link to="/payment">결제하기</Link></li>
+            <li><Link to="/review">주문확인</Link></li>
+    </nav>
+)    

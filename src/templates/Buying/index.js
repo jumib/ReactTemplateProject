@@ -1,0 +1,1 @@
+export {default as Buying} from './Buying'

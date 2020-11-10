@@ -10,11 +10,13 @@ am4core.useTheme(am4themes_animated);
 
 const useStyles = makeStyles(() => ({
   chart: {
-    height: '500px'
+    height: '500px',
+    width: '1300px',
+    padding: "70px"
   }
 }))
 
-const Chart = () => {
+const CovidStockChart = () => {
 
   const classes = useStyles();
 
@@ -391,4 +393,4 @@ chart.data = [ {
   return <div id="chartdiv" className={classes.chart}/>;
 };
 
-export default Chart
+export default CovidStockChart

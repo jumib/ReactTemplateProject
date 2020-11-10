@@ -55,8 +55,6 @@ export default function Components(props) {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-      </div>
       <Footer />
     </div>
   );

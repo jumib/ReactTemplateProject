@@ -38,10 +38,7 @@ const StockFinancial = () => {
 
     return (<>
     
-    <h3>재무제표를 분석해 예상당기순이익과 특정일 주가예측</h3>
-    <input type="text" placeholder="종목을 검색해보세요 !"/> 
-                    <button>검색</button>
-    <h3>예상당기순이익</h3>
+    <h3>재무제표</h3>
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
@@ -73,22 +70,6 @@ const StockFinancial = () => {
     </div>
     </TableContainer>
     <hr></hr>
-    <h3>특정일 주가예측</h3>
-    <form className={classes.container} noValidate>
-      <TextField
-        id="datepick"
-        label="Birthday"
-        type="date"
-        defaultValue="2020-06-28"
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
-    <div>
-        <h3>counting ...</h3>
-    <p>%%%의 주가는 %원으로 예측되었습니다.</p>
-    </div>           
     </>)}
 
 export default StockFinancial
