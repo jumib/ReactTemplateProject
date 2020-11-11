@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -11,6 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { covidActions } from 'modules/covid.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const styles = {
   textCenter: {
@@ -29,6 +31,12 @@ const useStyles = makeStyles(styles);
 
 const CovidStatus = () => {
     const classes = useStyles();
+    const dispatch = useDispatch()
+    const status = useSelector(state => (state.covidReducer.status))
+
+    useEffect(() => {
+        // dispatch(covidActions.getStatus())
+    }, [])
 
 
     return (
@@ -51,7 +59,7 @@ const CovidStatus = () => {
         </TableHead>
         <TableBody>
             <TableRow>
-                <TableCell align="center">26,732</TableCell>
+                <TableCell align="center">{status.DECIDE_COUNT}</TableCell>
                 <TableCell align="center">468</TableCell>
                 <TableCell align="center">24,395</TableCell>
                 <TableCell align="center">1.75%</TableCell>
