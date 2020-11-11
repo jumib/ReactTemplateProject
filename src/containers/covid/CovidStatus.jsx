@@ -35,7 +35,7 @@ const CovidStatus = () => {
     const status = useSelector(state => (state.covidReducer.status))
 
     useEffect(() => {
-        // dispatch(covidActions.getStatus())
+        //dispatch(covidActions.getStatus())
     }, [])
 
 
@@ -59,7 +59,7 @@ const CovidStatus = () => {
         </TableHead>
         <TableBody>
             <TableRow>
-                <TableCell align="center">{status.DECIDE_COUNT}</TableCell>
+                <TableCell align="center">83,255</TableCell>
                 <TableCell align="center">468</TableCell>
                 <TableCell align="center">24,395</TableCell>
                 <TableCell align="center">1.75%</TableCell>

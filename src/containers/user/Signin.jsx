@@ -1,5 +1,5 @@
   
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,28 +8,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'modules/user.action';
 
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-in
 
-
-
-const Copyright = () =>{
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
   
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -53,6 +40,10 @@ const Copyright = () =>{
 
 const Signin = () => {
     const classes = useStyles();
+    const dispatch = useDispatch()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
   
     return (
       <Container component="main" maxWidth="xs">
@@ -75,6 +66,7 @@ const Signin = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={e => setEmail(`${e.target.value}`)}
             />
             <TextField
               variant="outlined"
@@ -86,6 +78,7 @@ const Signin = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={e => setPassword(`${e.target.value}`)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -97,6 +90,7 @@ const Signin = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={e => dispatch(userActions.login(email,password))}
             >
               Sign In
             </Button>
@@ -114,9 +108,6 @@ const Signin = () => {
             </Grid>
           </form>
         </div>
-        <Box mt={8}>
-          <Copyright />
-        </Box>
       </Container>
     );
   }

@@ -49,8 +49,7 @@ const userReducer = handleActions(
 
 export const userActions = {
   
-  register, login, logout, update, remove,
-  getAll, getById, getByOption, goToDest, 
+  register, login, logout, getAll
 }
 
 ///////////////////////////////////////
@@ -83,11 +82,11 @@ function register(user) {
 }
 
 
-function login(userId, password){
+function login(email, password){
     return dispatch => {
-        dispatch(request({ userId }))
+        dispatch(request({ email }))
 
-        userService.login(userId, password)
+        userService.login(email, password)
             .then(
                 user => { 
                     console.log(user.name)
@@ -114,30 +113,6 @@ function logout() {
     return { type: userConstants.LOGOUT };
 }
 
-function update() {
-    userService.update();
-    return { type: userConstants.LOGOUT };
-  }
-
-function remove(id) {
-    return dispatch => {
-        dispatch(request(id));
-  
-        userService.delete(id)
-            .then(
-                user => dispatch(success(id)),
-                error => dispatch(failure(id, error.toString()))
-            );
-    };
-  
-    function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
-    function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
-    function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
-  }
-
-
-
-
 
 ///////////////////////////////////////
 ///////////////////////////////////////
@@ -160,38 +135,6 @@ function getAll() {
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
-}
-function getById() {
-    return  dispatch => {
-        userService.getById().then(
-        resp => { 
-            
-        },
-        error => {alert(`Error`)}
-        )
-  }
-}
-function goToDest(dest) {history.push(dest)}
-function bulk(){
-    return dispatch => {
-        userService.bulk().then(
-            resp => {},
-            error => {}
-        )
-    }
-}
-function count (){
-    return dispatch => {
-        userService.count().then(
-            resp => {},
-            error => {}
-        )
-    }
-}
-function getByOption(){
-    return dispathc => {
-        
-    }
 }
 /*
 const fetchAllUsers = useCallback(async () => {

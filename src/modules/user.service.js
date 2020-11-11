@@ -113,21 +113,21 @@ export const userService = {
   
   
   ///////////////////////////////////////////////////////////////////////////
-  const UserServiceSample = {
-    access : async (userId, password) => {
-      const req = {
-          method: c.post,
-          url: `${c.url}/api/access`,
-          data: {id:userId, password:password},
-          auth: c.auth
-      }
-      const resp = await axios(req)
-      const data = resp.data
-      alert(`Welcome ! ${data.name}'s connection is successful. ! `)
-      return data
-    },
-    detail : async () => {
-      alert(`move to detail`)
+  // const UserServiceSample = {
+  //   access : async (userId, password) => {
+  //     const req = {
+  //         method: c.post,
+  //         url: `${c.url}/api/access`,
+  //         data: {id:userId, password:password},
+  //         auth: c.auth
+  //     }
+  //     const resp = await axios(req)
+  //     const data = resp.data
+  //     alert(`Welcome ! ${data.name}'s connection is successful. ! `)
+  //     return data
+  //   },
+  //   detail : async () => {
+  //     alert(`move to detail`)
       
-    }
-  } 
+  //   }
+  // } 

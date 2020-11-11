@@ -1,13 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_wordCloud from "@amcharts/amcharts4/plugins/wordCloud"; 
 
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { covidActions } from 'modules/covid.action';
 
 /* Chart code */
 // Themes begin
@@ -97,7 +95,7 @@ export default function CovidFinancial() {
 
   return (
     <div className={classes.location}>
-      <h2>경제뉴스</h2>
+      <h2>경제뉴스///// 키워드 리스트로 바꾸기</h2>
       <div id="wordcloud" className={classes.size}/>
     </div>
   );

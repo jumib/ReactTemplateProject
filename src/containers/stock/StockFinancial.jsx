@@ -7,7 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles({
     table: {
@@ -16,7 +17,11 @@ const useStyles = makeStyles({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
-      },
+    },
+    location: {
+      padding: '70px',
+      alignContent: 'center'
+    }
   });
   
   function createData(name, calories, fat, carbs, protein) {
@@ -34,9 +39,15 @@ const useStyles = makeStyles({
 const StockFinancial = () => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      // dispatch(stockActions.getFinance())
+    }, [])
 
 
-    return (<>
+
+    return (<div className={classes.location}>
     
     <h3>재무제표</h3>
     <TableContainer component={Paper}>
@@ -70,6 +81,6 @@ const StockFinancial = () => {
     </div>
     </TableContainer>
     <hr></hr>
-    </>)}
+    </div>)}
 
 export default StockFinancial

@@ -24,16 +24,16 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-      <Link to={"/stock"} className={classes.link}>
+      <Link to={"/covid"} className={classes.link}>
             <Button color="transparent">
-              Stock Page
+              Covid Page
             </Button>
           </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-      <Link to={"/covid"} className={classes.link}>
+      <Link to={"/stock"} className={classes.link}>
             <Button color="transparent">
-              Covid Page
+              Stock Page
             </Button>
           </Link>
       </ListItem>

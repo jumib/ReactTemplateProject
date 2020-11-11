@@ -11,10 +11,8 @@ import Footer from "components/Footer/Footer.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
+import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 import styles from "assets/jss/material-kit-react/views/components.js";
-import { StockFinancial, StockNews } from "../../containers/stock";
-import SearchComponent from "containers/SearchComponent.jsx";
 
 
 const useStyles = makeStyles(styles);
@@ -42,6 +40,7 @@ export default function Total(props) {
        
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
+      <Chatbot/>
       </div>
       <Footer />
     </div>

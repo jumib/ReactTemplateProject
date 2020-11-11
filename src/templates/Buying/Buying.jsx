@@ -3,7 +3,6 @@ import {BuyMenu as Menu} from '../../components'
 
 import classNames from "classnames";
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -12,10 +11,8 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 import styles from "assets/jss/material-kit-react/views/components.js";
 
 const useStyles = makeStyles(styles);
@@ -35,7 +32,7 @@ const Buying = ({children}) => {
             color: "white"
             }}
             />
-             <Parallax image={require("assets/img/landing-bg.jpg")}>
+            <br/><br/><br/><br/><br/>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
@@ -45,11 +42,9 @@ const Buying = ({children}) => {
             </GridItem>
           </GridContainer>
         </div>
-      </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
       <Menu />
-      {children}
-      <Chatbot/>
+        {children}
       </div>
             <Footer />
         </div>

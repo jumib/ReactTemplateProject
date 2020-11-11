@@ -1,6 +1,4 @@
 import React, {useEffect} from "react";
-import c3 from "c3";
-import { useSelector } from "react-redux";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -390,7 +388,12 @@ chart.data = [ {
 
   
     
-  return <div id="chartdiv" className={classes.chart}/>;
+  return (
+    <>
+  <h3>주가</h3> 
+  <div id="chartdiv" className={classes.chart}/>;
+  </>
+  )
 };
 
 export default CovidStockChart

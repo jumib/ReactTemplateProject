@@ -5,12 +5,23 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Buying from 'templates/Buying/Buying';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    location: {
+        padding: '80px'
+    }
+})
 
 export default function Order() {
+
+    const classes = useStyles()
+
   return (<Buying>
+      <div className={classes.location}>
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        주문하기
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -18,7 +29,7 @@ export default function Order() {
             required
             id="firstName"
             name="firstName"
-            label="First name"
+            label="종목코드"
             fullWidth
             autoComplete="given-name"
           />
@@ -28,7 +39,7 @@ export default function Order() {
             required
             id="lastName"
             name="lastName"
-            label="Last name"
+            label="종목이름"
             fullWidth
             autoComplete="family-name"
           />
@@ -38,7 +49,8 @@ export default function Order() {
             required
             id="address1"
             name="address1"
-            label="Address line 1"
+            label="종류"
+            placeholder="보통 / 시장가 / 최유리 / 최우선 / 조건부 / 시간외"
             fullWidth
             autoComplete="shipping address-line1"
           />
@@ -47,7 +59,7 @@ export default function Order() {
           <TextField
             id="address2"
             name="address2"
-            label="Address line 2"
+            label="수량"
             fullWidth
             autoComplete="shipping address-line2"
           />
@@ -57,35 +69,22 @@ export default function Order() {
             required
             id="city"
             name="city"
-            label="City"
+            label="단가"
             fullWidth
             autoComplete="shipping address-level2"
           />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
             id="zip"
             name="zip"
-            label="Zip / Postal code"
+            label="계좌번호"
             fullWidth
             autoComplete="shipping postal-code"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-          />
-        </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} >
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
             label="Use this address for payment details"
@@ -93,6 +92,7 @@ export default function Order() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </div>
     </Buying>
   );
 }

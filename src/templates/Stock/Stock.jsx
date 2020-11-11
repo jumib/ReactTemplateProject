@@ -8,15 +8,13 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import SectionExamples from "../../containers/SectionExamples.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 import { StockFinancial, StockNews } from "../../containers/stock";
+import { CovidFinancial } from "../../containers/covid"
 import SearchComponent from "containers/SearchComponent.jsx";
 
 
@@ -49,6 +47,7 @@ export default function Components(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <StockNews />
         <StockFinancial />
+        <CovidFinancial />
       </div>
       <Footer />
     </div>

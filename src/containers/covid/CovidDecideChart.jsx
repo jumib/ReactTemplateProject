@@ -23,100 +23,334 @@ const CovidDecideChart = () => {
         let chart = am4core.create("decidechart", am4charts.XYChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-chart.data = [{
-    "date": "2018-01-01",
-    "steps": 4561
-}, {
-    "date": "2018-01-02",
-    "steps": 5687
-}, {
-    "date": "2018-01-03",
-    "steps": 6348
-}, {
-    "date": "2018-01-04",
-    "steps": 4878
-}, {
-    "date": "2018-01-05",
-    "steps": 9867
-}, {
-    "date": "2018-01-06",
-    "steps": 7561
-}, {
-    "date": "2018-01-07",
-    "steps": 1287
-}, {
-    "date": "2018-01-08",
-    "steps": 3298
-}, {
-    "date": "2018-01-09",
-    "steps": 5697
-}, {
-    "date": "2018-01-10",
-    "steps": 4878
-}, {
-    "date": "2018-01-11",
-    "steps": 8788
-}, {
-    "date": "2018-01-12",
-    "steps": 9560
-}, {
-    "date": "2018-01-13",
-    "steps": 11687
-}, {
-    "date": "2018-01-14",
-    "steps": 5878
-}, {
-    "date": "2018-01-15",
-    "steps": 9789
-}, {
-    "date": "2018-01-16",
-    "steps": 3987
-}, {
-    "date": "2018-01-17",
-    "steps": 5898
-}, {
-    "date": "2018-01-18",
-    "steps": 9878
-}, {
-    "date": "2018-01-19",
-    "steps": 13687
-}, {
-    "date": "2018-01-20",
-    "steps": 6789
-}, {
-    "date": "2018-01-21",
-    "steps": 4531
-}, {
-    "date": "2018-01-22",
-    "steps": 5856
-}, {
-    "date": "2018-01-23",
-    "steps": 5737
-}, {
-    "date": "2018-01-24",
-    "steps": 9987
-}, {
-    "date": "2018-01-25",
-    "steps": 16457
-}, {
-    "date": "2018-01-26",
-    "steps": 7878
-}, {
-    "date": "2018-01-27",
-    "steps": 6845
-}, {
-    "date": "2018-01-28",
-    "steps": 4659
-}, {
-    "date": "2018-01-29",
-    "steps": 7892
-}, {
-    "date": "2018-01-30",
-    "steps": 7362
-}, {
-    "date": "2018-01-31",
-    "steps": 3268
-}];
+chart.data = [
+    {
+        "diff": 9,
+        "no": 89,
+        "time": "2020-04-29",
+        "totalCnt": 10761
+    },
+    {
+        "diff": 4,
+        "no": 90,
+        "time": "2020-04-30",
+        "totalCnt": 10765
+    },
+    {
+        "diff": 9,
+        "no": 91,
+        "time": "2020-05-01",
+        "totalCnt": 10774
+    },
+    {
+        "diff": 6,
+        "no": 92,
+        "time": "2020-05-02",
+        "totalCnt": 10780
+    },
+    {
+        "diff": 13,
+        "no": 93,
+        "time": "2020-05-03",
+        "totalCnt": 10793
+    },
+    {
+        "diff": 8,
+        "no": 94,
+        "time": "2020-05-04",
+        "totalCnt": 10801
+    },
+    {
+        "diff": 3,
+        "no": 95,
+        "time": "2020-05-05",
+        "totalCnt": 10804
+    },
+    {
+        "diff": 2,
+        "no": 96,
+        "time": "2020-05-06",
+        "totalCnt": 10806
+    },
+    {
+        "diff": 4,
+        "no": 97,
+        "time": "2020-05-07",
+        "totalCnt": 10810
+    },
+    {
+        "diff": 12,
+        "no": 98,
+        "time": "2020-05-08",
+        "totalCnt": 10822
+    },
+    {
+        "diff": 18,
+        "no": 99,
+        "time": "2020-05-09",
+        "totalCnt": 10840
+    },
+    {
+        "diff": 34,
+        "no": 100,
+        "time": "2020-05-10",
+        "totalCnt": 10874
+    },
+    {
+        "diff": 35,
+        "no": 101,
+        "time": "2020-05-11",
+        "totalCnt": 10909
+    },
+    {
+        "diff": 27,
+        "no": 102,
+        "time": "2020-05-12",
+        "totalCnt": 10936
+    },
+    {
+        "diff": 26,
+        "no": 103,
+        "time": "2020-05-13",
+        "totalCnt": 10962
+    },
+    {
+        "diff": 29,
+        "no": 104,
+        "time": "2020-05-14",
+        "totalCnt": 10991
+    },
+    {
+        "diff": 27,
+        "no": 105,
+        "time": "2020-05-15",
+        "totalCnt": 11018
+    },
+    {
+        "diff": 19,
+        "no": 106,
+        "time": "2020-05-16",
+        "totalCnt": 11037
+    },
+    {
+        "diff": 13,
+        "no": 107,
+        "time": "2020-05-17",
+        "totalCnt": 11050
+    },
+    {
+        "diff": 15,
+        "no": 108,
+        "time": "2020-05-18",
+        "totalCnt": 11065
+    },
+    {
+        "diff": 13,
+        "no": 109,
+        "time": "2020-05-19",
+        "totalCnt": 11078
+    },
+    {
+        "diff": 32,
+        "no": 110,
+        "time": "2020-05-20",
+        "totalCnt": 11110
+    },
+    {
+        "diff": 12,
+        "no": 111,
+        "time": "2020-05-21",
+        "totalCnt": 11122
+    },
+    {
+        "diff": 20,
+        "no": 112,
+        "time": "2020-05-22",
+        "totalCnt": 11142
+    },
+    {
+        "diff": 23,
+        "no": 113,
+        "time": "2020-05-23",
+        "totalCnt": 11165
+    },
+    {
+        "diff": 25,
+        "no": 114,
+        "time": "2020-05-24",
+        "totalCnt": 11190
+    },
+    {
+        "diff": 16,
+        "no": 115,
+        "time": "2020-05-25",
+        "totalCnt": 11206
+    },
+    {
+        "diff": 19,
+        "no": 116,
+        "time": "2020-05-26",
+        "totalCnt": 11225
+    },
+    {
+        "diff": 40,
+        "no": 117,
+        "time": "2020-05-27",
+        "totalCnt": 11265
+    },
+    {
+        "diff": 79,
+        "no": 118,
+        "time": "2020-05-28",
+        "totalCnt": 11344
+    },
+    {
+        "diff": 58,
+        "no": 119,
+        "time": "2020-05-29",
+        "totalCnt": 11402
+    },
+    {
+        "diff": 39,
+        "no": 120,
+        "time": "2020-05-30",
+        "totalCnt": 11441
+    },
+    {
+        "diff": 27,
+        "no": 121,
+        "time": "2020-05-31",
+        "totalCnt": 11468
+    },
+    {
+        "diff": 35,
+        "no": 122,
+        "time": "2020-06-01",
+        "totalCnt": 11503
+    },
+    {
+        "diff": 38,
+        "no": 123,
+        "time": "2020-06-02",
+        "totalCnt": 11541
+    },
+    {
+        "diff": 49,
+        "no": 124,
+        "time": "2020-06-03",
+        "totalCnt": 11590
+    },
+    {
+        "diff": 39,
+        "no": 125,
+        "time": "2020-06-04",
+        "totalCnt": 11629
+    },
+    {
+        "diff": 39,
+        "no": 126,
+        "time": "2020-06-05",
+        "totalCnt": 11668
+    },
+    {
+        "diff": 51,
+        "no": 127,
+        "time": "2020-06-06",
+        "totalCnt": 11719
+    },
+    {
+        "diff": 57,
+        "no": 128,
+        "time": "2020-06-07",
+        "totalCnt": 11776
+    },
+    {
+        "diff": 38,
+        "no": 129,
+        "time": "2020-06-08",
+        "totalCnt": 11814
+    },
+    {
+        "diff": 38,
+        "no": 130,
+        "time": "2020-06-09",
+        "totalCnt": 11852
+    },
+    {
+        "diff": 50,
+        "no": 131,
+        "time": "2020-06-10",
+        "totalCnt": 11902
+    },
+    {
+        "diff": 45,
+        "no": 132,
+        "time": "2020-06-11",
+        "totalCnt": 11947
+    },
+    {
+        "diff": 56,
+        "no": 133,
+        "time": "2020-06-12",
+        "totalCnt": 12003
+    },
+    {
+        "diff": 48,
+        "no": 134,
+        "time": "2020-06-13",
+        "totalCnt": 12051
+    },
+    {
+        "diff": 34,
+        "no": 135,
+        "time": "2020-06-14",
+        "totalCnt": 12085
+    },
+    {
+        "diff": 36,
+        "no": 136,
+        "time": "2020-06-15",
+        "totalCnt": 12121
+    },
+    {
+        "diff": 34,
+        "no": 137,
+        "time": "2020-06-16",
+        "totalCnt": 12155
+    },
+    {
+        "diff": 43,
+        "no": 138,
+        "time": "2020-06-17",
+        "totalCnt": 12198
+    },
+    {
+        "diff": 59,
+        "no": 139,
+        "time": "2020-06-18",
+        "totalCnt": 12257
+    },
+    {
+        "diff": 49,
+        "no": 140,
+        "time": "2020-06-19",
+        "totalCnt": 12306
+    },
+    {
+        "diff": 67,
+        "no": 141,
+        "time": "2020-06-20",
+        "totalCnt": 12373
+    },
+    {
+        "diff": 48,
+        "no": 142,
+        "time": "2020-06-21",
+        "totalCnt": 12421
+    },
+   
+    
+];
 
 chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
 chart.zoomOutButton.disabled = true;
@@ -147,17 +381,9 @@ axisRange.label.fillOpacity = 0.8;
 
 valueAxis.renderer.gridContainer.zIndex = 1;
 
-let axisRange2 = valueAxis.axisRanges.create();
-axisRange2.value = 12000;
-axisRange2.grid.strokeOpacity = 0.1;
-axisRange2.label.text = "2x goal";
-axisRange2.label.align = "right";
-axisRange2.label.verticalCenter = "bottom";
-axisRange2.label.fillOpacity = 0.8;
-
 let series = chart.series.push(new am4charts.ColumnSeries);
-series.dataFields.valueY = "steps";
-series.dataFields.dateX = "date";
+series.dataFields.valueY = "diff";
+series.dataFields.dateX = "time";
 series.tooltipText = "{valueY.value}";
 series.tooltip.pointerOrientation = "vertical";
 series.tooltip.hiddenState.properties.opacity = 1;
@@ -165,9 +391,9 @@ series.tooltip.hiddenState.properties.visible = true;
 
 
 let columnTemplate = series.columns.template;
-columnTemplate.width = 30;
-columnTemplate.column.cornerRadiusTopLeft = 20;
-columnTemplate.column.cornerRadiusTopRight = 20;
+columnTemplate.width = 5;
+columnTemplate.column.cornerRadiusTopLeft = 10;
+columnTemplate.column.cornerRadiusTopRight = 10;
 columnTemplate.strokeOpacity = 0;
 
 

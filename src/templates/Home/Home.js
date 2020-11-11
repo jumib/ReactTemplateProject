@@ -1,6 +1,5 @@
 import React from "react";
 // nodejs library that concatenates classes
-import classNames from "classnames";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 // @material-ui/core components
@@ -14,10 +13,8 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import SectionExamples from "../../containers/SectionExamples.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
-import { StockNews } from "../../containers/stock";
 
 const useStyles = makeStyles(styles);
 
@@ -51,7 +48,6 @@ export default function Components(props) {
                 <Link to="/stock">지금 사용해보세요 ＞</Link>
               </div>              
             </GridItem>
-            <Link to="/user">User</Link>
           </GridContainer>
         </div>
       </Parallax>

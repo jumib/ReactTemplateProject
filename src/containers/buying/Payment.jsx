@@ -5,12 +5,23 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Buying from 'templates/Buying/Buying';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    location: {
+        padding: '80px'
+    }
+})
 
 export default function Payment() {
+
+    const classes = useStyles()
+
   return (<Buying>
+      <div className={classes.location}>
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Payment method
+        결제창
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
@@ -46,6 +57,7 @@ export default function Payment() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </div>
     </Buying>
   );
 }

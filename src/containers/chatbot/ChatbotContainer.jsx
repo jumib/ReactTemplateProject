@@ -21,13 +21,13 @@ export const ItemSearch2 = () => {
 export default function ChatBotContainer(){
     return (<ChatBot
         floating = {true}
-        headerTitle = {'서비스'}
+        headerTitle = {'주식'}
         enableSmoothScroll = {true}
         steps={[
             //서비스선택
             {
                 id: '1',
-                message: '원하시는 서비스를 선택해주세요.',
+                message: '구매할 종목의 이름을 작성하세요',
                 trigger: '2',
             },
             {

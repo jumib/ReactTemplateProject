@@ -32,15 +32,19 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: theme.spacing(2),
   },
+  location: {
+      padding: '80px'
+  }
 }));
 
 export default function Review() {
   const classes = useStyles();
 
   return (<Buying>
+      <div className={classes.location}>
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+        구매내역 확인하기
       </Typography>
       <List disablePadding>
         {products.map((product) => (
@@ -83,6 +87,7 @@ export default function Review() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </div>
     </Buying>
   );
 }
