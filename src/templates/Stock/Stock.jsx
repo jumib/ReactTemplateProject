@@ -16,8 +16,12 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import { StockFinancial, StockNews } from "../../containers/stock";
 import { CovidFinancial } from "../../containers/covid"
 import SearchComponent from "containers/SearchComponent.jsx";
-
-
+import Face from "@material-ui/icons/Face";
+import Chat from "@material-ui/icons/Chat";
+import Build from "@material-ui/icons/Build";
+// core components
+import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import StockLstm from "containers/stock/StockLstm";
 const useStyles = makeStyles(styles);
 // const [searchName, setSearch] = useState([])
 
@@ -39,15 +43,45 @@ export default function Components(props) {
         }}
         {...rest}
       />
-      <Parallax>
+      <Parallax image={require("assets/img/bg3.jpg")}>
         <div className={classes.container}>
           <SearchComponent/>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <StockNews />
-        <StockFinancial />
-        <CovidFinancial />
+      <CustomTabs
+        headerColor="primary"
+        tabs={[
+          {
+            tabName: "긍정부정",
+            tabIcon: Face,
+            tabContent: (
+              <StockNews />
+            )
+          },
+          {
+            tabName: "재무제표",
+            tabIcon: Chat,
+            tabContent: (
+              <StockFinancial />
+            )
+          },
+          {
+            tabName: "경제키워드",
+            tabIcon: Build,
+            tabContent: (
+              <CovidFinancial />
+            )
+          },
+          {
+            tabName: "LSTM",
+            tabIcon: Build,
+            tabContent: (
+              <StockLstm />
+            )
+          }
+        ]}
+      />
       </div>
       <Footer />
     </div>

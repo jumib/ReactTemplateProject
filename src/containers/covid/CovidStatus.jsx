@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const styles = {
   textCenter: {
     textAlign: "center",
-    width: '1200px',
+    maxwidth: '1200px',
   },
   textMuted: {
     color: "#6c757d"

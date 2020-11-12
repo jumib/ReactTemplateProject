@@ -1,21 +1,32 @@
+import { makeStyles } from '@material-ui/core'
 import { Search } from '@material-ui/icons'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { stockActions } from '../modules/stock.action'
 
+const useStyles = makeStyles({
+    search: {
+        alignContent: 'center',
+        height: '50px',
+        width: '1000px',
+        
+    }
+})
+
 const SearchComponent = () => {
     
     const [stockName, setStockName] = useState('')
-    console.log(stockName)
     const dispatch = useDispatch()
 
     function search () {
-        dispatch(stockActions.getStockData())
+        dispatch(stockActions.getStockData(stockName))
     }
+
+    const classes = useStyles()
 
     return (
         <div>
-        <input type="text" size="100" onChange={e => setStockName(`${e.target.value}`)}/>
+        <input className={classes.search} type="text" size="100" onChange={e => setStockName(`${e.target.value}`)} />
         <button onClick={search}>SEARCH</button>
         </div>
     )

@@ -31,11 +31,11 @@ export const stockActions = {
     getStockData, getFinance
 }
 
-function getStockData(){
+function getStockData(stockName){
     return dispatch => {
-        dispatch(request())
+        dispatch(request(stockName))
 
-        stockService.getStockData()
+        stockService.getStockData(stockName)
             .then(
                 stock => {
                     dispatch(success(stock))
@@ -46,7 +46,7 @@ function getStockData(){
             )
     }
 
-    function request() { return { type: stockConstants.GETSTOCKDATA_REQUEST } }
+    function request(stockName) { return { type: stockConstants.GETSTOCKDATA_REQUEST, stockName } }
     function success(stock) { return { type: stockConstants.GETSTOCKDATA_SUCCESS, stock } }
     function failure(error) { return { type: stockConstants.GETSTOCKDATA_FAILURE, error  } }
 }

@@ -3,6 +3,8 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import {makeStyles} from '@material-ui/core/styles'
+import { useDispatch, useSelector } from 'react-redux';
+import { covidActions } from 'modules/covid.action';
 
 
 am4core.useTheme(am4themes_animated);
@@ -10,17 +12,22 @@ am4core.useTheme(am4themes_animated);
 const useStyles = makeStyles(() => ({
     chart: {
       height: '500px',
-      width: '1300px',
+      maxwidth: '1300px',
       padding: "70px"
     }
   }))
 
+
 const CovidDecideChart = () => {
     const classes = useStyles();
-
+    const dispatch = useDispatch()
+  const covid = useSelector(state => (state.covidReducer.covid))
 
     useEffect(() => {
-        let chart = am4core.create("decidechart", am4charts.XYChart);
+        dispatch(covidActions.getDecide())
+}, [])
+
+let chart = am4core.create("decidechart", am4charts.XYChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
@@ -428,7 +435,6 @@ function updateTooltip() {
 let label = chart.plotContainer.createChild(am4core.Label);
 label.text = "Pan chart to change date";
 
-}, [])
 
     return (
         <div id="decidechart" className={classes.chart}/>

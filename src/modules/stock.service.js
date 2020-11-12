@@ -5,10 +5,11 @@ export const stockService = {
     getStockData, getFinance
 }
 
-async function getStockData() {
+async function getStockData(stockName) {
+    console.log('stockservice param = ' + stockName)
     const req = {
         method: c.get,
-        url: `http://192.168.0.10:8080/api/emotion`,
+        url: `http://192.168.0.10:8080/api/emotion/${stockName}`,
     }
     const resp = await axios(req)
 

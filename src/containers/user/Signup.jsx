@@ -13,6 +13,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { userActions } from 'modules/user.action';
 import { useDispatch } from 'react-redux'
+import {User} from '../../templates/User'
+
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
 
@@ -52,7 +54,7 @@ const Signup = () => {
     }
 
 
-    return <>
+    return (<User>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -129,7 +131,7 @@ const Signup = () => {
         </form>
       </div>
     </Container>
-    </>
+    </User>)
 }
 
 export default Signup

@@ -9,7 +9,7 @@ am4core.useTheme(am4themes_animated);
 const useStyles = makeStyles(() => ({
   chart: {
     height: '500px',
-    width: '1300px',
+    maxwidth: '1300px',
     padding: "70px"
   }
 }))
@@ -391,7 +391,7 @@ chart.data = [ {
   return (
     <>
   <h3>주가</h3> 
-  <div id="chartdiv" className={classes.chart}/>;
+  <div id="chartdiv" className={classes.chart}/>
   </>
   )
 };

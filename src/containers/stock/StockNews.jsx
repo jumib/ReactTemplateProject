@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 const StockNews = () => {
 
     const classes = useStyles();
-    let chart = am4core.create("words", am4plugins_wordCloud.WordCloud);
+    let chart = am4core.create("keywords", am4plugins_wordCloud.WordCloud);
   let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
 
   series.accuracy = 4;
@@ -100,18 +100,8 @@ const StockNews = () => {
                     <th>N개</th>
                 </tr>
             </table>
-            <div id="words" className={classes.size}/>
+            <div id="keywords" className={classes.size}/>
             </CardContent>
-        </Card>
-        <Card>
-            <h2>이 종목의 분석 결과는 <Avatar>5</Avatar>단계 입니다 !</h2>
-            {/* <div>
-                <Avatar>5</Avatar>
-                <Avatar>4</Avatar>
-                <Avatar>3</Avatar>
-                <Avatar>2</Avatar>
-                <Avatar>1</Avatar>
-            </div> */}
         </Card>
         </React.Fragment>
     </div>           

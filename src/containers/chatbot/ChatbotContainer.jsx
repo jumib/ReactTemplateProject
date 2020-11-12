@@ -5,7 +5,7 @@ import ChatBot from 'react-simple-chatbot';
 
 export const ItemSearch = () => {
         return (
-                <p>정보가 없습니다.</p>
+                <p>삼성꺼 사라</p>
 
         )
     
@@ -21,25 +21,25 @@ export const ItemSearch2 = () => {
 export default function ChatBotContainer(){
     return (<ChatBot
         floating = {true}
-        headerTitle = {'주식'}
+        headerTitle = {'서비스'}
         enableSmoothScroll = {true}
         steps={[
             //서비스선택
             {
                 id: '1',
-                message: '구매할 종목의 이름을 작성하세요',
+                message: '원하시는 서비스를 선택해주세요.',
                 trigger: '2',
             },
             {
                 id: '2',
                 options: [
-                    { value: 1, label: '아이템 정보 보기', trigger: 'item' },
-                    { value: 2, label: '아이템 가격', trigger: 'fare' },
+                    { value: 1, label: '주식 정보 보기', trigger: 'item' },
+                    { value: 2, label: '매매하기', trigger: 'fare' },
                 ],
             },
             {
                 id: 'item',
-                message: '제품명을 입력하세요',
+                message: '종목명을 입력하세요',
                 trigger: 'itemSearch',
             },
             {
@@ -54,7 +54,7 @@ export default function ChatBotContainer(){
             },
             {
                 id: 'fare',
-                message: '주문사항을 입력해주세요.',
+                message: '종목명을 입력하세요',
                 trigger: 'startName',
             },
             {
@@ -64,13 +64,25 @@ export default function ChatBotContainer(){
             },
             {
                 id: 'fare1',
-                message: '주문사항을 입력해주세요.',
+                message: '구매할 개수를 입력하세요',
+                trigger: 'startName2'
+            },
+            {
+                id: 'startName2',
+                user: true,
+                trigger: 'fare2',
+            },
+            {
+                id: 'fare2',
+                message: '구매 할 가격을 지정해주세요',
                 trigger: 'arriveName'
             },
             {
                 id: 'arriveName',
-                user: true,
-                trigger: 'fareResult',
+                options: [
+                    { value: 1, label: '지정가', trigger: 'fareResult' },
+                    { value: 2, label: '시장가', trigger: 'fareResult' },
+                ]
             },
             {
                 id: 'fareResult',

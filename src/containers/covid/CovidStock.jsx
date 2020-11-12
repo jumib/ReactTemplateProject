@@ -15,7 +15,6 @@ const CovidStock = () => {
     <button onClick={e => dispatch(covidActions.getDecide())}>Show</button>
     <CovidDecideChart />
     <CovidStockChart />
-    <p>주가그래프</p>           
     </>
     )}
 
