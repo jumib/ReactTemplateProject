@@ -51,14 +51,15 @@ function getStockData(stockName){
     function failure(error) { return { type: stockConstants.GETSTOCKDATA_FAILURE, error  } }
 }
 
-function getFinance(stockName){
+function getFinance(){
     return dispatch => {
-        dispatch(request({ stockName }))
+        dispatch(request())
 
-        stockService.getFinance(stockName)
+        stockService.getFinance()
             .then(
                 finance => {
                     dispatch(success(finance))
+                    console.log(finance)
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -66,7 +67,7 @@ function getFinance(stockName){
             )
     }
 
-    function request(stockName) { return { type: stockConstants.GETSTOCKDATA_REQUEST, stockName } }
+    function request() { return { type: stockConstants.GETSTOCKDATA_REQUEST } }
     function success(finance) { return { type: stockConstants.GETSTOCKDATA_SUCCESS, finance } }
     function failure(error) { return { type: stockConstants.GETSTOCKDATA_FAILURE, error  } }
 }
