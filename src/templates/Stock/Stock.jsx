@@ -15,6 +15,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import { StockNews } from "../../containers/stock";
 import { CovidFinancial, CovidStock,  } from "../../containers/covid"
+import Exchange from '../../containers/stock/Exchange'
 import CovidStatus from '../../containers/covid/CovidStatus'
 import SearchComponent from "containers/SearchComponent.jsx";
 import Face from "@material-ui/icons/Face";
@@ -45,9 +46,6 @@ export default function Components(props) {
         {...rest}
       />
       <Parallax image={require("assets/img/bg3.jpg")}>
-        <div className={classes.container}>
-          <SearchComponent/>
-        </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
       <CustomTabs
@@ -67,6 +65,15 @@ export default function Components(props) {
               <div>
               <CovidStatus/>
               <CovidStock/>
+              </div>
+            )
+          },
+          {
+            tabName: "환율정보",
+            tabIcon: Chat,
+            tabContent: (
+              <div>
+              <Exchange/>
               </div>
             )
           },

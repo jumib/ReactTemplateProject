@@ -2,7 +2,7 @@ import axios from 'axios'
 import { context as c } from '../context'
 
 export const stockService = {
-    getStockData, getFinance, getRecentNews
+    getStockData, getFinance, getRecentNews, getExpPrice
 }
 
 async function getStockData(stockName) {
@@ -39,5 +39,17 @@ async function getRecentNews() {
     const resp = await axios(req)
     const data = resp.data
     console.log('sucess get Recent News !')
+    return data
+}
+
+async function getExpPrice() {
+    const req = {
+        method: c.get,
+        url: `http://192.168.0.24:8080/api/finance`,
+        auth: c.auth
+    }
+    const resp = await axios(req)
+    const data = resp.data
+    console.log('sucess get Exp Price !')
     return data
 }

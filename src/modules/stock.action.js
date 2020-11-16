@@ -10,32 +10,39 @@ export const stockConstants = {
     GETFINANCE_SUCCESS : 'STOCK_GETFINANCE_SUCCESS',
     GETFINANCE_FAILURE : 'STOCK_GETFINANCE_FAILURE',
 
-    GETRECENTNEWS_REQUEST : 'GETRECENTNEWS_REQUEST',
-    GETRECENTNEWS_SUCCESS : 'GETRECENTNEWS_SUCCESS',
-    GETRECENTNEWS_FAILURE : 'GETRECENTNEWS_FAILURE'
+    GETRECENTNEWS_REQUEST : 'STOCK_GETRECENTNEWS_REQUEST',
+    GETRECENTNEWS_SUCCESS : 'STOCK_GETRECENTNEWS_SUCCESS',
+    GETRECENTNEWS_FAILURE : 'STOCK_GETRECENTNEWS_FAILURE',
+
+    GETEXPPRICE_REQUEST : 'STOCK_GETEXPPRICE_REQUEST',
+    GETEXPPRICE_SUCCESS : 'STOCK_GETEXPPRICE_SUCCESS',
+    GETEXPPRICE_FAILURE : 'STOCK_GETEXPPRICE_FAILURE',
 }
 
 export const getStockDataSuccess = createAction(stockConstants.GETSTOCKDATA_SUCCESS);
 export const getFinanceSuccess = createAction(stockConstants.GETFINANCE_SUCCESS);
 export const getRecentNewsSuccess = createAction(stockConstants.GETRECENTNEWS_SUCCESS);
+export const getExpPriceSuccess = createAction(stockConstants.GETEXPPRICE_SUCCESS)
 
 const initialState = {
-    stock: {},
-    finance: {},
-    recentNews: {}
+    stock: [],
+    finance: [],
+    recentNews: [],
+    expPrice: []
 }
 
 const stockReducer = handleActions(
     { 
         [stockConstants.GETSTOCKDATA_SUCCESS]: (state, action) => ({ stock: action.stock }),
         [stockConstants.GETFINANCE_SUCCESS]: (state, action) => ({ finance: action.finance }),
-        [stockConstants.GETRECENTNEWS_SUCCESS]: (state, action) => ({ recentNews: action.recentNews })
+        [stockConstants.GETRECENTNEWS_SUCCESS]: (state, action) => ({ recentNews: action.recentNews }),
+        [stockConstants.GETEXPPRICE_SUCCESS]: (state, action) => ({ expPrice: action.expPrice })
     },
     initialState
 )
 
 export const stockActions = {
-    getStockData, getFinance, getRecentNews
+    getStockData, getFinance, getRecentNews, getExpPrice, getExchangeRate
 }
 
 function getStockData(stockName){
@@ -98,6 +105,27 @@ function getRecentNews(){
     function request() { return { type: stockConstants.GETRECENTNEWS_REQUEST } }
     function success(recentNews) { return { type: stockConstants.GETRECENTNEWS_SUCCESS, recentNews } }
     function failure(error) { return { type: stockConstants.GETRECENTNEWS_FAILURE, error  } }
+}
+
+function getExpPrice(){
+    return dispatch => {
+        dispatch(request())
+
+        stockService.getExpPrice()
+            .then(
+                expPrice => {
+                    dispatch(success(expPrice))
+                    console.log(expPrice)
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            )
+    }
+
+    function request() { return { type: stockConstants.GETEXPPRICE_REQUEST } }
+    function success(expPrice) { return { type: stockConstants.GETEXPPRICE_SUCCESS, expPrice } }
+    function failure(error) { return { type: stockConstants.GETEXPPRICE_FAILURE, error } }
 }
 
 export default stockReducer

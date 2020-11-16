@@ -25,7 +25,7 @@ const CovidDecideChart = () => {
 
     useEffect(() => {
         dispatch(covidActions.getDecide())
-}, [])
+
 
 let chart = am4core.create("decidechart", am4charts.XYChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
@@ -434,6 +434,7 @@ function updateTooltip() {
 
 let label = chart.plotContainer.createChild(am4core.Label);
 label.text = "Pan chart to change date";
+}, [])
 
 
     return (
