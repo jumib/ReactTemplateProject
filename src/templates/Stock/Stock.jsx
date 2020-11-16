@@ -13,8 +13,9 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
-import { StockFinancial, StockNews } from "../../containers/stock";
-import { CovidFinancial } from "../../containers/covid"
+import { StockNews } from "../../containers/stock";
+import { CovidFinancial, CovidStock,  } from "../../containers/covid"
+import CovidStatus from '../../containers/covid/CovidStatus'
 import SearchComponent from "containers/SearchComponent.jsx";
 import Face from "@material-ui/icons/Face";
 import Chat from "@material-ui/icons/Chat";
@@ -60,10 +61,13 @@ export default function Components(props) {
             )
           },
           {
-            tabName: "재무제표",
+            tabName: "코로나",
             tabIcon: Chat,
             tabContent: (
-              <StockFinancial />
+              <div>
+              <CovidStatus/>
+              <CovidStock/>
+              </div>
             )
           },
           {

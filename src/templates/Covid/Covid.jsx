@@ -12,10 +12,10 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
-import { CovidStock, CovidStatus } from "containers/covid";
 import SearchComponent from "containers/SearchComponent";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
+import StockFinancial from "containers/stock/StockFinancial";
 
 const useStyles = makeStyles(styles);
 
@@ -45,8 +45,7 @@ export default function Components(props) {
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-            <CovidStatus />
-            <CovidStock/>
+            <StockFinancial/>
             <Link to="/stock">더 많은 정보 보기</Link>
         </div>
         <Footer />

@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container';
 import { userActions } from 'modules/user.action';
 import { useDispatch } from 'react-redux'
 import {User} from '../../templates/User'
+import {FormControl,FormLabel, RadioGroup, Radio, Card } from '@material-ui/core'
 
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
@@ -103,6 +104,17 @@ const Signup = () => {
                 autoComplete="current-password"
                 onChange={handleChange}
               />
+            </Grid>
+            <Grid item xs={12}>
+              <Card>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Gender</FormLabel>
+                  <RadioGroup aria-label="gender" name="gender1" onChange={handleChange}>
+                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                  </RadioGroup>
+                </FormControl>
+              </Card>
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel

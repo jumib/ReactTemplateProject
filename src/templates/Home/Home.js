@@ -39,7 +39,7 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>어떤 종목이든 검색 한 번이면 끝.</h1>
+                <h1 className={classes.title}>오직 당신을 위한 AI 펀드매니저.</h1>
                 <br/><br/><br/><br/><br/><br/>
                 <h3 className={classes.subtitle}>
                   학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
