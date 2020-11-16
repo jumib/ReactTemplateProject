@@ -9,26 +9,33 @@ export const stockConstants = {
     GETFINANCE_REQUEST : 'STOCK_GETFINANCE_REQUEST',
     GETFINANCE_SUCCESS : 'STOCK_GETFINANCE_SUCCESS',
     GETFINANCE_FAILURE : 'STOCK_GETFINANCE_FAILURE',
+
+    GETRECENTNEWS_REQUEST : 'GETRECENTNEWS_REQUEST',
+    GETRECENTNEWS_SUCCESS : 'GETRECENTNEWS_SUCCESS',
+    GETRECENTNEWS_FAILURE : 'GETRECENTNEWS_FAILURE'
 }
 
 export const getStockDataSuccess = createAction(stockConstants.GETSTOCKDATA_SUCCESS);
 export const getFinanceSuccess = createAction(stockConstants.GETFINANCE_SUCCESS);
+export const getRecentNewsSuccess = createAction(stockConstants.GETRECENTNEWS_SUCCESS);
 
 const initialState = {
     stock: {},
-    finance: {}
+    finance: {},
+    recentNews: {}
 }
 
 const stockReducer = handleActions(
     { 
         [stockConstants.GETSTOCKDATA_SUCCESS]: (state, action) => ({ stock: action.stock }),
         [stockConstants.GETFINANCE_SUCCESS]: (state, action) => ({ finance: action.finance }),
+        [stockConstants.GETRECENTNEWS_SUCCESS]: (state, action) => ({ recentNews: action.recentNews })
     },
     initialState
 )
 
 export const stockActions = {
-    getStockData, getFinance
+    getStockData, getFinance, getRecentNews
 }
 
 function getStockData(stockName){
@@ -67,9 +74,30 @@ function getFinance(){
             )
     }
 
-    function request() { return { type: stockConstants.GETSTOCKDATA_REQUEST } }
-    function success(finance) { return { type: stockConstants.GETSTOCKDATA_SUCCESS, finance } }
-    function failure(error) { return { type: stockConstants.GETSTOCKDATA_FAILURE, error  } }
+    function request() { return { type: stockConstants.GETFINANCE_REQUEST } }
+    function success(finance) { return { type: stockConstants.GETFINANCE_SUCCESS, finance } }
+    function failure(error) { return { type: stockConstants.GETFINANCE_FAILURE, error  } }
+}
+
+function getRecentNews(){
+    return dispatch => {
+        dispatch(request())
+
+        stockService.getRecentNews()
+            .then(
+                recentNews => {
+                    dispatch(success(recentNews))
+                    console.log(recentNews)
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            )
+    }
+
+    function request() { return { type: stockConstants.GETRECENTNEWS_REQUEST } }
+    function success(recentNews) { return { type: stockConstants.GETRECENTNEWS_SUCCESS, recentNews } }
+    function failure(error) { return { type: stockConstants.GETRECENTNEWS_FAILURE, error  } }
 }
 
 export default stockReducer

@@ -16,6 +16,7 @@ import SearchComponent from "containers/SearchComponent";
 import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import StockFinancial from "containers/stock/StockFinancial";
+import News from "containers/stock/News";
 
 const useStyles = makeStyles(styles);
 
@@ -46,6 +47,7 @@ export default function Components(props) {
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
             <StockFinancial/>
+            <News/>
             <Link to="/stock">더 많은 정보 보기</Link>
         </div>
         <Footer />
