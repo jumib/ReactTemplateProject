@@ -19,6 +19,8 @@ const CovidStockChart = () => {
   const classes = useStyles();
 
   useEffect(() => {
+
+    
     let chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.paddingRight = 20;
 

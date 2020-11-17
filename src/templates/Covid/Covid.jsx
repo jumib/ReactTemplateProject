@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import StockFinancial from "containers/stock/StockFinancial";
 import News from "containers/stock/News";
+import { isEmptyStatement } from "typescript";
 
 const useStyles = makeStyles(styles);
 
@@ -25,8 +26,8 @@ export default function Components(props) {
   const { ...rest } = props;
   const stock = useSelector(state => (state.stockReducer.stock))
 
-  console.log(stock)
-  if (stock != null) {
+  console.log("stock = " + stock)
+  if (stock != isEmptyStatement) {
     return (
       <div>
         <Header

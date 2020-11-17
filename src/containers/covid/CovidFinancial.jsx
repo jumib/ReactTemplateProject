@@ -144,7 +144,7 @@ const CovidFinancial = () => {
   const words = useSelector(state => (state.covidReducer.words))
 
   useEffect(() => {
-    dispatch(covidActions.getWords())
+    // dispatch(covidActions.getWords())
     let chart = am4core.create("chartfinance", am4charts.XYChart);
   chart.padding(40, 40, 40, 40);
 

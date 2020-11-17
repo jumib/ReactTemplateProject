@@ -12,7 +12,7 @@ const CovidStock = () => {
     return (<>
     
     <h2>확진자</h2>
-    <button onClick={e => dispatch(covidActions.getDecide())}>Show</button>
+    {/* <button onClick={e => dispatch(covidActions.getDecide())}>Show</button> */}
     <CovidDecideChart />
     <CovidStockChart />
     </>

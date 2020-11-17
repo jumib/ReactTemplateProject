@@ -24,7 +24,7 @@ const CovidDecideChart = () => {
   const covid = useSelector(state => (state.covidReducer.covid))
 
     useEffect(() => {
-        dispatch(covidActions.getDecide())
+        // dispatch(covidActions.getDecide())
 
 
 let chart = am4core.create("decidechart", am4charts.XYChart);

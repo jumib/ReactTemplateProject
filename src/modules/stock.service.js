@@ -2,14 +2,14 @@ import axios from 'axios'
 import { context as c } from '../context'
 
 export const stockService = {
-    getStockData, getFinance, getRecentNews, getExpPrice
+    getStockData, getFinance, getRecentNews, getExpPrice, getExchangeRate
 }
 
 async function getStockData(stockName) {
     console.log('stockservice param = ' + stockName)
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/emotion/${stockName}`,
+        url: `http://192.168.0.24:8080/api/stock/${stockName}`,
     }
     const resp = await axios(req)
 
@@ -51,5 +51,17 @@ async function getExpPrice() {
     const resp = await axios(req)
     const data = resp.data
     console.log('sucess get Exp Price !')
+    return data
+}
+
+async function getExchangeRate() {
+    const req = {
+        method: c.get,
+        url: `http://192.168.0.24:8080/api/finance`,
+        auth: c.auth
+    }
+    const resp = await axios(req)
+    const data = resp.data
+    console.log('sucess get Exchange Rate !')
     return data
 }
