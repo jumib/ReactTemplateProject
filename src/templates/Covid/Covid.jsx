@@ -47,8 +47,8 @@ export default function Components(props) {
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-            <StockFinancial/>
             <News/>
+            <StockFinancial/>
             <Link to="/stock">더 많은 정보 보기</Link>
         </div>
         <Footer />

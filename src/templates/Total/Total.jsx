@@ -37,9 +37,8 @@ export default function Total(props) {
         }}
         {...rest}
       />
-      <Parallax>
-      </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
+        <br/><br/><br/><br/><br/><br/>
         <div>
         <TotalLstm/>
         </div>

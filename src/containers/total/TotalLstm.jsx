@@ -658,11 +658,11 @@ dateAxis.keepSelection = true;
 
     return (
     <div>
-        <h3>주가예측</h3>
+        <h2>EXPECT STOCK PRICE</h2>
         <div id="stocklstm" className={classes.chart}></div>
         <div>
-            <h3>counting ...</h3>
-        <p>%%%의 주가는 %원으로 예측되었습니다.</p>
+            <h2>RESULT</h2>
+        <p>예측된 다음 날의 주가는 %%%원 입니다.</p>
         </div>  
     </div>         
     )

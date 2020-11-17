@@ -117,6 +117,9 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  location: {
+    padding: '80px'
+  }
 });
 
 
@@ -124,13 +127,17 @@ export default function StockFinancial() {
   const classes = useStyles();
   const dispatch = useDispatch()
   const finance = useSelector(state => (state.stockReducer.finance))
-  const rows = [finance]
+  const rows = finance
   useEffect(() => {
     // dispatch(stockActions.getFinance())
-  })
+  }, [])
+
+  console.log('finance = ' + finance)
 
   return (
-    <div>
+    <div className={classes.location}>
+      <h2>FINANCE INFO</h2>
+      <br/>
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>

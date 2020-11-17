@@ -15,6 +15,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
+import Small from "components/Typography/Small";
 
 const useStyles = makeStyles(styles);
 

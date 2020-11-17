@@ -15,6 +15,9 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  location: {
+      padding: '80px'
+  }
 });
 
 
@@ -28,9 +31,9 @@ export default function News() {
   })
 
   return (
-    <div>
+    <div className={classes.location}>
     <TableContainer component={Paper}>
-        <h2>기업정보 뉴스기사</h2>
+        <h2>NEWS</h2>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -38,7 +41,7 @@ export default function News() {
             <TableCell>TITLE</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        {/* <TableBody>
           {rows.map((row) => (
             <TableRow key={row.no}>
               <TableCell component="th" scope="row">
@@ -47,7 +50,7 @@ export default function News() {
               <TableCell>{row.title}</TableCell>
             </TableRow>
           ))}
-        </TableBody>
+        </TableBody> */}
       </Table>
     </TableContainer>
     </div>

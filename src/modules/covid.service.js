@@ -23,37 +23,40 @@ async function getDecide() {
 async function getStatus() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/status/arr/covid`
+        url: `http://192.168.0.24:8080/api/board/covid`
     }
     const resp = await axios(req)
 
     const data = resp.data
 
     console.log('sucess get covid status !')
+    return data
 }
 
 async function getWords() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/status/arr/covid`
+        url: `http://192.168.0.11:8080/api/covid/words`
     }
     const resp = await axios(req)
 
     const data = resp.data
 
     console.log('sucess get financial keywords !')
+    return data
 }
 
-async function getTotalLstm() {
+async function getTotalLstm(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/status/arr/covid`
+        url: `http://192.168.0.11:8080/api/covid/expPrice/${stockName}`
     }
     const resp = await axios(req)
 
     const data = resp.data
 
     console.log('sucess get Total Lstm !')
+    return data
 }
 
 // async function getStockprice(stockName) {

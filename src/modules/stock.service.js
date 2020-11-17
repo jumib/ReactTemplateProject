@@ -2,14 +2,15 @@ import axios from 'axios'
 import { context as c } from '../context'
 
 export const stockService = {
-    getStockData, getFinance, getRecentNews, getExpPrice, getExchangeRate
+    getStockData, getFinance, getRecentNews, getExchangeRate,
+    // getExpPrice,
 }
 
 async function getStockData(stockName) {
     console.log('stockservice param = ' + stockName)
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/${stockName}`,
+        url: `http://192.168.0.24:8080/api/stock/stock/${stockName}`,
     }
     const resp = await axios(req)
 
@@ -30,10 +31,10 @@ async function getFinance() {
     return data
 }
 
-async function getRecentNews() {
+async function getRecentNews(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/finance`,
+        url: `http://192.168.0.24:8080/api/stock/mainNews/${stockName}`,
         auth: c.auth
     }
     const resp = await axios(req)
@@ -42,22 +43,22 @@ async function getRecentNews() {
     return data
 }
 
-async function getExpPrice() {
-    const req = {
-        method: c.get,
-        url: `http://192.168.0.24:8080/api/finance`,
-        auth: c.auth
-    }
-    const resp = await axios(req)
-    const data = resp.data
-    console.log('sucess get Exp Price !')
-    return data
-}
+// async function getExpPrice() {
+//     const req = {
+//         method: c.get,
+//         url: `http://192.168.0.24:8080/api/stock/finance`,
+//         auth: c.auth
+//     }
+//     const resp = await axios(req)
+//     const data = resp.data
+//     console.log('sucess get Exp Price !')
+//     return data
+// }
 
 async function getExchangeRate() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/finance`,
+        url: `http://192.168.0.24:8080/api/stock/exchange`,
         auth: c.auth
     }
     const resp = await axios(req)

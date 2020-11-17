@@ -45,8 +45,7 @@ export default function Components(props) {
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/bg3.jpg")}>
-      </Parallax>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div className={classNames(classes.main, classes.mainRaised)}>
       <CustomTabs
         headerColor="primary"
@@ -84,13 +83,6 @@ export default function Components(props) {
               <CovidFinancial />
             )
           },
-          {
-            tabName: "LSTM",
-            tabIcon: Build,
-            tabContent: (
-              <StockLstm />
-            )
-          }
         ]}
       />
       </div>

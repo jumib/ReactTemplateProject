@@ -42,20 +42,8 @@ export default function Components({children}) {
 
         {...rest}
       />
+      <br/><br/><br/><br/><br/><br/><br/><br/>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>어떤 종목이든 검색 한 번이면 끝.</h1>
-                <br/><br/><br/>
-                <h3 className={classes.subtitle}>
-                  학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
-                </h3>
-                <br/>
-                <Link to='' className={classes.subtitle}>지금 바로 만나보세요 ＞</Link>
-              </div>
-            </GridItem>
-          </GridContainer>
         </div>
       
       <div className={classNames(classes.main, classes.mainRaised)}>
