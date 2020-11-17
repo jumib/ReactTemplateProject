@@ -13,6 +13,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 import styles from "assets/jss/material-kit-react/views/components.js";
+import TotalLstm from "containers/total/TotalLstm";
 
 
 const useStyles = makeStyles(styles);
@@ -37,9 +38,11 @@ export default function Total(props) {
         {...rest}
       />
       <Parallax>
-       
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
+        <div>
+        <TotalLstm/>
+        </div>
       <Chatbot/>
       </div>
       <Footer />

@@ -1,3 +1,4 @@
+import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 
@@ -5,7 +6,7 @@ import ChatBot from 'react-simple-chatbot';
 
 export const ItemSearch = () => {
         return (
-                <p>삼성꺼 사라</p>
+                <p>삼성전자</p>
 
         )
     
@@ -17,9 +18,19 @@ export const ItemSearch2 = () => {
     )
 
 }
+const useStyle = makeStyles({
+    location: {
+        padding: '100px'
+    }
+})
 
 export default function ChatBotContainer(){
-    return (<ChatBot
+
+    const classes = useStyle()
+
+    return (
+    <div className={classes.location}>
+    <ChatBot
         floating = {true}
         headerTitle = {'서비스'}
         enableSmoothScroll = {true}
@@ -33,62 +44,78 @@ export default function ChatBotContainer(){
             {
                 id: '2',
                 options: [
-                    { value: 1, label: '주식 정보 보기', trigger: 'item' },
-                    { value: 2, label: '매매하기', trigger: 'fare' },
+                    { value: 1, label: '주식 정보', trigger: '3' },
+                    { value: 2, label: '주식 매매', trigger: '6' },
                 ],
             },
             {
-                id: 'item',
-                message: '종목명을 입력하세요',
-                trigger: 'itemSearch',
+                id: '3',
+                message: '알아 볼 종목의 이름을 입력하세요',
+                trigger: '4',
             },
             {
-                id: 'itemSearch',
+                id: '4',
                 user: true,
-                trigger: 'itemSearchResult',
+                trigger: '5',
             },
             {
-                id: 'itemSearchResult',
+                id: '5',
                 component: <ItemSearch/>,
                 trigger: '1',
             },
             {
-                id: 'fare',
-                message: '종목명을 입력하세요',
-                trigger: 'startName',
+                id: '6',
+                message: '구매 할 종목명을 입력하세요',
+                trigger: '7',
             },
             {
-                id: 'startName',
+                id: '7',
                 user: true,
-                trigger: 'fare1',
+                trigger: '8',
             },
             {
-                id: 'fare1',
-                message: '구매할 개수를 입력하세요',
-                trigger: 'startName2'
-            },
-            {
-                id: 'startName2',
-                user: true,
-                trigger: 'fare2',
-            },
-            {
-                id: 'fare2',
+                id: '8',
                 message: '구매 할 가격을 지정해주세요',
-                trigger: 'arriveName'
+                trigger: '9'
             },
             {
-                id: 'arriveName',
+                id: '9',
                 options: [
-                    { value: 1, label: '지정가', trigger: 'fareResult' },
-                    { value: 2, label: '시장가', trigger: 'fareResult' },
+                    { value: 1, label: '지정가', trigger: '9-2' },
+                    { value: 2, label: '시장가', trigger: '10' },
                 ]
             },
             {
-                id: 'fareResult',
-                component: <ItemSearch2/>,
+                id: '9-2',
+                message: '가격을 지정하세요',
+                trigger: '9-3'
+            },
+            {
+                id: '9-3',
+                user: true,
+                trigger: '10'
+            },
+            // {
+            //     id: '9-4',
+            //     user: true,
+            //     trigger: '11'
+            // },
+            {
+                id: '10',
+                message: '구매할 개수를 입력하세요',
+                trigger: '11'
+            },
+            {
+                id: '11',
+                user: true,
+                trigger: '12',
+            },
+            {
+                id: '12',
+                message: '구매가 완료되었습니다. 마이페이지를 확인하세요.',
                 trigger: '1',
             },
         ]}
     />
+    </div>
 )}

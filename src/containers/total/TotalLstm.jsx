@@ -6,6 +6,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { stockActions } from 'modules/stock.action';
+import { covidActions } from 'modules/covid.action';
 
 am4core.useTheme(am4themes_animated);
 
@@ -31,7 +32,7 @@ const TotalLstm = () => {
 // Create chart instance
 useEffect(() => {
 
- dispatch()
+ // dispatch(covidActions.getTotalLstm())
 
 let chart = am4core.create("stocklstm", am4charts.XYChart);
 
