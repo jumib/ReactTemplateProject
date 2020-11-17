@@ -27,7 +27,7 @@ export default function Components(props) {
   const stock = useSelector(state => (state.stockReducer.stock))
 
   console.log("stock = " + stock)
-  if (stock != isEmptyStatement) {
+
     return (
       <div>
         <Header
@@ -47,37 +47,16 @@ export default function Components(props) {
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-            <News/>
-            <StockFinancial/>
+
+          
+          <div>
+            { stock != null ? ( <News/> ) : ( <StockFinancial/> ) }
+          </div>
+
+
             <Link to="/stock">더 많은 정보 보기</Link>
         </div>
         <Footer />
       </div>
-    )}
-  else {
-    return (
-      <div>
-      <Header
-        brand="Material Kit Ui"
-        rightLinks={<HeaderLinks />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
-        {...rest}
-      />
-      <Parallax image={require("assets/img/bg.jpg")}>
-        <div className={classes.container}>
-          <SearchComponent/>
-        </div>
-      </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <h3>원하는 종목을 검색해보세요 !</h3>
-      </div>
-      <Footer />
-    </div>
     )
-  }
 }

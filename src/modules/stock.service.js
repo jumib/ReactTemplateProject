@@ -58,7 +58,7 @@ async function getRecentNews(stockName) {
 async function getExchangeRate() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/exchange`,
+        url: `http://192.168.0.10:8080/api/stock/exchange`,
         auth: c.auth
     }
     const resp = await axios(req)

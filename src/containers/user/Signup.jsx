@@ -105,22 +105,43 @@ const Signup = () => {
                 onChange={handleChange}
               />
             </Grid>
+            <br/><br/><br/>
+            <h3>SURBEY</h3>
             <Grid item xs={12}>
-              <Card>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Gender</FormLabel>
-                  <RadioGroup aria-label="gender" name="gender1" onChange={handleChange}>
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControl component="fieldset">
+              <FormLabel component="legend">질문 1 모험을 즐기시나요? </FormLabel>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
+                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
                   </RadioGroup>
-                </FormControl>
-              </Card>
+            </FormControl>      
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
+            <FormControl component="fieldset">
+              <FormLabel>질문 2 안정을 추구하는 편인가요?</FormLabel>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
+                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
+                  </RadioGroup>
+            </FormControl>      
+            </Grid>
+            <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel>질문 3 관심있는 테마에 투자하는 스타일이신가요?</FormLabel>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
+                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
+                  </RadioGroup>
+            </FormControl>        
+            </Grid>
+            <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel>질문 4 꾸준한 수익을 원하시나요?</FormLabel>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
+                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
+                  </RadioGroup>
+            </FormControl>      
             </Grid>
           </Grid>
           <Button
