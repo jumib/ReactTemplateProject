@@ -22,6 +22,8 @@ const SearchComponent = () => {
         dispatch(stockActions.getStockData(stockName))
     }
 
+    // localStorage.setItem('stockName', stockName);
+
     const classes = useStyles()
 
     return (

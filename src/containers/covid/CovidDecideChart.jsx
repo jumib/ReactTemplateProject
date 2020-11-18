@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
 const CovidDecideChart = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
-  const covid = useSelector(state => (state.covidReducer.covid))
+    const covid = useSelector(state => (state.covidReducer.covid))
 
     useEffect(() => {
         // dispatch(covidActions.getDecide())

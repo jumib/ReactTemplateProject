@@ -27,7 +27,8 @@ export default function News() {
   const recentNews = useSelector(state => (state.stockReducer.recentNews))
   const rows = [recentNews]
   useEffect(() => {
-    // dispatch(stockActions.getRecentNews())
+    //  localStorage.getItem('stockName')
+    // dispatch(stockActions.getRecentNews(stockName))
   })
 
   return (

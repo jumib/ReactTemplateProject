@@ -21,6 +21,10 @@ export const stockConstants = {
     GETEXCHANGERATE_REQUEST : 'STOCK_GETEXCHANGERATE_REQUEST',
     GETEXCHANGERATE_SUCCESS : 'STOCK_GETEXCHANGERATE_SUCCESS',
     GETEXCHANGERATE_FAILURE : 'STOCK_GETEXCHANGERATE_FAILURE',
+
+    GETEMOTION_REQUEST : 'STOCK_GETEMOTION_REQUEST',
+    GETEMOTION_SUCCESS : 'STOCK_GETEMOTION_SUCCESS',
+    GETEMOTION_FAILURE : 'STOCK_GETEMOTION_FAILURE',
 }
 
 export const getStockDataSuccess = createAction(stockConstants.GETSTOCKDATA_SUCCESS);
@@ -28,13 +32,15 @@ export const getFinanceSuccess = createAction(stockConstants.GETFINANCE_SUCCESS)
 export const getRecentNewsSuccess = createAction(stockConstants.GETRECENTNEWS_SUCCESS);
 // export const getExpPriceSuccess = createAction(stockConstants.GETEXPPRICE_SUCCESS);
 export const getExchangeRateSuccess = createAction(stockConstants.GETEXCHANGERATE_SUCCESS);
+export const getEmotionSuccess = createAction(stockConstants.GETEMOTION_SUCCESS);
 
 const initialState = {
     stock: [],
     finance: [],
     recentNews: [],
     // expPrice: [],
-    exchangeRate: []
+    exchangeRate: [],
+    emotion: []
 }
 
 const stockReducer = handleActions(
@@ -43,13 +49,14 @@ const stockReducer = handleActions(
         [stockConstants.GETFINANCE_SUCCESS]: (state, action) => ({ finance: action.finance }),
         [stockConstants.GETRECENTNEWS_SUCCESS]: (state, action) => ({ recentNews: action.recentNews }),
         // [stockConstants.GETEXPPRICE_SUCCESS]: (state, action) => ({ expPrice: action.expPrice }),
-        [stockConstants.GETEXCHANGERATE_SUCCESS]: (state, action) => ({ exchangeRate: action.exchangeRate })
+        [stockConstants.GETEXCHANGERATE_SUCCESS]: (state, action) => ({ exchangeRate: action.exchangeRate }),
+        [stockConstants.GETEMOTION_SUCCESS]: (state, action) => ({ emotion: action.emotion }),
     },
     initialState
 )
 
 export const stockActions = {
-    getStockData, getFinance, getRecentNews, getExchangeRate,
+    getStockData, getFinance, getRecentNews, getExchangeRate, getEmotion
     // getExpPrice,
 }
 
@@ -73,11 +80,11 @@ function getStockData(stockName){
     function failure(error) { return { type: stockConstants.GETSTOCKDATA_FAILURE, error  } }
 }
 
-function getFinance(){
+function getFinance(stockName){
     return dispatch => {
-        dispatch(request())
+        dispatch(request(stockName))
 
-        stockService.getFinance()
+        stockService.getFinance(stockName)
             .then(
                 finance => {
                     dispatch(success(finance))
@@ -89,16 +96,16 @@ function getFinance(){
             )
     }
 
-    function request() { return { type: stockConstants.GETFINANCE_REQUEST } }
+    function request(stockName) { return { type: stockConstants.GETFINANCE_REQUEST, stockName } }
     function success(finance) { return { type: stockConstants.GETFINANCE_SUCCESS, finance } }
     function failure(error) { return { type: stockConstants.GETFINANCE_FAILURE, error  } }
 }
 
-function getRecentNews(){
+function getRecentNews(stockName){
     return dispatch => {
-        dispatch(request())
+        dispatch(request(stockName))
 
-        stockService.getRecentNews()
+        stockService.getRecentNews(stockName)
             .then(
                 recentNews => {
                     dispatch(success(recentNews))
@@ -110,7 +117,7 @@ function getRecentNews(){
             )
     }
 
-    function request() { return { type: stockConstants.GETRECENTNEWS_REQUEST } }
+    function request(stockName) { return { type: stockConstants.GETRECENTNEWS_REQUEST, stockName } }
     function success(recentNews) { return { type: stockConstants.GETRECENTNEWS_SUCCESS, recentNews } }
     function failure(error) { return { type: stockConstants.GETRECENTNEWS_FAILURE, error  } }
 }
@@ -136,11 +143,11 @@ function getRecentNews(){
 //     function failure(error) { return { type: stockConstants.GETEXPPRICE_FAILURE, error } }
 // }
 
-function getExchangeRate(){
+function getExchangeRate(stockName){
     return dispatch => {
-        dispatch(request())
+        dispatch(request(stockName))
 
-        stockService.getExchangeRate()
+        stockService.getExchangeRate(stockName)
             .then(
                 exchangeRate => {
                     dispatch(success(exchangeRate))
@@ -152,9 +159,30 @@ function getExchangeRate(){
             )
     }
 
-    function request() { return { type: stockConstants.GETEXCHANGERATE_REQUEST } }
+    function request(stockName) { return { type: stockConstants.GETEXCHANGERATE_REQUEST, stockName } }
     function success(exchangeRate) { return { type: stockConstants.GETEXCHANGERATE_SUCCESS, exchangeRate } }
     function failure(error) { return { type: stockConstants.GETEXCHANGERATE_FAILURE, error } }
+}
+
+function getEmotion(stockName){
+    return dispatch => {
+        dispatch(request(stockName))
+
+        stockService.getEmotion(stockName)
+            .then(
+                emotion => {
+                    dispatch(success(emotion))
+                    console.log(emotion)
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            )
+    }
+
+    function request(stockName) { return { type: stockConstants.GETEMOTION_REQUEST, stockName } }
+    function success(emotion) { return { type: stockConstants.GETEMOTION_SUCCESS, emotion } }
+    function failure(error) { return { type: stockConstants.GETEMOTION_FAILURE, error } }
 }
 
 export default stockReducer

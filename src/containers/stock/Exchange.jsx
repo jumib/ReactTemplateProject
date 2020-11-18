@@ -24,7 +24,7 @@ export default function Exchange() {
   const recentNews = useSelector(state => (state.stockReducer.recentNews))
   const rows = [recentNews]
   useEffect(() => {
-    dispatch(stockActions.getExchangeRate())
+    // dispatch(stockActions.getExchangeRate())
   })
 
   return (

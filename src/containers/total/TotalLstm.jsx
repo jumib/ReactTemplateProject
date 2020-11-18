@@ -4,7 +4,7 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { stockActions } from 'modules/stock.action';
 import { covidActions } from 'modules/covid.action';
 
@@ -27,12 +27,12 @@ const TotalLstm = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
 
-// Themes end
+const totalLstm = useSelector(state => (state.covidReducer.totalLstm))
 
-// Create chart instance
 useEffect(() => {
 
- // dispatch(covidActions.getTotalLstm())
+//  localStorage.getItem('stockName')
+// dispatch(covidActions.getTotalLstm(stockName))
 
 let chart = am4core.create("stocklstm", am4charts.XYChart);
 
@@ -655,6 +655,10 @@ chart.scrollbarX.parent = chart.bottomAxesContainer;
 dateAxis.start = 0.79;
 dateAxis.keepSelection = true;
 }, [])
+
+// localStorage.removeItem('stockName')
+// alert('remove success')
+// console.log(localStorage.getItem('stockName'))
 
     return (
     <div>

@@ -114,11 +114,11 @@ function getWords() {
     function failure(error) { return { type: covidConstants.GETWORDS_FAILURE, error } }
 }
 
-function getTotalLstm() {
+function getTotalLstm(stockName) {
     return dispatch => {
-        dispatch(request())
+        dispatch(request(stockName))
 
-        covidService.getTotalLstm()
+        covidService.getTotalLstm(stockName)
         .then(
             totalLstm => {
                 dispatch(success(totalLstm))
@@ -128,7 +128,7 @@ function getTotalLstm() {
             }
         )
     }
-    function request() { return { type: covidConstants.GETTOTALLSTM_REQUEST } }
+    function request(stockName) { return { type: covidConstants.GETTOTALLSTM_REQUEST, stockName } }
     function success(totalLstm) { return { type: covidConstants.GETTOTALLSTM_SUCCESS, totalLstm } }
     function failure(error) { return { type: covidConstants.GETTOTALLSTM_FAILURE, error } }
 }

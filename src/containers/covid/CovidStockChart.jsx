@@ -3,6 +3,8 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import {makeStyles} from '@material-ui/core/styles'
+import { stockActions } from "modules/stock.action";
+import { useSelector, useDispatch } from "react-redux";
 
 am4core.useTheme(am4themes_animated);
 
@@ -18,9 +20,14 @@ const CovidStockChart = () => {
 
   const classes = useStyles();
 
+  const stock = useSelector(state => (state.stockReducer.stock))
+  const dispatch = useDispatch()
   useEffect(() => {
 
-    
+    // let stockName = localStorage.getItem('stockName')
+    // dispatch(stockActions.getStockData(stockName))
+
+
     let chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.paddingRight = 20;
 

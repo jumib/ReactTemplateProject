@@ -129,7 +129,8 @@ export default function StockFinancial() {
   const finance = useSelector(state => (state.stockReducer.finance))
   const rows = finance
   useEffect(() => {
-    // dispatch(stockActions.getFinance())
+    //  localStorage.getItem('stockName')
+    // dispatch(stockActions.getFinance(stockName))
   }, [])
 
   console.log('finance = ' + finance)
