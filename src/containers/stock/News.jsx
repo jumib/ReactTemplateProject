@@ -27,8 +27,9 @@ export default function News() {
   const recentNews = useSelector(state => (state.stockReducer.recentNews))
   const rows = [recentNews]
   useEffect(() => {
-    //  localStorage.getItem('stockName')
-    // dispatch(stockActions.getRecentNews(stockName))
+
+     // let stockName = localStorage.getItem('stockName')
+     // dispatch(stockActions.getRecentNews(stockName))
   })
 
   return (
@@ -42,16 +43,16 @@ export default function News() {
             <TableCell>TITLE</TableCell>
           </TableRow>
         </TableHead>
-        {/* <TableBody>
-          {rows.map((row) => (
+        <TableBody>
+          {/* {rows.map((row) => (
             <TableRow key={row.no}>
               <TableCell component="th" scope="row">
                 {row.no}
               </TableCell>
               <TableCell>{row.title}</TableCell>
             </TableRow>
-          ))}
-        </TableBody> */}
+          ))} */}
+        </TableBody>
       </Table>
     </TableContainer>
     </div>

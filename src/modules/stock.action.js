@@ -1,5 +1,7 @@
 import {createAction, handleActions} from 'redux-actions'
 import { stockService } from './stock.service'
+import history from '../history'
+
 
 export const stockConstants = {
     GETSTOCKDATA_REQUEST : 'STOCK_GETSTOCKDATA_REQUEST',
@@ -68,6 +70,7 @@ function getStockData(stockName){
             .then(
                 stock => {
                     dispatch(success(stock))
+                    history.push('/covid')
                 },
                 error => {
                     dispatch(failure(error.toString()));

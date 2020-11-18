@@ -155,7 +155,7 @@ export default function StockFinancial() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {/* {rows.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
@@ -169,7 +169,7 @@ export default function StockFinancial() {
               <TableCell align="right">{row.f_2021_12}</TableCell>
               <TableCell align="right">{row.f_2022_12}</TableCell>
             </TableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </TableContainer>
