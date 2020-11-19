@@ -2,7 +2,7 @@ import axios from 'axios'
 import { context as c } from '../context'
 
 export const covidService = {
-    getDecide, getStatus, getWords, getTotalLstm
+    getDecide, getStatus, getWords, getTotalLstm, getAutoLstm
     // getStockprice
 }
 
@@ -30,6 +30,7 @@ async function getStatus() {
     const data = resp.data
 
     console.log('sucess get covid status !')
+    
     return data
 }
 
@@ -43,6 +44,7 @@ async function getWords() {
     const data = resp.data
 
     console.log('sucess get financial keywords !')
+
     return data
 }
 
@@ -56,6 +58,21 @@ async function getTotalLstm(stockName) {
     const data = resp.data
 
     console.log('sucess get Total Lstm !')
+
+    return data
+}
+
+async function getAutoLstm(stockName) {
+    const req = {
+        method: c.get,
+        url: `http://192.168.0.11:8080/api/covid/expPrice/${stockName}`
+    }
+    const resp = await axios(req)
+
+    const data = resp.data
+
+    console.log('sucess get Auto Lstm !')
+
     return data
 }
 

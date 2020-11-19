@@ -19,6 +19,10 @@ export const covidConstants = {
     GETTOTALLSTM_SUCCESS : 'COVID_GETTOTALLSTM_SUCCESS',
     GETTOTALLSTM_FAILURE : 'COVID_GETTOTALLSTM_FAILURE',
 
+    GETAUTOLSTM_REQUEST : 'COVID_GETAUTOLSTM_REQUEST',
+    GETAUTOLSTM_SUCCESS : 'COVID_GETAUTOLSTM_SUCCESS',
+    GETAUTOLSTM_FAILURE : 'COVID_GETAUTOLSTM_FAILURE',
+
     // GETSTOCKPRICE_REQUEST : 'COVID_GETSTOCKPRICE_REQUEST',
     // GETSTOCKPRICE_SUCCESS : 'COVID_GETSTOCKPRICE_SUCCESS',
     // GETSTOCKPRICE_FAILURE : 'COVID_GETSTOCKPRICE_FAILURE',
@@ -28,13 +32,15 @@ export const getDecideSuccess = createAction(covidConstants.GETDECIDE_SUCCESS);
 export const getStatusSuccess = createAction(covidConstants.GETSTATUS_SUCCESS);
 export const getWordsSuccess = createAction(covidConstants.GETWORDS_SUCCESS);
 export const getTotalLstmSuccess = createAction(covidConstants.GETTOTALLSTM_SUCCESS);
+export const getAutoLstmSuccess = createAction(covidConstants.GETAUTOLSTM_SUCCESS);
 // export const getStockpriceSuccess = createAction(covidConstants.GETSTOCKPRICE_SUCCESS);
 
 const initialState = {
     covid: {},
     status: {},
     words: {},
-    totalLstm: []
+    totalLstm: {},
+    autoLstm: {}
     // stockprice: {}
 }
 
@@ -43,7 +49,8 @@ const covidReducer = handleActions(
         [covidConstants.GETDECIDE_SUCCESS]: (state, action) => ({ covid: action.covid }),
         [covidConstants.GETSTATUS_SUCCESS]: (state, action) => ({ status: action.status }),
         [covidConstants.GETWORDS_SUCCESS]: (state, action) => ({ words: action.words }),
-        [covidConstants.GETTOTALLSTM_SUCCESS] : (state, action) => ({ totalLstm: action.totalLstm })
+        [covidConstants.GETTOTALLSTM_SUCCESS] : (state, action) => ({ totalLstm: action.totalLstm }),
+        [covidConstants.GETAUTOLSTM_SUCCESS] : (state, action) => ({ autoLstm: action.autoLstm })
         // [covidConstants.GETSTOCKPRICE_SUCCESS]: (state, action) => ({ stockprice: action.stockprice }) 
     },
     initialState
@@ -51,7 +58,7 @@ const covidReducer = handleActions(
 
 
 export const covidActions = {
-    getDecide, getStatus, getWords, getTotalLstm
+    getDecide, getStatus, getWords, getTotalLstm, getAutoLstm
     // getStockprice
 }
 
@@ -122,6 +129,7 @@ function getTotalLstm(stockName) {
         .then(
             totalLstm => {
                 dispatch(success(totalLstm))
+                history.push('/total')
             },
             error => {
                 dispatch(failure(error.toString()));
@@ -131,6 +139,26 @@ function getTotalLstm(stockName) {
     function request(stockName) { return { type: covidConstants.GETTOTALLSTM_REQUEST, stockName } }
     function success(totalLstm) { return { type: covidConstants.GETTOTALLSTM_SUCCESS, totalLstm } }
     function failure(error) { return { type: covidConstants.GETTOTALLSTM_FAILURE, error } }
+}
+
+function getAutoLstm(stockName) {
+    return dispatch => {
+        dispatch(request(stockName))
+
+        covidService.getAutoLstm(stockName)
+        .then(
+            autoLstm => {
+                dispatch(success(autoLstm))
+                history.push('/total')
+            },
+            error => {
+                dispatch(failure(error.toString()));
+            }
+        )
+    }
+    function request(stockName) { return { type: covidConstants.GETAUTOLSTM_REQUEST, stockName } }
+    function success(autoLstm) { return { type: covidConstants.GETAUTOLSTM_SUCCESS, autoLstm } }
+    function failure(error) { return { type: covidConstants.GETAUTOLSTM_FAILURE, error } }
 }
 
 // function getStockprice(stockName) {

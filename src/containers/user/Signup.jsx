@@ -56,14 +56,20 @@ const Signup = () => {
     const [user, setUser] = useState({
       email: '',
       name: '',
-      password: ''
+      password: '',
+      type: '',
+      gender: '',
+      age: ''
     })  
 
     const [age, setAge] = React.useState('');
   
-    const handleChange = (event) => {
-      setAge(event.target.value);
-    };
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setUser(user => ({ ...user, [name]: value }));
+    }
+
+    console.log(user)
 
 
 
@@ -122,19 +128,19 @@ const Signup = () => {
             <Grid item xs={12}>
             <FormControl component="fieldset">
               <FormLabel component="legend">질문 : 당신의 투자 유형은? </FormLabel><br/>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="1" control={<Radio color="primary" />} label="공격형" />
-                  <FormControlLabel value="2" control={<Radio color="primary" />} label="안정형" />
-                  <FormControlLabel value="3" control={<Radio color="primary" />} label="자기만족형" />
+                  <RadioGroup row aria-label="position" name="type" onChange={handleChange}>
+                  <FormControlLabel value="a" control={<Radio color="primary" />} label="공격형" />
+                  <FormControlLabel value="b" control={<Radio color="primary" />} label="안정형" />
+                  <FormControlLabel value="c" control={<Radio color="primary" />} label="자기만족형" />
                   </RadioGroup>
             </FormControl>
             </Grid><br/>
             <Grid item xs={12}>
             <FormControl component="fieldset">
               <FormLabel component="legend">질문 : 성별? </FormLabel><br/>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="1" control={<Radio color="primary" />} label="남성" />
-                  <FormControlLabel value="2" control={<Radio color="primary" />} label="여성" />
+                  <RadioGroup row aria-label="position" name="gender" onChange={handleChange}>
+                  <FormControlLabel value="M" control={<Radio color="primary" />} label="남성" />
+                  <FormControlLabel value="F" control={<Radio color="primary" />} label="여성" />
                   </RadioGroup>
             </FormControl>
             </Grid><br/>
@@ -145,6 +151,7 @@ const Signup = () => {
               <Select
                 labelId="demo-controlled-open-select-label"
                 id="demo-controlled-open-select"
+                name="age"
                 value={age}
                 onChange={handleChange}
               >

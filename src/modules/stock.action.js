@@ -42,7 +42,7 @@ const initialState = {
     recentNews: [],
     // expPrice: [],
     exchangeRate: [],
-    emotion: []
+    emotion: {}
 }
 
 const stockReducer = handleActions(

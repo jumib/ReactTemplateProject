@@ -44,14 +44,14 @@ export default function News() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
+          {rows.map((row) => (
             <TableRow key={row.no}>
               <TableCell component="th" scope="row">
                 {row.no}
               </TableCell>
               <TableCell>{row.title}</TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

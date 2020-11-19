@@ -19,7 +19,7 @@ const SearchComponent = () => {
     const dispatch = useDispatch()
 
     function search () {
-        dispatch(stockActions.getStockData(stockName))
+        // dispatch(stockActions.getStockData(stockName))
     }
 
     // localStorage.setItem('stockName', stockName);

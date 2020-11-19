@@ -26,16 +26,21 @@ const useStyles = makeStyles({
 
 })
 
+
 const StockNews = () => {
 
+  const emotion = useSelector(state => (state.stockReducer.emotion))
+  const dispatch = useDispatch()
   const classes = useStyles();
 
   useEffect(() => { 
 
   // localStorage.getItem('stockName')
-  // dispatch(stockActions.getEmotion(stockName))
+  // dispatch(stockActions.getEmotion())
+
+  }, [])
   
-    let chart = am4core.create("keywords", am4plugins_wordCloud.WordCloud);
+  let chart = am4core.create("keywords", am4plugins_wordCloud.WordCloud);
   let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
 
   series.accuracy = 4;
@@ -47,36 +52,7 @@ const StockNews = () => {
   series.maxFontSize = am4core.percent(30);
 
   series.data = [
-    {
-      tag: "Breaking News",
-      weight: 60
-    }, 
-    {
-      tag: "적발",
-      weight: 80
-    }, {
-      tag: "Politics",
-      weight: 90
-    }, 
-    // {
-    //   "tag": "Business",
-    //   "weight": 25
-    // }, {
-    //   "tag": "Lifestyle",
-    //   "weight": 30
-    // }, {
-    //   "tag": "World",
-    //   "weight": 45
-    // }, {
-    //   "tag": "Sports",
-    //   "weight": 160
-    // }, {
-    //   "tag": "Fashion",
-    //   "weight": 20
-    // }, {
-    //   "tag": "Education",
-    //   "weight": 78
-    // }
+    emotion
   ];
   series.dataFields.word = "tag";
   series.dataFields.value = "weight"; 
@@ -91,8 +67,6 @@ const StockNews = () => {
   setInterval(function () {
     series.dataItems.getIndex(Math.round(Math.random() * (series.dataItems.length - 1))).setValue("value", Math.round(Math.random() * 10));
   }, 10000)
-
-  }, [])
 
 
     return (<div className={classes.location}>
