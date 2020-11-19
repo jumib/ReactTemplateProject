@@ -105,15 +105,12 @@ export default function Components(props) {
             <SearchComponent/>
           </div>
         </Parallax>
-
+        
         <div className={classNames(classes.main, classes.mainRaised)}>
-            
           <div>
-            { stock != '' ? (<MainInfo/>) : (<br/>) }
+            { stock != '' ? (<MainInfo/>) : (null) }
           </div>
-
         </div>
-
         <Footer />
       </div>
     );}

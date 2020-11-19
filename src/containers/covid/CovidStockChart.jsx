@@ -399,7 +399,7 @@ chart.data = [ {
     
   return (
     <>
-  <h3>주가</h3> 
+  <h2>주가</h2> 
   <div id="chartdiv" className={classes.chart}/>
   </>
   )

@@ -45,7 +45,6 @@ export default function Components({children}) {
       <br/><br/><br/><br/><br/><br/><br/><br/>
         <div className={classes.container}>
         </div>
-      
       <div className={classNames(classes.main, classes.mainRaised)}>
         <Menu />
         {children}

@@ -35,14 +35,14 @@ const CovidStatus = () => {
     const status = useSelector(state => (state.covidReducer.status))
 
     useEffect(() => {
-        // dispatch(covidActions.getStatus())
+        dispatch(covidActions.getStatus())
     }, [])
 
 
     return (
         <div className={classes.location}>
         <Card className={classes.textCenter}>
-      <CardHeader color="success"><h4>코로나 현황</h4></CardHeader>
+      <CardHeader><h2>코로나 현황</h2></CardHeader>
       <CardBody>
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -59,13 +59,13 @@ const CovidStatus = () => {
         </TableHead>
         <TableBody>
             <TableRow>
-                <TableCell align="center">83,255</TableCell>
-                <TableCell align="center">468</TableCell>
-                <TableCell align="center">24,395</TableCell>
-                <TableCell align="center">1.75%</TableCell>
-                <TableCell align="center">2,636,650</TableCell>
-                <TableCell align="center">25,524</TableCell>
-                <TableCell align="center">2,584,394</TableCell>
+              <TableCell align="right">{status.DECIDE_CNT}</TableCell>
+              <TableCell align="right">{status.DEATH_CNT}</TableCell>
+              <TableCell align="right">{status.CLEAR_CNT}</TableCell>
+              <TableCell align="right">{status.CRITICAL_CNT}</TableCell>
+              <TableCell align="right">{status.ACC_EXAM_CNT}</TableCell>
+              <TableCell align="right">{status.EXAM_CNT}</TableCell>
+              <TableCell align="right">{status.RESULT_NEG_CNT}</TableCell>
             </TableRow>
         </TableBody>
       </Table>

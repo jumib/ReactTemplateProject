@@ -15,6 +15,10 @@ import { userActions } from 'modules/user.action';
 import { useDispatch } from 'react-redux'
 import {User} from '../../templates/User'
 import {FormControl,FormLabel, RadioGroup, Radio, Card } from '@material-ui/core'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Select from '@material-ui/core/Select';
 
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
 
@@ -37,9 +41,15 @@ const useStyles = makeStyles((theme) => ({
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+    card: {
+      width: '500px' 
+    }
   }));
-
-
+ 
 const Signup = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
@@ -47,17 +57,18 @@ const Signup = () => {
       email: '',
       name: '',
       password: ''
-    })
+    })  
 
-    function handleChange(e) {
-      const { name, value } = e.target;
-      setUser(user => ({ ...user, [name]: value }))
-    }
+    const [age, setAge] = React.useState('');
+  
+    const handleChange = (event) => {
+      setAge(event.target.value);
+    };
+
 
 
     return (<User>
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -105,62 +116,69 @@ const Signup = () => {
                 onChange={handleChange}
               />
             </Grid>
+            <br/><br/><br/><br/><br/>
+            <Card className={classes.card}>
+            <h3>SURBEY</h3><br/><br/>
+            <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">질문 : 당신의 투자 유형은? </FormLabel><br/>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="1" control={<Radio color="primary" />} label="공격형" />
+                  <FormControlLabel value="2" control={<Radio color="primary" />} label="안정형" />
+                  <FormControlLabel value="3" control={<Radio color="primary" />} label="자기만족형" />
+                  </RadioGroup>
+            </FormControl>
+            </Grid><br/>
+            <Grid item xs={12}>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">질문 : 성별? </FormLabel><br/>
+                  <RadioGroup row aria-label="position" onChange={handleChange}>
+                  <FormControlLabel value="1" control={<Radio color="primary" />} label="남성" />
+                  <FormControlLabel value="2" control={<Radio color="primary" />} label="여성" />
+                  </RadioGroup>
+            </FormControl>
+            </Grid><br/>
+            <Grid item xs={12}>
+            <FormControl className={classes.formControl}>
+              <FormLabel component="legend">질문 : 나이대? </FormLabel><br/>
+              {/* <InputLabel id="demo-controlled-open-select-label">Age</InputLabel> */}
+              <Select
+                labelId="demo-controlled-open-select-label"
+                id="demo-controlled-open-select"
+                value={age}
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={20}>20대</MenuItem>
+                <MenuItem value={30}>30대</MenuItem>
+                <MenuItem value={40}>40대</MenuItem>
+                <MenuItem value={50}>50대</MenuItem>
+                <MenuItem value={60}>60대 이상</MenuItem>
+              </Select>
+            </FormControl>
+            </Grid>
             <br/><br/><br/>
-            <h3>SURBEY</h3>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">질문 1 모험을 즐기시나요? </FormLabel>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
-                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
-                  </RadioGroup>
-            </FormControl>      
+            </Card><br/><br/>
             </Grid>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel>질문 2 안정을 추구하는 편인가요?</FormLabel>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
-                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
-                  </RadioGroup>
-            </FormControl>      
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={e => dispatch(userActions.register(user))}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/signin" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel>질문 3 관심있는 테마에 투자하는 스타일이신가요?</FormLabel>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
-                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
-                  </RadioGroup>
-            </FormControl>        
-            </Grid>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel>질문 4 꾸준한 수익을 원하시나요?</FormLabel>
-                  <RadioGroup row aria-label="position" onChange={handleChange}>
-                  <FormControlLabel value="Y" control={<Radio color="primary" />} label="Y" />
-                  <FormControlLabel value="N" control={<Radio color="primary" />} label="N" />
-                  </RadioGroup>
-            </FormControl>      
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={e => dispatch(userActions.register(user))}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/signin" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Container>

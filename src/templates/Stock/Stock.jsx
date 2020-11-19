@@ -48,7 +48,7 @@ export default function Components(props) {
       <br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div className={classNames(classes.main, classes.mainRaised)}>
       <CustomTabs
-        headerColor="primary"
+        headerColor="info"
         tabs={[
           {
             tabName: "긍정부정",
