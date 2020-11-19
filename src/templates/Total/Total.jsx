@@ -42,7 +42,7 @@ export default function Total(props) {
         <div>
         <TotalLstm/>
         </div>
-      {/* <Chatbot/> */}
+        <Chatbot/>
       </div>
       <Footer />
     </div>

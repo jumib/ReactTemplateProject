@@ -128,26 +128,31 @@ class Review extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        money: '',
         name: '',
         type: '',
         date: '',
-        buyprice: '',
+        price: '',
         count: '',
       
     };
   }
   componentWillMount() {
     const { steps } = this.props;
-    const { name, type, date, buyprice, count } = steps;
-    this.setState({ name, type, date, buyprice, count });
+    const { money, name, type, date, price, count } = steps;
+    this.setState({ money, name, type, date, price, count });
   }
   render() {
-    const { name, type, date, buyprice, count } = this.state;
+    const { money, name, type, date, price, count } = this.state;
     return (
       <div style={{ width: '100%' }}>
         <h3>거래 내역</h3>
         <table>
           <tbody>
+            <tr>
+              <td>충전 금액</td>
+              <td>{money.value}</td>
+            </tr>
             <tr>
               <td>종목명</td>
               <td>{name.value}</td>
@@ -162,7 +167,7 @@ class Review extends Component {
             </tr>
             <tr>
               <td>거래 가격</td>
-              <td>{buyprice.value}</td>
+              <td>{price.value}</td>
             </tr>
             <tr>
               <td>거래량</td>
@@ -189,11 +194,11 @@ class Answer extends Component {
   }
   componentWillMount() {
     const { steps } = this.props;
-    const { name, type, date, buyprice, count } = steps;
+    const { money, name, type, date, price, count } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
     axios.post(`http://localhost:8080/api/chatbot`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
-    { "name":name, "type":type, "date":date, "buyprice":buyprice, "count":count, })
+    { "money": money, "name":name, "type":type, "date":date, "price":price, "count":count, })
     .then(res=>{
       // alert("분석 성공")
       //this.setState(res.data)
@@ -229,6 +234,16 @@ class MyChatbot extends Component {
     return (
       <ChatBot {...config} style={{"border": "1px solid black"}}
         steps={[
+          { 
+            id: '0',
+            message: "환영합니다. 충전하고 싶은 금액을 입력해주세요.",
+            trigger: "money"
+         },
+         { 
+          id: 'money',
+          user: true,
+          trigger: "1"
+       },
           { 
             id: '1',
             message: "원하시는 서비스를 선택해주세요.",
@@ -276,10 +291,10 @@ class MyChatbot extends Component {
          {
             id: '6',
             message: "구매 가격을 선택해주세요.",
-            trigger: "buyprice"
+            trigger: "price"
          },
          {
-            id: 'buyprice',
+            id: 'price',
             options: [
                 {value: 'select', label: '지정가', trigger: '7' },
                 {value: '453560원', label: '시장가', trigger: '8'},
@@ -333,12 +348,18 @@ class MyChatbot extends Component {
         {
           id: 'update-fields',
           options: [ // name, type, date, buyprice, count 
+            { value: 'money', label: '충전 금액', trigger: 'update-money' },
             { value: 'name', label: '종목명', trigger: 'update-name' },
-            { value: 'type', label: '매매타입', trigger: 'update-spouse' },
-            { value: 'date', label: '날짜', trigger: 'update-gender' },
-            { value: 'buyprice', label: '구매가격', trigger: 'update-age' },
-            { value: 'count', label: '수량', trigger: 'update-religion' },
+            { value: 'type', label: '매매타입', trigger: 'update-type' },
+            { value: 'date', label: '날짜', trigger: 'update-date' },
+            { value: 'price', label: '구매가격', trigger: 'update-price' },
+            { value: 'count', label: '수량', trigger: 'update-count' },
           ],
+        },
+        {
+          id: 'update-money',
+          update: 'money',
+          trigger: 'review',
         },
         {
           id: 'update-name',
@@ -346,22 +367,22 @@ class MyChatbot extends Component {
           trigger: 'review',
         },
         {
-          id: 'update-spouse',
+          id: 'update-type',
           update: 'type',
           trigger: 'review',
         },
         {
-          id: 'update-gender',
+          id: 'update-date',
           update: 'date',
           trigger: 'review',
         },
         {
-          id: 'update-age',
-          update: 'buyprice',
+          id: 'update-price',
+          update: 'price',
           trigger: 'review',
         },
         {
-          id: 'update-religion',
+          id: 'update-count',
           update: 'count',
           trigger: 'count',
         },

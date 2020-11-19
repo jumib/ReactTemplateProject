@@ -29,7 +29,8 @@ export const loginSuccess = createAction(userConstants.LOGIN_SUCCESS);
 
 // Initial State
 const initialState = {
-    user: {}, 
+    user: {},
+    payment: [], 
     loggingIn: false
 }
 
@@ -127,13 +128,13 @@ function getAll() {
 
         userService.getAll()
             .then(
-                users => dispatch(success(users)),
+                payment => dispatch(success(payment)),
                 error => dispatch(failure(error.toString()))
             );
     };
 
     function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
+    function success(payment) { return { type: userConstants.GETALL_SUCCESS, payment } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 /*

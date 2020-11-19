@@ -59,7 +59,7 @@ const Signup = () => {
       password: '',
       type: '',
       gender: '',
-      age: ''
+      age: '',
     })  
 
     const [age, setAge] = React.useState('');
