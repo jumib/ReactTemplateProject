@@ -70,7 +70,7 @@ function getDecide() {
         .then(
             covid => {
                 dispatch(success(covid))
-                history.push('/covid')
+                history.push('/stock')
             },
             error => {
                 dispatch(failure(error.toString()));
@@ -91,6 +91,7 @@ function getStatus() {
         .then(
             status => {
                 dispatch(success(status))
+                history.push('/stock')
             },
             error => {
                 dispatch(failure(error.toString()));
@@ -121,11 +122,11 @@ function getWords() {
     function failure(error) { return { type: covidConstants.GETWORDS_FAILURE, error } }
 }
 
-function getTotalLstm(stockName) {
+function getTotalLstm(stockName,date) {
     return dispatch => {
-        dispatch(request(stockName))
+        dispatch(request(stockName,date))
 
-        covidService.getTotalLstm(stockName)
+        covidService.getTotalLstm(stockName,date)
         .then(
             totalLstm => {
                 dispatch(success(totalLstm))
@@ -136,7 +137,7 @@ function getTotalLstm(stockName) {
             }
         )
     }
-    function request(stockName) { return { type: covidConstants.GETTOTALLSTM_REQUEST, stockName } }
+    function request(stockName,date) { return { type: covidConstants.GETTOTALLSTM_REQUEST, stockName,date } }
     function success(totalLstm) { return { type: covidConstants.GETTOTALLSTM_SUCCESS, totalLstm } }
     function failure(error) { return { type: covidConstants.GETTOTALLSTM_FAILURE, error } }
 }

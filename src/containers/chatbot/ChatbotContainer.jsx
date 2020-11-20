@@ -196,18 +196,18 @@ class Answer extends Component {
     const { steps } = this.props;
     const { money, name, type, date, price, count } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
-    axios.post(`http://localhost:8080/api/chatbot`,
+    axios.post(`http://192.168.0.10:8080/api/mypage`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
-    { "money": money, "name":name, "type":type, "date":date, "price":price, "count":count, })
+    { "name":name.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "count":count.value, })
     .then(res=>{
-      // alert("분석 성공")
-      //this.setState(res.data)
-    //   this.state.target_name = res.data
-    //   localStorage.setItem("actor", this.state.target_name)
-    //   alert(localStorage.getItem("actor"))
+      alert("성공")
+      // this.setState(res.data)
+      // this.state.target_name = res.data
+      // localStorage.setItem("actor", this.state.target_name)
+      // alert(localStorage.getItem("actor"))
     }) 
     .catch(e => {
-      alert('분석 실패')
+      alert('실패')
     })
   }
   render() {
@@ -297,7 +297,7 @@ class MyChatbot extends Component {
             id: 'price',
             options: [
                 {value: 'select', label: '지정가', trigger: '7' },
-                {value: '453560원', label: '시장가', trigger: '8'},
+                {value: '453560', label: '시장가', trigger: '8'},
             ],
          },
          {
@@ -330,14 +330,14 @@ class MyChatbot extends Component {
         // ---------------------------------------------- 매매페이지 ----------------------------------------
         {
           id: 'update',
-          message: '정보를 수정 하시겠습니까?',
+          message: '구매 하시겠습니까?',
           trigger: 'update-question',
         },
         {
           id: 'update-question',
           options: [
-            { value: 'yes', label: '예, 수정 하겠습니다', trigger: 'update-yes' },
-            { value: 'no', label: '아니요', trigger: 'end-message' },
+            { value: 'yes', label: '아니오', trigger: 'update-yes' },
+            { value: 'no', label: '예', trigger: 'end-message' },
           ],
         },
         {

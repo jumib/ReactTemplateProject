@@ -35,7 +35,7 @@ const CovidStatus = () => {
     const status = useSelector(state => (state.covidReducer.status))
 
     useEffect(() => {
-        dispatch(covidActions.getStatus())
+        // dispatch(covidActions.getStatus())
     }, [])
 
 
@@ -58,7 +58,7 @@ const CovidStatus = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow>
+            {/* <TableRow>
               <TableCell align="right">{status.DECIDE_CNT}</TableCell>
               <TableCell align="right">{status.DEATH_CNT}</TableCell>
               <TableCell align="right">{status.CLEAR_CNT}</TableCell>
@@ -66,7 +66,7 @@ const CovidStatus = () => {
               <TableCell align="right">{status.ACC_EXAM_CNT}</TableCell>
               <TableCell align="right">{status.EXAM_CNT}</TableCell>
               <TableCell align="right">{status.RESULT_NEG_CNT}</TableCell>
-            </TableRow>
+            </TableRow> */}
         </TableBody>
       </Table>
     </TableContainer>

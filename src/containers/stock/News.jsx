@@ -39,7 +39,7 @@ export default function News() {
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>No.</TableCell>
+            <TableCell>NO.</TableCell>
             <TableCell>TITLE</TableCell>
           </TableRow>
         </TableHead>

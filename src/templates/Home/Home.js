@@ -23,6 +23,10 @@ export default function Components(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
+  const recommand = (e) => {
+    alert('오늘 3월 13일 하나투어의 매수를 권해드려요')
+  }
+
   return (
     <div>
       <Header
@@ -47,7 +51,7 @@ export default function Components(props) {
                   학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
                 </h3>
                 <br/>
-                <Link to="/stock">지금 사용해보세요 ＞</Link>
+                <button onClick={recommand}><Link to="/covid">지금 사용해보세요 ＞</Link></button>
               </div>              
             </GridItem>
           </GridContainer>

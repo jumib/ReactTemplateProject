@@ -29,14 +29,22 @@ const useStyles = makeStyles({
 
 const StockNews = () => {
 
-  const emotion = useSelector(state => (state.stockReducer.emotion))
+  const emotion = useSelector(state => (state.stockReducer.emotion))  
   const dispatch = useDispatch()
   const classes = useStyles();
+  const covid = useSelector(state => (state.covidReducer.covid))
+
+  //------------히스토리푸시 후 확진자 수 저장----------
+  //   const decide = useSelector(state => (state.stockReducer.decide))
+  //   localStorage.setItem('decide', decide)
+
+
+  
 
   useEffect(() => { 
-
-  // localStorage.getItem('stockName')
-  // dispatch(stockActions.getEmotion())
+  
+  // const stockName = localStorage.getItem('stockName')
+  // dispatch(stockActions.getEmotion(stockName))
 
   }, [])
   
@@ -51,9 +59,8 @@ const StockNews = () => {
   series.labels.template.margin(4,4,4,4);
   series.maxFontSize = am4core.percent(30);
 
-  series.data = [
-    emotion
-  ];
+  series.data = [emotion]
+  
   series.dataFields.word = "tag";
   series.dataFields.value = "weight"; 
 
@@ -71,11 +78,10 @@ const StockNews = () => {
 
     return (<div className={classes.location}>
         <React.Fragment>
-        <h3>뉴스기사를 분석해 종목을 추천하는 시스템</h3>
+        <h3>뉴스기사를 크롤링해 단어의 성향을 분석</h3>
         <Card>
             <CardContent>
             <table>
-                <h3>counting ...</h3>
                 <tr>
                     <th>긍정</th>
                     <th>부정</th>

@@ -67,10 +67,10 @@ async function getExchangeRate(stockName) {
     return data
 }
 
-async function getEmotion(stockName) {
+async function getEmotion() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.10:8080/api/stock/emotion/${stockName}`,
+        url: `http://192.168.0.24:8080/api/stock/emotion`,
         auth: c.auth
     }
     const resp = await axios(req)

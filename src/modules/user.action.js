@@ -2,7 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 import { userService } from './user.service'
 import { alertActions } from './alert.action'
 // Action Types
-import history from '../history'
+// import history from '../history'
 
 export const userConstants = {
   REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',
@@ -59,25 +59,25 @@ export const userActions = {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-function register(user) {
+function register(userInfo) {
     return dispatch => {
-        dispatch(request(user));
-  
-        userService.register(user)
+        alert("register action = " + JSON.stringify(userInfo))
+        dispatch(request(userInfo));
+        userService.register(userInfo)
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/signin')
-                    dispatch(alertActions.success('Registration successful'));
+                    // history.push('/signin')
+                    // dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    // dispatch(alertActions.error(error.toString()));
                 }
             );
     };
   
-    function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
+    function request(userInfo) { return { type: userConstants.REGISTER_REQUEST, userInfo } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
@@ -92,7 +92,7 @@ function login(email, password){
                 user => { 
                     console.log(user.name)
                     dispatch(success(user))
-                    history.push('/')
+                    // history.push('/')
              },
             error => {
                 dispatch(failure(error.toString()));

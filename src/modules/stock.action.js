@@ -167,15 +167,16 @@ function getExchangeRate(stockName){
     function failure(error) { return { type: stockConstants.GETEXCHANGERATE_FAILURE, error } }
 }
 
-function getEmotion(stockName){
+function getEmotion(){
     return dispatch => {
-        dispatch(request(stockName))
+        dispatch(request())
 
-        stockService.getEmotion(stockName)
+        stockService.getEmotion()
             .then(
                 emotion => {
                     dispatch(success(emotion))
                     console.log(emotion)
+                    history.push('/stock')
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -183,7 +184,7 @@ function getEmotion(stockName){
             )
     }
 
-    function request(stockName) { return { type: stockConstants.GETEMOTION_REQUEST, stockName } }
+    function request() { return { type: stockConstants.GETEMOTION_REQUEST } }
     function success(emotion) { return { type: stockConstants.GETEMOTION_SUCCESS, emotion } }
     function failure(error) { return { type: stockConstants.GETEMOTION_FAILURE, error } }
 }

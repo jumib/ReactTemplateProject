@@ -50,29 +50,74 @@ import {
 } from '@material-ui/pickers';
 import { useDispatch, useSelector } from 'react-redux';
 import { covidActions } from 'modules/covid.action';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from "@material-ui/core/styles";
 
-    const stockName = localStorage.getItem('stockName')
+const styles = {
+    textCenter: {
+      textAlign: "center",
+      maxwidth: '1200px',
+    },
+    textMuted: {
+      color: "#6c757d"
+    },
+    location: {
+        padding: '0 90px '
+    }
+  };
+
+const useStyles = makeStyles(styles);
+
+
+    const stockName = '삼성전자'
 
     const PickDate = () => {
-    const [selectedDate, setSelectedDate] = useState('');
+
+        const classes = useStyles();
+    const [date, setDate] = useState('');
     const dispatch = useDispatch()
     const totalLstm = useSelector(state => (state.covidReducer.totalLstm))
-    const pickdata = {
-        'stockName' : stockName ,
-        'date' : selectedDate
-    }
-
+    const rows = totalLstm
     return (
         <>
         <p>날짜 선택하기</p>
         <div>
-        <input type='text' onChange={e => setSelectedDate(`${e.target.value}`)}/>
-        <button onClick={e => dispatch(covidActions.getTotalLstm(pickdata))}>검색</button>
-        <div>
+        <input type='text' onChange={e => setDate(`${e.target.value}`)}/>
+        <button onClick={e => dispatch(covidActions.getTotalLstm(stockName,date))}>검색</button>
+        {/* <div>
             { totalLstm != '' ? ( 
                 <p>이미지</p>) 
                 : ( null )}
-        </div>
+        </div> */}
+        {/* <img src={require("assets/img/matplotlib.png")} /> */}
+            <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                <TableRow>
+                    <TableCell align="center">날짜</TableCell>
+                    <TableCell align="center">실제값</TableCell>
+                    <TableCell align="center">예측값</TableCell>
+                </TableRow>
+                </TableHead>
+                <TableBody>
+          {/* {rows.map((row) => (
+            <TableRow key={row.date}>
+              <TableCell component="th" scope="row">
+                {row.date}
+              </TableCell>
+                    <TableCell align="right">{row.pred}</TableCell>
+                    <TableCell align="right">{row.real}</TableCell>
+            </TableRow>
+          ))} */}
+                </TableBody>
+            </Table>
+            </TableContainer>
         </div>
         </>
     )

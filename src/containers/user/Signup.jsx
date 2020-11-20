@@ -61,16 +61,20 @@ const Signup = () => {
       gender: '',
       age: '',
     })  
-
-    const [age, setAge] = React.useState('');
   
     const handleChange = (e) => {
       const { name, value } = e.target;
       setUser(user => ({ ...user, [name]: value }));
     }
 
-    console.log(user)
+    // const userInfo = JSON.stringify(user)
+    // const userInfo = JSON.parse(user)
+    const userInfo = user
 
+    // console.log(userInfo)
+
+
+    const [age, setAge] = React.useState('');
 
 
     return (<User>
@@ -89,11 +93,12 @@ const Signup = () => {
                 autoComplete="name"
                 name="name"
                 variant="outlined"
+                // value={user.name}
                 required
                 fullWidth
                 id="name"
                 label="Name"
-                autoFocus
+                // autoFocus
                 onChange={handleChange}
               />
             </Grid>
@@ -105,6 +110,7 @@ const Signup = () => {
                 id="email"
                 label="Email Address"
                 name="email"
+                // value={user.email}
                 autoComplete="email"
                 onChange={handleChange}
               />
@@ -116,6 +122,7 @@ const Signup = () => {
                 fullWidth
                 name="password"
                 label="Password"
+                // value={user.password}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -152,7 +159,6 @@ const Signup = () => {
                 labelId="demo-controlled-open-select-label"
                 id="demo-controlled-open-select"
                 name="age"
-                value={age}
                 onChange={handleChange}
               >
                 <MenuItem value="">
@@ -170,12 +176,12 @@ const Signup = () => {
             </Card><br/><br/>
             </Grid>
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
-              variant="contained"
+              // variant="contained"
               color="primary"
-              className={classes.submit}
-              onClick={e => dispatch(userActions.register(user))}
+              // className={classes.submit}
+              onClick={e => dispatch(userActions.register(userInfo))}
             >
               Sign Up
             </Button>

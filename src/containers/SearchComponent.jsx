@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import { Search } from '@material-ui/icons'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { stockActions } from '../modules/stock.action'
 
 const useStyles = makeStyles({
@@ -18,11 +18,16 @@ const SearchComponent = () => {
     const [stockName, setStockName] = useState('')
     const dispatch = useDispatch()
 
+    const stock = useSelector(state => (state.stockReducer.stock))
+    localStorage.setItem('stockprice', stock)
+
+
     function search () {
         // dispatch(stockActions.getStockData(stockName))
     }
-
+    
     // localStorage.setItem('stockName', stockName);
+
 
     const classes = useStyles()
 

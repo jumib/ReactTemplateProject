@@ -181,54 +181,55 @@ const CovidFinancial = () => {
 
   categoryAxis.sortBySeries = series;
   chart.data = [
-      {
-        "network": "Facebook",
-        "MAU": 2255250000
-      },
-      {
-        "network": "Google+",
-        "MAU": 430000000
-      },
-      {
-        "network": "Instagram",
-        "MAU": 1000000000
-      },
-      {
-        "network": "Pinterest",
-        "MAU": 246500000
-      },
-      {
-        "network": "Reddit",
-        "MAU": 355000000
-      },
-      {
-        "network": "TikTok",
-        "MAU": 500000000
-      },
-      {
-        "network": "Tumblr",
-        "MAU": 624000000
-      },
-      {
-        "network": "Twitter",
-        "MAU": 329500000
-      },
-      {
-        "network": "WeChat",
-        "MAU": 1000000000
-      },
-      {
-        "network": "Weibo",
-        "MAU": 431000000
-      },
-      {
-        "network": "Whatsapp",
-        "MAU": 1433333333
-      },
-      {
-        "network": "YouTube",
-        "MAU": 1900000000
-      }
+    words
+      // {
+      //   "network": "Facebook",
+      //   "MAU": 2255250000
+      // },
+      // {
+      //   "network": "Google+",
+      //   "MAU": 430000000
+      // },
+      // {
+      //   "network": "Instagram",
+      //   "MAU": 1000000000
+      // },
+      // {
+      //   "network": "Pinterest",
+      //   "MAU": 246500000
+      // },
+      // {
+      //   "network": "Reddit",
+      //   "MAU": 355000000
+      // },
+      // {
+      //   "network": "TikTok",
+      //   "MAU": 500000000
+      // },
+      // {
+      //   "network": "Tumblr",
+      //   "MAU": 624000000
+      // },
+      // {
+      //   "network": "Twitter",
+      //   "MAU": 329500000
+      // },
+      // {
+      //   "network": "WeChat",
+      //   "MAU": 1000000000
+      // },
+      // {
+      //   "network": "Weibo",
+      //   "MAU": 431000000
+      // },
+      // {
+      //   "network": "Whatsapp",
+      //   "MAU": 1433333333
+      // },
+      // {
+      //   "network": "YouTube",
+      //   "MAU": 1900000000
+      // }
     ]
   }, [])
 
