@@ -133,17 +133,17 @@ class Review extends Component {
         type: '',
         date: '',
         price: '',
-        count: '',
+        cnt: '',
       
     };
   }
   componentWillMount() {
     const { steps } = this.props;
-    const { money, name, type, date, price, count } = steps;
-    this.setState({ money, name, type, date, price, count });
+    const { money, name, type, date, price, cnt } = steps;
+    this.setState({ money, name, type, date, price, cnt });
   }
   render() {
-    const { money, name, type, date, price, count } = this.state;
+    const { money, name, type, date, price, cnt } = this.state;
     return (
       <div style={{ width: '100%' }}>
         <h3>거래 내역</h3>
@@ -171,7 +171,7 @@ class Review extends Component {
             </tr>
             <tr>
               <td>거래량</td>
-              <td>{count.value}</td>
+              <td>{cnt.value}</td>
             </tr>
           </tbody>
         </table>
@@ -194,11 +194,11 @@ class Answer extends Component {
   }
   componentWillMount() {
     const { steps } = this.props;
-    const { money, name, type, date, price, count } = steps;
+    const { money, name, type, date, price, cnt } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
     axios.post(`http://192.168.0.10:8080/api/mypage`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
-    { "name":name.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "count":count.value, })
+    { "name":name.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
     .then(res=>{
       alert("성공")
       // this.setState(res.data)
@@ -313,10 +313,10 @@ class MyChatbot extends Component {
          {
             id: '8',
             message: "매수할 개수를 입력해주세요.",
-            trigger: "count"
+            trigger: "cnt"
          },
          {
-            id: 'count',
+            id: 'cnt',
             user: true,
             trigger: "review"
          },
@@ -383,8 +383,8 @@ class MyChatbot extends Component {
         },
         {
           id: 'update-count',
-          update: 'count',
-          trigger: 'count',
+          update: 'cnt',
+          trigger: 'cnt',
         },
         {
           id: 'end-message',

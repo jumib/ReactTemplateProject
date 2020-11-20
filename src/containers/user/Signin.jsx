@@ -85,10 +85,9 @@ const Signin = () => {
               label="Remember me"
             />
             <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
+              // type="submit"
+              // fullWidth
+              // color="primary"
               className={classes.submit}
               onClick={e => dispatch(userActions.login(email,password))}
             >

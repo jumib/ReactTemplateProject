@@ -145,14 +145,14 @@ const CovidFinancial = () => {
 
   useEffect(() => {
     
-    // dispatch(covidActions.getWords())
+    dispatch(covidActions.getWords())
 
     let chart = am4core.create("chartfinance", am4charts.XYChart);
   chart.padding(40, 40, 40, 40);
 
   let categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
   categoryAxis.renderer.grid.template.location = 0;
-  categoryAxis.dataFields.category = "network";
+  categoryAxis.dataFields.category = "word";
   categoryAxis.renderer.minGridDistance = 1;
   categoryAxis.renderer.inversed = true;
   categoryAxis.renderer.grid.template.disabled = true;
@@ -161,8 +161,8 @@ const CovidFinancial = () => {
   valueAxis.min = 0;
 
   let series = chart.series.push(new am4charts.ColumnSeries());
-  series.dataFields.categoryY = "network";
-  series.dataFields.valueX = "MAU";
+  series.dataFields.categoryY = "word";
+  series.dataFields.valueX = "count";
   series.tooltipText = "{valueX.value}"
   series.columns.template.strokeOpacity = 0;
   series.columns.template.column.cornerRadiusBottomRight = 5;
@@ -180,57 +180,9 @@ const CovidFinancial = () => {
   });
 
   categoryAxis.sortBySeries = series;
-  chart.data = [
+  chart.data = 
     words
-      // {
-      //   "network": "Facebook",
-      //   "MAU": 2255250000
-      // },
-      // {
-      //   "network": "Google+",
-      //   "MAU": 430000000
-      // },
-      // {
-      //   "network": "Instagram",
-      //   "MAU": 1000000000
-      // },
-      // {
-      //   "network": "Pinterest",
-      //   "MAU": 246500000
-      // },
-      // {
-      //   "network": "Reddit",
-      //   "MAU": 355000000
-      // },
-      // {
-      //   "network": "TikTok",
-      //   "MAU": 500000000
-      // },
-      // {
-      //   "network": "Tumblr",
-      //   "MAU": 624000000
-      // },
-      // {
-      //   "network": "Twitter",
-      //   "MAU": 329500000
-      // },
-      // {
-      //   "network": "WeChat",
-      //   "MAU": 1000000000
-      // },
-      // {
-      //   "network": "Weibo",
-      //   "MAU": 431000000
-      // },
-      // {
-      //   "network": "Whatsapp",
-      //   "MAU": 1433333333
-      // },
-      // {
-      //   "network": "YouTube",
-      //   "MAU": 1900000000
-      // }
-    ]
+    
   }, [])
 
   return (

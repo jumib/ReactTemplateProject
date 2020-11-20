@@ -37,7 +37,7 @@ async function getStatus() {
 async function getWords() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/covid/words`
+        url: `http://192.168.0.11:8080/api/news/economy`
     }
     const resp = await axios(req)
 

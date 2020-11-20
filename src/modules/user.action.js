@@ -2,7 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 import { userService } from './user.service'
 import { alertActions } from './alert.action'
 // Action Types
-// import history from '../history'
+import history from '../history'
 
 export const userConstants = {
   REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',
@@ -83,11 +83,11 @@ function register(userInfo) {
 }
 
 
-function login(email, password){
+function login(email,password){
     return dispatch => {
-        dispatch(request({ email }))
+        dispatch(request(email,password))
 
-        userService.login(email, password)
+        userService.login(email,password)
             .then(
                 user => { 
                     console.log(user.name)
@@ -101,7 +101,7 @@ function login(email, password){
           )
     }
 
-  function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
+  function request(email, password) { return { type: userConstants.LOGIN_REQUEST, email,password} }
   function success(user) { 
     console.log(`#2 Login User Name is ${user.name}`) 
       return { type: userConstants.LOGIN_SUCCESS, user } 
@@ -122,18 +122,24 @@ function logout() {
 ///////////////////////////////////////
 
 
-function getAll() {
+function getAll(userName) {
     return dispatch => {
-        dispatch(request());
+        console.log(userName)
+        dispatch(request(userName));
 
-        userService.getAll()
+        userService.getAll(userName)
             .then(
-                payment => dispatch(success(payment)),
-                error => dispatch(failure(error.toString()))
+                payment => {
+                    dispatch(success(payment))
+                    history.push('/review')
+                },
+                error => {
+                    dispatch(failure(error.toString()))
+                }
             );
     };
 
-    function request() { return { type: userConstants.GETALL_REQUEST } }
+    function request(userName) { return { type: userConstants.GETALL_REQUEST, userName } }
     function success(payment) { return { type: userConstants.GETALL_SUCCESS, payment } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }

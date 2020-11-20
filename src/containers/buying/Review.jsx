@@ -28,6 +28,13 @@ const useStyles = makeStyles((theme) => ({
       height: '600px'
   }
 }));
+// payment:
+// cnt: 20
+// date: "2020-10-20"
+// money: 1234
+// name: "ttaa"
+// price: 12312
+// type: "a"
 
 
 export default function Review() {
@@ -35,10 +42,11 @@ export default function Review() {
   const dispatch = useDispatch()
 
   const payment = useSelector(state => (state.userReducer.payment))
-  const rows = payment
+  // const rows = payment
 
   useEffect(() => {
-    // dispatch(userActions.getAll())
+    const name = 'ttaa'
+    dispatch(userActions.getAll(name))
   }, [])
 
   return (<Buying>
@@ -52,23 +60,22 @@ export default function Review() {
             <TableCell align="center">날짜</TableCell>
             <TableCell align="center">가격</TableCell>
             <TableCell align="center">개수</TableCell>
-            <TableCell align="center">수익률</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.no}>
+          {/* {rows.map((row) => (
+            <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
-              </TableCell>
-              <TableCell align="center">{row.name}</TableCell>
-              <TableCell align="center">{row.type}</TableCell>
-              <TableCell align="center">{row.date}</TableCell>
-              <TableCell align="center">{row.price}</TableCell>
-              <TableCell align="center">{row.count}</TableCell>
-              <TableCell align="center">{row.profit}</TableCell>
+              </TableCell> */}
+            <TableRow>  
+              <TableCell align="center">{payment.name}</TableCell>
+              <TableCell align="center">{payment.type}</TableCell>
+              <TableCell align="center">{payment.date}</TableCell>
+              <TableCell align="center">{payment.price}</TableCell>
+              <TableCell align="center">{payment.count}</TableCell>
             </TableRow>
-          ))}
+          {/* ))} */}
         </TableBody>
       </Table>
     </TableContainer>

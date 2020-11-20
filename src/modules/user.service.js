@@ -26,11 +26,11 @@ export const userService = {
   */
 
 
-  async function login(userId, password) {
+  async function login(email,password) {
     const req = {
         method: c.post,
-        url: `${c.url}/api/access`,
-        data: {id:userId, password:password},
+        url: `http://192.168.0.10:8080/api/login`,
+        data: {email,password},
         auth: c.auth
     }
     const resp = await axios(req)
@@ -44,15 +44,14 @@ export const userService = {
     localStorage.removeItem('user');
   }
   
-  async function getAll(userId, password) {
+  async function getAll(userName) {
     const req = {
-        method: c.post,
-        url: `${c.url}/api/access`,
-        data: {id:userId, password:password},
+        method: c.get,
+        url: `http://192.168.0.10:8080/api/mypage/${userName}`,
         auth: c.auth
     }
     const resp = await axios(req)
-    const data = resp.data
+    const data = resp.data[0]
     alert(`Welcome ! ${data.name}'s connection is successful. ! `)
     return data
   }

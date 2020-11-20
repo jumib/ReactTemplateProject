@@ -23,7 +23,7 @@ const CovidDecideChart = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // dispatch(covidActions.getDecide())
+        dispatch(covidActions.getDecide())
         const decidedcount = localStorage.getItem('decidedcount')
 
 let chart = am4core.create("decidechart", am4charts.XYChart);
