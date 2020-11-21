@@ -107,9 +107,10 @@ export default function Components(props) {
         </Parallax>
         
         <div className={classNames(classes.main, classes.mainRaised)}>
-          <div>
+          {/* <div>
             { stock != '' ? (<MainInfo/>) : (null) }
-          </div>
+          </div> */}
+          <MainInfo/>
         </div>
         <Footer />
       </div>

@@ -130,7 +130,8 @@ export default function StockFinancial() {
   const rows = finance
   useEffect(() => {
     // let stockName = localStorage.getItem('stockName')
-    // dispatch(stockActions.getFinance(stockName))
+    const stockName = '삼성전자'
+    dispatch(stockActions.getFinance(stockName))
   }, [])
 
   console.log('finance = ' + finance)

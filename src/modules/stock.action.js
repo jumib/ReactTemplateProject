@@ -105,6 +105,7 @@ function getFinance(stockName){
 }
 
 function getRecentNews(stockName){
+    alert(stockName)
     return dispatch => {
         dispatch(request(stockName))
 
@@ -124,6 +125,28 @@ function getRecentNews(stockName){
     function success(recentNews) { return { type: stockConstants.GETRECENTNEWS_SUCCESS, recentNews } }
     function failure(error) { return { type: stockConstants.GETRECENTNEWS_FAILURE, error  } }
 }
+
+// function getRecentNews(){
+//     return dispatch => {
+//         dispatch(request())
+
+//         stockService.getRecentNews()
+//             .then(
+//                 recentNews => {
+//                     dispatch(success(recentNews))
+//                     history.push('/covid')
+//                     console.log(recentNews)
+//                 },
+//                 error => {
+//                     dispatch(failure(error.toString()));
+//                 }
+//             )
+//     }
+
+//     function request() { return { type: stockConstants.GETRECENTNEWS_REQUEST } }
+//     function success(recentNews) { return { type: stockConstants.GETRECENTNEWS_SUCCESS, recentNews } }
+//     function failure(error) { return { type: stockConstants.GETRECENTNEWS_FAILURE, error  } }
+// }
 
 // function getExpPrice(){
 //     return dispatch => {
