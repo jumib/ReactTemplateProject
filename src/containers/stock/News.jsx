@@ -26,13 +26,15 @@ export default function News() {
   const dispatch = useDispatch()
   const recentNews = useSelector(state => (state.stockReducer.recentNews))
   const rows = recentNews
+  
+
   useEffect(() => {
 
      // let stockName = localStorage.getItem('stockName')
      // dispatch(stockActions.getRecentNews(stockName))
      const stockName = '삼성전자'
-     // dispatch(stockActions.getRecentNews(stockName))
-  })
+     dispatch(stockActions.getRecentNews(stockName))
+  }, [])
 
   return (
     <div className={classes.location}>
@@ -41,7 +43,7 @@ export default function News() {
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            {/* <TableCell>NO.</TableCell> */}
+            <TableCell>NO.</TableCell>
             <TableCell>TITLE</TableCell>
           </TableRow>
         </TableHead>
@@ -51,7 +53,6 @@ export default function News() {
               <TableCell component="th" scope="row">
                 {row.no}
               </TableCell>
-              {/* <TableCell>{row.no}</TableCell> */}
               <TableCell>{row.title}</TableCell>
             </TableRow>
           ))}

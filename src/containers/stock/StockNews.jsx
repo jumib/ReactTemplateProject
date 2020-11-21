@@ -44,7 +44,8 @@ const StockNews = () => {
   useEffect(() => { 
   
   // const stockName = localStorage.getItem('stockName')
-  // dispatch(stockActions.getEmotion(stockName))
+  const stockName = '삼성전자'
+  dispatch(stockActions.getEmotion(stockName))
 
   }, [])
   
@@ -59,7 +60,7 @@ const StockNews = () => {
   series.labels.template.margin(4,4,4,4);
   series.maxFontSize = am4core.percent(30);
 
-  series.data = [emotion]
+  series.data = emotion
   
   series.dataFields.word = "tag";
   series.dataFields.value = "weight"; 
@@ -71,9 +72,9 @@ const StockNews = () => {
   series.angles = [0,-90];
   series.fontWeight = "700"
 
-  setInterval(function () {
-    series.dataItems.getIndex(Math.round(Math.random() * (series.dataItems.length - 1))).setValue("value", Math.round(Math.random() * 10));
-  }, 10000)
+//   setInterval(function () {
+//     series.dataItems.getIndex(Math.round(Math.random() * (series.dataItems.length - 1))).setValue("weight", Math.round(Math.random() * 10));
+//   }, 10000)
 
 
     return (<div className={classes.location}>
@@ -81,7 +82,7 @@ const StockNews = () => {
         <h3>뉴스기사를 크롤링해 단어의 성향을 분석</h3>
         <Card>
             <CardContent>
-            <table>
+            {/* <table>
                 <tr>
                     <th>긍정</th>
                     <th>부정</th>
@@ -90,7 +91,7 @@ const StockNews = () => {
                     <th>N개</th>
                     <th>N개</th>
                 </tr>
-            </table>
+            </table> */}
             <div id="keywords" className={classes.size}/>
             </CardContent>
         </Card>

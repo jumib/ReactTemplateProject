@@ -79,6 +79,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import ExchangeInfo from './ExchangeInfo'
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -138,12 +140,11 @@ export default function Exchange() {
   };
 
   useEffect(() => {
-    // dispatch(stockActions.getExchangeRate())
+    dispatch(stockActions.getExchangeRate())
   })
 
   return (
     <div>
-        <h2>환율정보</h2>
         <div className={classes.root}>
       <Tabs
         orientation="vertical"
@@ -159,6 +160,7 @@ export default function Exchange() {
         <Tab label="CNY" {...a11yProps(3)} />
         <Tab label="ALL" {...a11yProps(4)} />
         <Tab label="MIXED" {...a11yProps(5)} />
+        <Tab label="INFO" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <img src={require("assets/img/bg.jpg")} />
@@ -177,6 +179,9 @@ export default function Exchange() {
       </TabPanel>
       <TabPanel value={value} index={5}>
         <img src={require("assets/img/bg.jpg")} />
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <ExchangeInfo/>
       </TabPanel>
     </div>
 

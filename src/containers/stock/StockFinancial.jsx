@@ -126,13 +126,15 @@ const useStyles = makeStyles({
 export default function StockFinancial() {
   const classes = useStyles();
   const dispatch = useDispatch()
+
   const finance = useSelector(state => (state.stockReducer.finance))
-  const rows = finance
-  useEffect(() => {
-    // let stockName = localStorage.getItem('stockName')
-    const stockName = '삼성전자'
-    dispatch(stockActions.getFinance(stockName))
-  }, [])
+  
+
+  // useEffect(() => {
+  //   // let stockName = localStorage.getItem('stockName')
+  //   const stockName = '삼성전자'
+  //   dispatch(stockActions.getFinance(stockName))
+  // }, [])
 
   console.log('finance = ' + finance)
 
@@ -156,7 +158,7 @@ export default function StockFinancial() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {finance.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}

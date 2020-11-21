@@ -9,7 +9,7 @@ export const covidService = {
 async function getDecide() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/status/covid`
+        url: `http://192.168.0.24:8080/api/status/covid`
     }
     const resp = await axios(req)
 
@@ -55,7 +55,7 @@ async function getTotalLstm(stockName,date) {
     }
     const resp = await axios(req)
 
-    const data = resp.data
+    const data = resp.data.datas
 
     console.log('sucess get Total Lstm !')
 

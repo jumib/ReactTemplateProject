@@ -45,7 +45,7 @@ export default function Review() {
   // const rows = payment
 
   useEffect(() => {
-    const name = 'ttaa'
+    const name = 'aaa'
     dispatch(userActions.getAll(name))
   }, [])
 

@@ -36,11 +36,11 @@ export const getAutoLstmSuccess = createAction(covidConstants.GETAUTOLSTM_SUCCES
 // export const getStockpriceSuccess = createAction(covidConstants.GETSTOCKPRICE_SUCCESS);
 
 const initialState = {
-    covid: {},
-    status: {},
-    words: {},
-    totalLstm: {},
-    autoLstm: {}
+    covid: [],
+    status: [],
+    words: [],
+    totalLstm: [],
+    autoLstm: []
     // stockprice: {}
 }
 
@@ -70,7 +70,6 @@ function getDecide() {
         .then(
             covid => {
                 dispatch(success(covid))
-                history.push('/stock')
             },
             error => {
                 dispatch(failure(error.toString()));
@@ -91,7 +90,6 @@ function getStatus() {
         .then(
             status => {
                 dispatch(success(status))
-                history.push('/stock')
             },
             error => {
                 dispatch(failure(error.toString()));
@@ -130,7 +128,7 @@ function getTotalLstm(stockName,date) {
         .then(
             totalLstm => {
                 dispatch(success(totalLstm))
-                history.push('/total')
+               // history.push('/total')
             },
             error => {
                 dispatch(failure(error.toString()));

@@ -35,7 +35,7 @@ const CovidStatus = () => {
     const status = useSelector(state => (state.covidReducer.status))
 
     useEffect(() => {
-        // dispatch(covidActions.getStatus())
+        dispatch(covidActions.getStatus())
     }, [])
 
 

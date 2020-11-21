@@ -41,7 +41,6 @@ const AutoDate = () => {
 
     return (
         <div>
-            <img src={require("assets/img/matplotlib.png")} />
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>

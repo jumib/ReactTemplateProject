@@ -55,10 +55,10 @@ async function getRecentNews(stockName) {
 //     return data
 // }
 
-async function getExchangeRate(stockName) {
+async function getExchangeRate() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.10:8080/api/stock/exchange/${stockName}`,
+        url: `http://192.168.0.24:8080/api/stock/exchange`,
         auth: c.auth
     }
     const resp = await axios(req)
@@ -66,11 +66,22 @@ async function getExchangeRate(stockName) {
     console.log('sucess get Exchange Rate !')
     return data
 }
+// async function getExchangeRate(stockName) {
+//     const req = {
+//         method: c.get,
+//         url: `http://192.168.0.10:8080/api/stock/exchange/${stockName}`,
+//         auth: c.auth
+//     }
+//     const resp = await axios(req)
+//     const data = resp.data
+//     console.log('sucess get Exchange Rate !')
+//     return data
+// }
 
-async function getEmotion() {
+async function getEmotion(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/emotion`,
+        url: `http://192.168.0.24:8080/api/stock/emotion/${stockName}`,
         auth: c.auth
     }
     const resp = await axios(req)

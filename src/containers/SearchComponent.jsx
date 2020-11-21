@@ -23,10 +23,10 @@ const SearchComponent = () => {
 
 
     function search () {
-        // dispatch(stockActions.getStockData(stockName))
+        dispatch(stockActions.getStockData(stockName))
     }
     
-    // localStorage.setItem('stockName', stockName);
+    localStorage.setItem('stockName', stockName);
 
 
     const classes = useStyles()

@@ -94,7 +94,7 @@ const TotalLstm = () => {
                 tabIcon: Chat,
                 tabContent: (
                 <AutoDate/>
-                )
+                )              
             },
             ]}
         />

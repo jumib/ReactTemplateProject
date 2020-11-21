@@ -44,13 +44,13 @@ export default function HeaderLinks(props) {
             </Button>
           </Link>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
       <Link to={"/login-page"} className={classes.link}>
             <Button color="transparent">
               Login Page
             </Button>
           </Link>
-      </ListItem>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
       <Link to={"/buying"} className={classes.link}>
             <Button color="transparent">

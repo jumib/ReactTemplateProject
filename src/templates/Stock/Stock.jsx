@@ -24,6 +24,7 @@ import Build from "@material-ui/icons/Build";
 // core components
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import StockLstm from "containers/stock/StockLstm";
+import StockFinancial from "containers/stock/StockFinancial";
 const useStyles = makeStyles(styles);
 // const [searchName, setSearch] = useState([])
 
@@ -62,7 +63,6 @@ export default function Components(props) {
             tabIcon: Chat,
             tabContent: (
               <div>
-              <CovidStatus/>
               <CovidStock/>
               </div>
             )

@@ -106,7 +106,7 @@ const useStyles = makeStyles(styles);
                 </TableRow>
                 </TableHead>
                 <TableBody>
-          {/* {rows.map((row) => (
+          {rows.map((row) => (
             <TableRow key={row.date}>
               <TableCell component="th" scope="row">
                 {row.date}
@@ -114,7 +114,7 @@ const useStyles = makeStyles(styles);
                     <TableCell align="right">{row.pred}</TableCell>
                     <TableCell align="right">{row.real}</TableCell>
             </TableRow>
-          ))} */}
+          ))}
                 </TableBody>
             </Table>
             </TableContainer>

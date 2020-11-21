@@ -70,7 +70,7 @@ function getStockData(stockName){
             .then(
                 stock => {
                     dispatch(success(stock))
-                    history.push('/covid')
+                    
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -84,6 +84,7 @@ function getStockData(stockName){
 }
 
 function getFinance(stockName){
+   //  alert(stockName)
     return dispatch => {
         dispatch(request(stockName))
 
@@ -105,7 +106,7 @@ function getFinance(stockName){
 }
 
 function getRecentNews(stockName){
-    alert(stockName)
+    // alert(stockName)
     return dispatch => {
         dispatch(request(stockName))
 
@@ -169,11 +170,11 @@ function getRecentNews(stockName){
 //     function failure(error) { return { type: stockConstants.GETEXPPRICE_FAILURE, error } }
 // }
 
-function getExchangeRate(stockName){
+function getExchangeRate(){
     return dispatch => {
-        dispatch(request(stockName))
+        dispatch(request())
 
-        stockService.getExchangeRate(stockName)
+        stockService.getExchangeRate()
             .then(
                 exchangeRate => {
                     dispatch(success(exchangeRate))
@@ -185,16 +186,37 @@ function getExchangeRate(stockName){
             )
     }
 
-    function request(stockName) { return { type: stockConstants.GETEXCHANGERATE_REQUEST, stockName } }
+    function request() { return { type: stockConstants.GETEXCHANGERATE_REQUEST } }
     function success(exchangeRate) { return { type: stockConstants.GETEXCHANGERATE_SUCCESS, exchangeRate } }
     function failure(error) { return { type: stockConstants.GETEXCHANGERATE_FAILURE, error } }
 }
 
-function getEmotion(){
-    return dispatch => {
-        dispatch(request())
+// function getExchangeRate(stockName){
+//     return dispatch => {
+//         dispatch(request(stockName))
 
-        stockService.getEmotion()
+//         stockService.getExchangeRate(stockName)
+//             .then(
+//                 exchangeRate => {
+//                     dispatch(success(exchangeRate))
+//                     console.log(exchangeRate)
+//                 },
+//                 error => {
+//                     dispatch(failure(error.toString()));
+//                 }
+//             )
+//     }
+
+//     function request(stockName) { return { type: stockConstants.GETEXCHANGERATE_REQUEST, stockName } }
+//     function success(exchangeRate) { return { type: stockConstants.GETEXCHANGERATE_SUCCESS, exchangeRate } }
+//     function failure(error) { return { type: stockConstants.GETEXCHANGERATE_FAILURE, error } }
+// }
+
+function getEmotion(stockName){
+    return dispatch => {
+        dispatch(request(stockName))
+
+        stockService.getEmotion(stockName)
             .then(
                 emotion => {
                     dispatch(success(emotion))
@@ -207,7 +229,7 @@ function getEmotion(){
             )
     }
 
-    function request() { return { type: stockConstants.GETEMOTION_REQUEST } }
+    function request(stockName) { return { type: stockConstants.GETEMOTION_REQUEST, stockName } }
     function success(emotion) { return { type: stockConstants.GETEMOTION_SUCCESS, emotion } }
     function failure(error) { return { type: stockConstants.GETEMOTION_FAILURE, error } }
 }
