@@ -84,6 +84,7 @@ const useStyles = makeStyles(styles);
     const dispatch = useDispatch()
     const totalLstm = useSelector(state => (state.covidReducer.totalLstm))
     const rows = totalLstm
+    
     return (
         <>
         <p>날짜 선택하기</p>

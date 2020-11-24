@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import { stockActions } from 'modules/stock.action';
+import Grid from '@material-ui/core/Grid';
+import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 
 
 function TabPanel(props) {
@@ -94,6 +96,7 @@ const MainInfo = () => {
       <TabPanel value={value} index={1}>
         <StockFinancial/>
       </TabPanel>
+      <Chatbot/>
     </div>
   );
 }

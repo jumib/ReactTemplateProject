@@ -43,7 +43,7 @@ const Buying = ({children}) => {
           </GridContainer>
         </div>
       <div className={classNames(classes.main, classes.mainRaised)}>
-      {/* <Menu /> */}
+      <Menu />
         {children}
       </div>
             <Footer />

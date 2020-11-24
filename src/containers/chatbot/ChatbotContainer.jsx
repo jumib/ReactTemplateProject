@@ -126,13 +126,23 @@ import ChatBot from 'react-simple-chatbot';
 import axios from 'axios';
 // import theme from '@amcharts/amcharts4/themes/animated';
 import { ThemeProvider } from 'styled-components';
+import { useSelector } from 'react-redux';
+
+// const user = sessionStorage.getItem('user')
+// alert('user : ' + JSON.stringify(user.name))
 
 class Review extends Component {
+  
+  
   constructor(props) {
+    // const userName = 'test'
+    // console.log('userName = ' + userName)
+
     super(props);
     this.state = {
+        userName: 'test',
         money: '',
-        name: '',
+        stockName: '',
         type: '',
         date: '',
         price: '',
@@ -140,25 +150,33 @@ class Review extends Component {
       
     };
   }
+  
   componentWillMount() {
     const { steps } = this.props;
-    const { money, name, type, date, price, cnt } = steps;
-    this.setState({ money, name, type, date, price, cnt });
+    console.log('props : ' + this.props)
+    const { userName, money, stockName, type, date, price, cnt } = steps; 
+    console.log('steps : ' + steps)
+    this.setState({ userName, money, stockName, type, date, price, cnt });
   }
   render() {
-    const { money, name, type, date, price, cnt } = this.state;
+    const { userName, money, stockName, type, date, price, cnt } = this.state;
+    console.log(stockName)
     return (
       <div style={{ width: '100%' }}>
         <h3>거래 내역</h3>
         <table>
           <tbody>
             <tr>
+              <td>구매자</td>
+              <td>{userName}</td>
+            </tr>
+            <tr>
               <td>충전 금액</td>
               <td>{money.value}</td>
             </tr>
             <tr>
               <td>종목명</td>
-              <td>{name.value}</td>
+              <td>{stockName.value}</td>
             </tr>
             <tr>
               <td>매매 타입</td>
@@ -189,19 +207,26 @@ Review.defaultProps = {
   steps: undefined,
 };
 class Answer extends Component {
+  
   constructor(props) {
     super(props);
+    // const userName = 'test'
     this.state = {
+      // userName: 'test'
       // target_name: ''
     };
   }
   componentWillMount() {
+    const users = useSelector(state => (state.useReducer.user))
+    const username = users.name
+    alert(JSON.stringify(username))
+
     const { steps } = this.props;
-    const { money, name, type, date, price, cnt } = steps;
+    const { userName, money, stockName, type, date, price, cnt } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
     axios.post(`http://192.168.0.24:8080/api/mypage`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
-    { "name":name.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
+    { "userName": userName, "stockName":stockName.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
     .then(res=>{
       alert("성공")
       // this.setState(res.data)
@@ -227,6 +252,9 @@ Answer.propTypes = {
 };
 Answer.defaultProps = {
   steps: undefined,
+  // userName :'test',
+  // console.log('userName = ' + userName)
+  
 };
 const config = {
   width: "600px",
@@ -248,6 +276,7 @@ const theme = {
 }
 
 class MyChatbot extends Component {
+  
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -281,10 +310,10 @@ class MyChatbot extends Component {
           {
             id: '3',
             message: "구매할 종목명을 입력하세요.",
-            trigger: "name"
+            trigger: "stockName"
          },
          {
-            id: 'name',
+            id: 'stockName',
             user: true,
             trigger: '4',
          },
@@ -371,7 +400,7 @@ class MyChatbot extends Component {
           id: 'update-fields',
           options: [ // name, type, date, buyprice, count 
             { value: 'money', label: '충전 금액', trigger: 'update-money' },
-            { value: 'name', label: '종목명', trigger: 'update-name' },
+            { value: 'stockName', label: '종목명', trigger: 'update-stockName' },
             { value: 'type', label: '매매타입', trigger: 'update-type' },
             { value: 'date', label: '날짜', trigger: 'update-date' },
             { value: 'price', label: '구매가격', trigger: 'update-price' },
@@ -384,8 +413,8 @@ class MyChatbot extends Component {
           trigger: 'review',
         },
         {
-          id: 'update-name',
-          update: 'name',
+          id: 'update-stockName',
+          update: 'stockName',
           trigger: 'review',
         },
         {

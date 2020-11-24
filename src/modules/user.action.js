@@ -30,7 +30,7 @@ export const loginSuccess = createAction(userConstants.LOGIN_SUCCESS);
 
 // Initial State
 const initialState = {
-    user: {},
+    user: [],
     payment: [], 
     loggingIn: false
 }
@@ -93,6 +93,9 @@ function login(email,password){
                 user => { 
                     console.log(user.name)
                     dispatch(success(user))
+                    // alert(JSON.stringify(user))
+                    // alert(JSON.stringify(user.name))
+                    // alert(user.name)
                     sessionStorage.setItem('user', user)
                     history.push('/')
              },

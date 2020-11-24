@@ -51,7 +51,7 @@ async function getWords() {
 async function getTotalLstm(stockName,date) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/predDate/${stockName}/${date}`
+        url: `http://192.168.0.10:8080/api/predDate/${stockName}/${date}`
     }
     const resp = await axios(req)
 

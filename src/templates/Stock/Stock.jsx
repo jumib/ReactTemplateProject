@@ -25,6 +25,8 @@ import Build from "@material-ui/icons/Build";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import StockLstm from "containers/stock/StockLstm";
 import StockFinancial from "containers/stock/StockFinancial";
+import Grid from '@material-ui/core/Grid';
+import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 const useStyles = makeStyles(styles);
 // const [searchName, setSearch] = useState([])
 
@@ -86,6 +88,9 @@ export default function Components(props) {
           },
         ]}
       />
+        <Grid item xs={12}>
+          <Chatbot/>
+        </Grid>
       </div>
       <Footer />
     </div>

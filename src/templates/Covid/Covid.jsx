@@ -108,7 +108,7 @@ export default function Components(props) {
         
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
-            { recentNews != '' ? (<MainInfo/>) : (null) }
+            { recentNews != '' ? (<MainInfo/> ) : (null) }
           </div>
           {/* <MainInfo/> */}
         </div>

@@ -45,7 +45,7 @@ export default function Review() {
   // const rows = payment
 
   useEffect(() => {
-    const name = 'test'
+    const name = '삼성전자'
     dispatch(userActions.getAll(name))
   }, [])
 
@@ -68,13 +68,13 @@ export default function Review() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell> */}
-            <TableRow>  
-              <TableCell align="center">{payment.name}</TableCell>
+            {/* <TableRow>  
+              <TableCell align="center">{payment.stockName}</TableCell>
               <TableCell align="center">{payment.type}</TableCell>
               <TableCell align="center">{payment.date}</TableCell>
               <TableCell align="center">{payment.price}</TableCell>
               <TableCell align="center">{payment.count}</TableCell>
-            </TableRow>
+            </TableRow> */}
           {/* ))} */}
         </TableBody>
       </Table>
