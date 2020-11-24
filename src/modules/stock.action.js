@@ -92,7 +92,7 @@ function getFinance(stockName){
             .then(
                 finance => {
                     dispatch(success(finance))
-                    console.log(finance)
+                    // console.log(finance)
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -114,7 +114,7 @@ function getRecentNews(stockName){
             .then(
                 recentNews => {
                     dispatch(success(recentNews))
-                    console.log(recentNews)
+                    // console.log(recentNews)
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -178,7 +178,7 @@ function getExchangeRate(){
             .then(
                 exchangeRate => {
                     dispatch(success(exchangeRate))
-                    console.log(exchangeRate)
+                    // console.log(exchangeRate)
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -220,7 +220,7 @@ function getEmotion(stockName){
             .then(
                 emotion => {
                     dispatch(success(emotion))
-                    console.log(emotion)
+                    // console.log(emotion)
                     history.push('/stock')
                 },
                 error => {

@@ -84,8 +84,8 @@ export default function Components(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-    const stock = useSelector(state => (state.stockReducer.stock));
-    console.log('stock : ' + stock)
+    const recentNews = useSelector(state => (state.stockReducer.recentNews));
+    // console.log('stock : ' + stock)
     return (
       <div>
         <Header
@@ -107,10 +107,10 @@ export default function Components(props) {
         </Parallax>
         
         <div className={classNames(classes.main, classes.mainRaised)}>
-          {/* <div>
-            { stock != '' ? (<MainInfo/>) : (null) }
-          </div> */}
-          <MainInfo/>
+          <div>
+            { recentNews != '' ? (<MainInfo/>) : (null) }
+          </div>
+          {/* <MainInfo/> */}
         </div>
         <Footer />
       </div>

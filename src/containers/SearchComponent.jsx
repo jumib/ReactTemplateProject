@@ -18,15 +18,17 @@ const SearchComponent = () => {
     const [stockName, setStockName] = useState('')
     const dispatch = useDispatch()
 
-    const stock = useSelector(state => (state.stockReducer.stock))
-    localStorage.setItem('stockprice', stock)
+    const recentNews = useSelector(state => (state.stockReducer.recentNews))
+    localStorage.setItem('recentNews', recentNews)
+    // localStorage.setItem('stockprice', stock)
 
 
     function search () {
-        dispatch(stockActions.getStockData(stockName))
+        dispatch(stockActions.getRecentNews(stockName))
     }
     
     localStorage.setItem('stockName', stockName);
+    console.log(stockName)
 
 
     const classes = useStyles()

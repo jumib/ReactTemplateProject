@@ -39,6 +39,7 @@ const ExchangeInfo = () => {
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
+            <TableCell align="right">NO.</TableCell>
             <TableCell align="right">DATE</TableCell>
             <TableCell align="right">USD</TableCell>
             <TableCell align="right">JPY</TableCell>
@@ -46,7 +47,7 @@ const ExchangeInfo = () => {
             <TableCell align="right">CNY</TableCell>
           </TableRow>
         </TableHead>
-        {/* <TableBody>
+        <TableBody>
           {exchangeRate.map((row) => (
             <TableRow key={row.no}>
               <TableCell component="th" scope="row">
@@ -59,7 +60,7 @@ const ExchangeInfo = () => {
               <TableCell align="right">{row.cny}</TableCell>
             </TableRow>
           ))}
-        </TableBody> */}
+        </TableBody>
       </Table>
     </TableContainer>
     </div>

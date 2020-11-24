@@ -29,7 +29,7 @@ export const userService = {
   async function login(email,password) {
     const req = {
         method: c.post,
-        url: `http://192.168.0.10:8080/api/login`,
+        url: `http://192.168.0.24:8080/api/login`,
         data: {email,password},
         auth: c.auth
     }
@@ -39,7 +39,7 @@ export const userService = {
     return data
   }
   
-  async function logout(userId, password) {
+  async function logout (email, password) {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
   }
@@ -74,7 +74,7 @@ export const userService = {
     // console.log(userInfo.type)
     const req = {
         method: c.post,
-        url: `http://192.168.0.10:8080/api/access`,
+        url: `http://192.168.0.24:8080/api/access`,
         data: {userInfo},
         // auth: c.auth
     }

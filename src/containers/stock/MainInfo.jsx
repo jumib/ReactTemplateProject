@@ -7,7 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { stockActions } from 'modules/stock.action';
 
 
@@ -67,9 +67,12 @@ const MainInfo = () => {
       setValue(newValue);
     };
 
+    // const finance = useSelector(state => (state.stockActions.finance))
+    // console.log(finance)
+
     const clickFinance = (e) => {
         const stockName = '삼성전자'
-        dispatch(stockActions.getFinance(stockName))
+        // dispatch(stockActions.getFinance(stockName))
     }
 
     return (
@@ -82,8 +85,8 @@ const MainInfo = () => {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} onClick={clickFinance} />
+        <Tab label="최근 관련 기사" {...a11yProps(0)} />
+        <Tab label="기업 재무제표" {...a11yProps(1)} onClick={clickFinance} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <News/>

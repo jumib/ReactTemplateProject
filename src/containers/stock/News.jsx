@@ -28,13 +28,13 @@ export default function News() {
   const rows = recentNews
   
 
-  useEffect(() => {
+  // useEffect(() => {
 
-     // let stockName = localStorage.getItem('stockName')
-     // dispatch(stockActions.getRecentNews(stockName))
-     const stockName = '삼성전자'
-     dispatch(stockActions.getRecentNews(stockName))
-  }, [])
+  //    // let stockName = localStorage.getItem('stockName')
+  //    // dispatch(stockActions.getRecentNews(stockName))
+  //    const stockName = '삼성전자'
+  //    dispatch(stockActions.getRecentNews(stockName))
+  // }, [])
 
   return (
     <div className={classes.location}>

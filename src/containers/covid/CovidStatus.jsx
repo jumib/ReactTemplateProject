@@ -32,17 +32,48 @@ const useStyles = makeStyles(styles);
 const CovidStatus = () => {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const status = useSelector(state => (state.covidReducer.status))
+    // const status = useSelector(state => (state.covidReducer.status))
+
+    const [status, setStatus] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        dispatch(covidActions.getStatus())
-    }, [])
+      const fetchStatus = async () => {
+        try {
+          
+          setStatus(null);
+          
+          setLoading(true);
+          const response = await axios.get(
+            `http://192.168.0.24:8080/api/board/covid`
+          );
+          setStatus(response.data);
+          // alert(JSON.stringify(response.data)) 
+          // console.log(response.data)
+          console.log(response.data)
+        } catch (e) {
+          setError(e);
+        }
+        setLoading(false);
+      };
+  
+      fetchStatus();
+    }, []);
+
+    if (loading) return <div>..</div>;
+    if (error) return <div>error</div>;
+    if (!status) return null;
+
+    // useEffect(() => {
+    //     dispatch(covidActions.getStatus())
+    // }, [])
 
 
     return (
         <div className={classes.location}>
         <Card className={classes.textCenter}>
-      <CardHeader><h2>코로나 현황</h2></CardHeader>
+      <CardHeader><h2>코로나 현황판</h2></CardHeader>
       <CardBody>
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">

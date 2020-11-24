@@ -14,6 +14,8 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import {ChatbotContainer as Chatbot} from '../../containers/chatbot'
 import styles from "assets/jss/material-kit-react/views/components.js";
 import TotalLstm from "containers/total/TotalLstm";
+import Grid from '@material-ui/core/Grid';
+
 
 
 const useStyles = makeStyles(styles);
@@ -42,7 +44,9 @@ export default function Total(props) {
         <div>
         <TotalLstm/>
         </div>
-        {/* <Chatbot/> */}
+        <Grid item xs={12}>
+          <Chatbot/>
+        </Grid>
       </div>
       <Footer />
     </div>

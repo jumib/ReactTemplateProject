@@ -100,7 +100,7 @@
 //   );
 // }
 
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -109,6 +109,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import axios from 'axios'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { stockActions } from 'modules/stock.action';
@@ -125,18 +126,57 @@ const useStyles = makeStyles({
 
 export default function StockFinancial() {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
-  const finance = useSelector(state => (state.stockReducer.finance))
-  
-
+  // const finance = useSelector(state => (state.stockReducer.finance))
   // useEffect(() => {
   //   // let stockName = localStorage.getItem('stockName')
   //   const stockName = '삼성전자'
   //   dispatch(stockActions.getFinance(stockName))
   // }, [])
 
-  console.log('finance = ' + finance)
+  // const [finance, setFinance] = useState(null)
+
+  const stockName = '삼성전자'
+  // useEffect(() => {
+  //   dispatch(stockActions.getFinance(stockName))
+  // }, [finance]);
+           
+
+  const [reivews, setReviews] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+          try {
+            
+            setReviews(null);
+            
+            setLoading(true);
+            const response = await axios.get(
+              `http://192.168.0.24:8080/api/stock/finance/${stockName}`
+            );
+            setReviews(response.data);
+            // alert(JSON.stringify(response.data)) 
+            // console.log(response.data)
+            console.log(response.data)
+          } catch (e) {
+            setError(e);
+          }
+          setLoading(false);
+        };
+    
+        fetchReviews();
+      }, []);
+
+      if (loading) return <div>..</div>;
+      if (error) return <div>error</div>;
+      if (!reivews) return null;  
+
+  
+
 
   return (
     <div className={classes.location}>
@@ -158,7 +198,7 @@ export default function StockFinancial() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {finance.map((row) => (
+          {reivews.map((row) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
