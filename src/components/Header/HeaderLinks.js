@@ -42,21 +42,21 @@ export default function HeaderLinks(props) {
         <ListItem className={classes.listItem}>
         <Link to={"/covid"} className={classes.link}>
               <Button color="transparent">
-                Covid Page
+                검색하기
               </Button>
             </Link>
         </ListItem>
         <ListItem className={classes.listItem}>
         <Link to={"/stock"} className={classes.link}>
               <Button color="transparent">
-                Stock Page
+                더보기
               </Button>
             </Link>
         </ListItem>
         <ListItem className={classes.listItem}>
         <Link to={"/total"} className={classes.link}>
               <Button color="transparent">
-                Total Page
+                전체보기
               </Button>
             </Link>
         </ListItem>
@@ -70,14 +70,14 @@ export default function HeaderLinks(props) {
         <ListItem className={classes.listItem}>
         <Link to={"/buying"} className={classes.link}>
               <Button color="transparent">
-                My Page
+                마이페이지
               </Button>
             </Link>
         </ListItem>
         <ListItem className={classes.listItem}>
         <Link to={"/"} className={classes.link}>
               <Button color="transparent" onClick={logout} >
-                Logout
+                로그아웃
               </Button>
         </Link>
         </ListItem>
@@ -87,7 +87,7 @@ export default function HeaderLinks(props) {
         <ListItem className={classes.listItem}>
         <Link to={"/signin"} className={classes.link}>
               <Button color="transparent">
-                User Page
+                로그인
               </Button>
             </Link>
         </ListItem>

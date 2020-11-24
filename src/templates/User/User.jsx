@@ -31,7 +31,7 @@ export default function Components({children}) {
   return (
     <div>
       <Header
-        brand="Material Kit Ui"
+        brand="FLISTOCK"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -42,7 +42,7 @@ export default function Components({children}) {
 
         {...rest}
       />
-      <Parallax image={require("assets/img/login.jpeg")}>
+      <Parallax image={require("assets/img/log.jpg")}>
         {/* <Menu /> */}
         {children}
       </Parallax>

@@ -50,7 +50,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="Material Kit Ui"
+        brand="FLISTOCK"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -60,7 +60,7 @@ export default function Components(props) {
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/titleimg.jpg")}>
+      <Parallax image={require("assets/img/flistock1.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>

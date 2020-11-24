@@ -23,7 +23,7 @@ const Buying = ({children}) => {
     return (
         <div>
             <Header
-            brand="Material Kit Ui"
+            brand="FLISTOCK"
             rightLinks={<HeaderLinks />}
             fixed
             color="transparent"

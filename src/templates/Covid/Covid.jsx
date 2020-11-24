@@ -89,7 +89,7 @@ export default function Components(props) {
     return (
       <div>
         <Header
-          brand="Material Kit Ui"
+          brand="FLISTOCK"
           rightLinks={<HeaderLinks />}
           fixed
           color="transparent"

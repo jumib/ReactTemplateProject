@@ -19,8 +19,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
-
-// https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up
+import Fade from 'react-reveal/Fade';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
       margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: '#023eb5',
     },
     form: {
       width: '90%', // Fix IE 11 issue.
@@ -51,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       minWidth: '1000px',
       height: '500px',
-      margin: 'auto',
+      margin: '220px',
     },
     background: {
       backgroundColor: 'rgba( 255, 255, 255, 0.9 )'
@@ -86,6 +85,7 @@ const Signup = () => {
 
 
     return (<User>
+      <Fade bottom>
     <Container component="main" maxWidth="xs" className={classes.root}>
     <Card variant="outlined" className={classes.background}>
       <div className={classes.paper}>
@@ -93,7 +93,7 @@ const Signup = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          회원가입
         </Typography>
         <form className={classes.form} noValidate>
         <Grid container spacing={8}>
@@ -107,7 +107,7 @@ const Signup = () => {
                 required
                 fullWidth
                 id="name"
-                label="Name"
+                label="이름"
                 autoFocus
                 onChange={handleChange}
               />
@@ -117,7 +117,7 @@ const Signup = () => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="이메일"
                 name="email"
                 // value={user.email}
                 autoComplete="email"
@@ -130,7 +130,7 @@ const Signup = () => {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="비밀번호"
                 // value={user.password}
                 type="password"
                 id="password"
@@ -166,7 +166,7 @@ const Signup = () => {
                 onChange={handleChange}
               >
                 <MenuItem value="">
-                  <em>None</em>
+                  <em>선택하기</em>
                 </MenuItem>
                 <MenuItem value={20}>20대</MenuItem>
                 <MenuItem value={30}>30대</MenuItem>
@@ -186,12 +186,12 @@ const Signup = () => {
               className={classes.submit}
               onClick={e => dispatch(userActions.register(user))}
             >
-              Sign Up
+              가입하기
             </Button><br/><br/>
             <Grid container justify="flex-center">
               <Grid item>
                 <Link href="/signin" variant="body2">
-                  Already have an account? Sign in
+                  이미 계정을 가지고 있습니다
                 </Link>
               </Grid>
             </Grid>
@@ -199,6 +199,7 @@ const Signup = () => {
       </div>
       </Card>
     </Container>
+    </Fade>
     </User>)
 }
 

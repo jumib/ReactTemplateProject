@@ -29,7 +29,7 @@ export default function Total(props) {
   return (
     <div>
       <Header
-        brand="Material Kit Ui"
+        brand="FLISTOCK"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
