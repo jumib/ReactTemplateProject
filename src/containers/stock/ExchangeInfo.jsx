@@ -204,7 +204,6 @@ export default function CustomPaginationActionsTable() {
       <Table className={classes.table} aria-label="custom pagination table">
          <TableHead>
            <TableRow>
-             <TableCell align="center">NO.</TableCell>
              <TableCell align="center">DATE</TableCell>
              <TableCell align="center">USD</TableCell>
              <TableCell align="center">JPY</TableCell>
@@ -218,9 +217,6 @@ export default function CustomPaginationActionsTable() {
             : rows
           ).map((row) => (
             <TableRow key={row.no}>
-               <TableCell component="th" scope="row">
-                 {row.no}
-               </TableCell>
                <TableCell align="center">{row.date}</TableCell>
                <TableCell align="center">{row.usd}</TableCell>
                <TableCell align="center">{row.jpy}</TableCell>

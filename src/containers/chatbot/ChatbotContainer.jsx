@@ -124,6 +124,9 @@ import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import ChatBot from 'react-simple-chatbot';
 import axios from 'axios';
+// import theme from '@amcharts/amcharts4/themes/animated';
+import { ThemeProvider } from 'styled-components';
+
 class Review extends Component {
   constructor(props) {
     super(props);
@@ -196,7 +199,7 @@ class Answer extends Component {
     const { steps } = this.props;
     const { money, name, type, date, price, cnt } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
-    axios.post(`http://192.168.0.10:8080/api/mypage`,
+    axios.post(`http://192.168.0.24:8080/api/mypage`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
     { "name":name.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
     .then(res=>{
@@ -229,10 +232,29 @@ const config = {
   width: "600px",
   height: "700px"
 };
+
+const theme = {
+  background: '#f5f8fb',
+  fontFamily: 'Helvetica Neue',
+  headerBgColor: '#ffb74d',
+  headerFontColor: '#fff',
+  headerFontSize: '15px',
+  botBubbleColor: '#ffb74d',
+  botFontColor: '#black',
+  userBubbleColor: '#fff',
+  userFontColor: '#4a4a4a',
+  width: "700",
+  height: "900",
+}
+
 class MyChatbot extends Component {
   render() {
     return (
-      <ChatBot {...config} style={{"border": "1px solid black"}}
+      <ThemeProvider theme={theme}>
+      <ChatBot  
+        floating = {true}
+        headerTitle = {'서비스'}
+        enableSmoothScroll = {true}
         steps={[
           { 
             id: '0',
@@ -395,6 +417,7 @@ class MyChatbot extends Component {
         },
         ]}
       />
+      </ThemeProvider>
     );
   }
 }

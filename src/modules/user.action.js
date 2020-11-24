@@ -23,7 +23,8 @@ export const userConstants = {
   DELETE_SUCCESS: 'USERS_DELETE_SUCCESS',
   DELETE_FAILURE: 'USERS_DELETE_FAILURE'    
 }
-let sessionUser = JSON.parse(sessionStorage.getItem("user"));
+// let sessionUser = JSON.parse(sessionStorage.getItem("user"));
+// console.log(sessionUser)
 
 export const loginSuccess = createAction(userConstants.LOGIN_SUCCESS);
 
@@ -59,11 +60,11 @@ export const userActions = {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-function register(userInfo) {
+function register(user) {
     return dispatch => {
-        alert("register action = " + JSON.stringify(userInfo))
-        dispatch(request(userInfo));
-        userService.register(userInfo)
+        alert("register action = " + JSON.stringify(user))
+        dispatch(request(user));
+        userService.register(user)
             .then(
                 user => { 
                     dispatch(success(user));
@@ -77,7 +78,7 @@ function register(userInfo) {
             );
     };
   
-    function request(userInfo) { return { type: userConstants.REGISTER_REQUEST, userInfo } }
+    function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
@@ -92,7 +93,8 @@ function login(email,password){
                 user => { 
                     console.log(user.name)
                     dispatch(success(user))
-                    // history.push('/')
+                    sessionStorage.setItem('user', user)
+                    history.push('/')
              },
             error => {
                 dispatch(failure(error.toString()));
