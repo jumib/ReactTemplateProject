@@ -22,7 +22,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import Small from "components/Typography/Small";
 import Button from '@material-ui/core/Button';
 import history from '../../history'
-
+import Fade from 'react-reveal/Fade';
 
 
 const useStyles = makeStyles(styles);
@@ -65,10 +65,12 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
+              <Fade top>
+                <div>
                 <h1 className={classes.title}>오직 당신을 위한 AI 펀드매니저.</h1>
                 <br/><br/><br/><br/><br/><br/>
                 <h3 className={classes.subtitle}>
-                  학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
+                  학습된 인공지능으로 당신의 선택을 더 똑똑하게 만들어보세요.
                 </h3>
                 <br/>
               </div>
@@ -76,6 +78,8 @@ export default function Components(props) {
                 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                   Open alert dialog
                 </Button>
+                </div>
+              </Fade>
                 <Dialog
                   open={open}
                   onClose={handleClose}

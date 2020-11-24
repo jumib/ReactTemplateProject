@@ -42,13 +42,10 @@ export default function Components({children}) {
 
         {...rest}
       />
-      <br/><br/><br/><br/><br/><br/><br/><br/>
-        <div className={classes.container}>
-        </div>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <Parallax image={require("assets/img/login.jpeg")}>
         {/* <Menu /> */}
         {children}
-      </div>
+      </Parallax>
       <Footer />
     </div>
   );

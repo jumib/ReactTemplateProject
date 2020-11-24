@@ -15,13 +15,14 @@ import Container from '@material-ui/core/Container';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'modules/user.action';
 import {User} from '../../templates/User'
+import Card from '@material-ui/core/Card'
 
 // https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-in
 
   
   const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      margin: theme.spacing(4),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -37,6 +38,15 @@ import {User} from '../../templates/User'
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    root: {
+      minWidth: '700px',
+      height: '500px',
+      margin: 'auto',
+    },
+    background: {
+      backgroundColor: 'rgba( 255, 255, 255, 0.9 )'
+    }
+
   }));
 
 const Signin = () => {
@@ -47,7 +57,8 @@ const Signin = () => {
 
   
     return (<User>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" className={classes.root}>
+        <Card variant="outlined" className={classes.background}>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -108,6 +119,7 @@ const Signin = () => {
             </Grid>
           </form>
         </div>
+        </Card>
       </Container>
       </User>
     );

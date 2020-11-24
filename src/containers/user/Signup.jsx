@@ -25,7 +25,7 @@ import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(4),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(3),
+      width: '90%', // Fix IE 11 issue.
+      marginTop: theme.spacing(5),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
@@ -47,6 +47,14 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
       width: '500px' 
+    },
+    root: {
+      minWidth: '1000px',
+      height: '500px',
+      margin: 'auto',
+    },
+    background: {
+      backgroundColor: 'rgba( 255, 255, 255, 0.9 )'
     }
   }));
  
@@ -78,7 +86,8 @@ const Signup = () => {
 
 
     return (<User>
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.root}>
+    <Card variant="outlined" className={classes.background}>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -87,9 +96,10 @@ const Signup = () => {
           Sign up
         </Typography>
         <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
+        <Grid container spacing={8}>
+          <Grid item xs={6}>
               <TextField
+              className={classes.formControl}
                 autoComplete="name"
                 name="name"
                 variant="outlined"
@@ -98,12 +108,11 @@ const Signup = () => {
                 fullWidth
                 id="name"
                 label="Name"
-                // autoFocus
+                autoFocus
                 onChange={handleChange}
               />
-            </Grid>
-            <Grid item xs={12}>
               <TextField
+              className={classes.formControl}
                 variant="outlined"
                 required
                 fullWidth
@@ -114,9 +123,9 @@ const Signup = () => {
                 autoComplete="email"
                 onChange={handleChange}
               />
-            </Grid>
-            <Grid item xs={12}>
+       
               <TextField
+              className={classes.formControl}
                 variant="outlined"
                 required
                 fullWidth
@@ -128,32 +137,27 @@ const Signup = () => {
                 autoComplete="current-password"
                 onChange={handleChange}
               />
-            </Grid>
-            <br/><br/><br/><br/><br/>
-            <Card className={classes.card}>
-            <h3>SURBEY</h3><br/><br/>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">질문 : 당신의 투자 유형은? </FormLabel><br/>
+          </Grid>  
+          <Grid item xs={6}>
+            <FormControl className={classes.formControl}>
+              <FormLabel component="legend"> * 질문 1 : 당신의 투자 유형은? </FormLabel><br/>
                   <RadioGroup row aria-label="position" name="type" onChange={handleChange}>
                   <FormControlLabel value="a" control={<Radio color="primary" />} label="공격형" />
                   <FormControlLabel value="b" control={<Radio color="primary" />} label="안정형" />
                   <FormControlLabel value="c" control={<Radio color="primary" />} label="자기만족형" />
                   </RadioGroup>
             </FormControl>
-            </Grid><br/>
-            <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">질문 : 성별? </FormLabel><br/>
+       
+            <FormControl className={classes.formControl}>
+              <FormLabel component="legend">* 질문 2 : 성별은? </FormLabel><br/>
                   <RadioGroup row aria-label="position" name="gender" onChange={handleChange}>
                   <FormControlLabel value="M" control={<Radio color="primary" />} label="남성" />
                   <FormControlLabel value="F" control={<Radio color="primary" />} label="여성" />
                   </RadioGroup>
             </FormControl>
-            </Grid><br/>
-            <Grid item xs={12}>
+   
             <FormControl className={classes.formControl}>
-              <FormLabel component="legend">질문 : 나이대? </FormLabel><br/>
+              <FormLabel component="legend">* 질문 3 : 나이대는? </FormLabel><br/>
               {/* <InputLabel id="demo-controlled-open-select-label">Age</InputLabel> */}
               <Select
                 labelId="demo-controlled-open-select-label"
@@ -171,16 +175,15 @@ const Signup = () => {
                 <MenuItem value={60}>60대 이상</MenuItem>
               </Select>
             </FormControl>
-            </Grid>
-            <br/><br/><br/>
-            </Card><br/><br/>
-            </Grid>
+        
+          </Grid>
+          </Grid>      
             <Button
               // type="submit"
               fullWidth
               variant="contained"
               color="primary"
-              // className={classes.submit}
+              className={classes.submit}
               onClick={e => dispatch(userActions.register(user))}
             >
               Sign Up
@@ -190,10 +193,11 @@ const Signup = () => {
                 <Link href="/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
-              </Grid><br/><br/><br/>
+              </Grid>
             </Grid>
         </form>
       </div>
+      </Card>
     </Container>
     </User>)
 }
