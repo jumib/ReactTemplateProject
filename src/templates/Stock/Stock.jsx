@@ -63,6 +63,7 @@ export default function Components(props) {
             tabIcon: Chat,
             tabContent: (
               <div>
+              <CovidStatus />
               <CovidStock/>
               </div>
             )

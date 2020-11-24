@@ -80,14 +80,15 @@ const Signin = () => {
               autoComplete="current-password"
               onChange={e => setPassword(`${e.target.value}`)}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               // type="submit"
-              // fullWidth
-              // color="primary"
+              fullWidth
+              color="primary"
+              variant="contained"
               className={classes.submit}
               onClick={e => dispatch(userActions.login(email,password))}
             >
@@ -95,12 +96,12 @@ const Signin = () => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

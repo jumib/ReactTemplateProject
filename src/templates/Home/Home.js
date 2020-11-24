@@ -1,7 +1,7 @@
 import React from "react";
 // nodejs library that concatenates classes
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -13,9 +13,17 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import styles from "assets/jss/material-kit-react/views/components.js";
 import Small from "components/Typography/Small";
+import Button from '@material-ui/core/Button';
+import history from '../../history'
+
+
 
 const useStyles = makeStyles(styles);
 
@@ -23,9 +31,21 @@ export default function Components(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const recommand = (e) => {
-    alert('오늘 3월 13일 하나투어의 매수를 권해드려요')
-  }
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleSearch = () => {
+    history.push('/covid')
+  };
+  const handleBuy = () => {
+    history.push('/total')
+  };
 
   return (
     <div>
@@ -51,7 +71,33 @@ export default function Components(props) {
                   학습된 인공지능이 당신의 선택을 더 똑똑하게 만들어주죠.
                 </h3>
                 <br/>
-                <button onClick={recommand}><Link to="/covid">지금 사용해보세요 ＞</Link></button>
+              </div>
+              <div>
+                <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                  Open alert dialog
+                </Button>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      오늘 (2020년 3월 3일) 삼성전자의 매수를 권해드립니다.<br/>
+                      구매하시겠습니까?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleSearch} color="primary">
+                      알아보기
+                    </Button>
+                    <Button onClick={handleBuy} color="primary" autoFocus>
+                      구매하기
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </div>              
             </GridItem>
           </GridContainer>

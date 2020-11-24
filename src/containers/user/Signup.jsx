@@ -178,19 +178,19 @@ const Signup = () => {
             <Button
               // type="submit"
               fullWidth
-              // variant="contained"
+              variant="contained"
               color="primary"
               // className={classes.submit}
               onClick={e => dispatch(userActions.register(userInfo))}
             >
               Sign Up
-            </Button>
-            <Grid container justify="flex-end">
+            </Button><br/><br/>
+            <Grid container justify="flex-center">
               <Grid item>
                 <Link href="/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
-              </Grid>
+              </Grid><br/><br/><br/>
             </Grid>
         </form>
       </div>
