@@ -33,6 +33,10 @@ export default function HeaderLinks(props) {
     window.location.reload()
   }
 
+  const reload = (e) => {
+    // window.location.reload()
+  }
+
   console.log(user)
 
   return (
@@ -55,7 +59,7 @@ export default function HeaderLinks(props) {
         </ListItem>
         <ListItem className={classes.listItem}>
         <Link to={"/total"} className={classes.link}>
-              <Button color="transparent">
+              <Button color="transparent" onClick={reload}>
                 전체보기
               </Button>
             </Link>

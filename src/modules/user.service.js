@@ -47,7 +47,7 @@ export const userService = {
   async function getAll(userName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/mypage/${userName}`,
+        url: `http://192.168.0.10:8080/api/mypage/${userName}`,
         auth: c.auth
     }
     const resp = await axios(req)

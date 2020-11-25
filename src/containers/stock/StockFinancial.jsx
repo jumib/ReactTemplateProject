@@ -137,7 +137,7 @@ export default function StockFinancial() {
 
   // const [finance, setFinance] = useState(null)
 
-  const stockName = '삼성전자'
+  const stockName = localStorage.getItem('stockName')
   // useEffect(() => {
   //   dispatch(stockActions.getFinance(stockName))
   // }, [finance]);

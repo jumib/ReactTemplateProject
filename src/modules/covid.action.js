@@ -128,6 +128,7 @@ function getTotalLstm(stockName,date) {
         .then(
             totalLstm => {
                 dispatch(success(totalLstm))
+                console.log(totalLstm)
                // history.push('/total')
             },
             error => {

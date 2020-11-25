@@ -58,6 +58,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from "@material-ui/core/styles";
+import { SnackbarContent } from '@material-ui/core';
 
 const styles = {
     textCenter: {
@@ -75,7 +76,7 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 
-    const stockName = '삼성전자'
+    const stockName = localStorage.getItem('stockName')
 
     const PickDate = () => {
 
@@ -83,7 +84,16 @@ const useStyles = makeStyles(styles);
     const [date, setDate] = useState('');
     const dispatch = useDispatch()
     const totalLstm = useSelector(state => (state.covidReducer.totalLstm))
-    const rows = totalLstm
+   
+    for(var key in totalLstm) {
+
+      if(key === 'datas') {
+          console.log(JSON.stringify(totalLstm[key]))
+      }
+    }
+    const rows = JSON.stringify(totalLstm[key])
+    console.log("rows : " + rows)
+    
     
     return (
         <>
@@ -91,12 +101,7 @@ const useStyles = makeStyles(styles);
         <div>
         <input type='text' onChange={e => setDate(`${e.target.value}`)}/>
         <button onClick={e => dispatch(covidActions.getTotalLstm(stockName,date))}>검색</button>
-        {/* <div>
-            { totalLstm != '' ? ( 
-                <p>이미지</p>) 
-                : ( null )}
-        </div> */}
-        {/* <img src={require("assets/img/matplotlib.png")} /> */}
+            {/* <img src={require()} /> */}
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
@@ -106,17 +111,20 @@ const useStyles = makeStyles(styles);
                     <TableCell align="center">예측값</TableCell>
                 </TableRow>
                 </TableHead>
-                <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.date}>
-              <TableCell component="th" scope="row">
-                {row.date}
-              </TableCell>
-                    <TableCell align="right">{row.pred}</TableCell>
-                    <TableCell align="right">{row.real}</TableCell>
-            </TableRow>
-          ))}
-                </TableBody>
+                { rows !== undefined ? 
+                  <TableBody>
+                    {[rows].map((row) => (
+                      <TableRow key={row.date}>
+                        <TableCell component="th" scope="row">
+                          {row.date}
+                        </TableCell>
+                              <TableCell align="right">{row.pred}</TableCell>
+                              <TableCell align="right">{row.real}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                : <></>
+                  }
             </Table>
             </TableContainer>
         </div>

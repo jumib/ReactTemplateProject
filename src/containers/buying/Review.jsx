@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Buying from 'templates/Buying/Buying';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import axios from 'axios'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,17 +41,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Review() {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  const payment = useSelector(state => (state.userReducer.payment))
+  // const payment = useSelector(state => (state.userReducer.payment))
   // const rows = payment
 
-  useEffect(() => {
-    const name = '삼성전자'
-    dispatch(userActions.getAll(name))
-  }, [])
+  const [reivews, setReviews] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const dispatch = useDispatch()
 
-  return (<Buying>
+  useEffect(() => {
+      const fetchReviews = async () => {
+        try {
+          const name = 'test'
+          setReviews(null);
+          
+          setLoading(true);
+          const response = await axios.get(
+            `http://192.168.0.10:8080/api/mypage/${name}`
+          );
+          setReviews(response.data);
+          // alert(JSON.stringify(response.data)) 
+          // console.log(response.data)
+          // console.log(response.data)
+        } catch (e) {
+          setError(e);
+        }
+        setLoading(false);
+      };
+  
+      fetchReviews();
+    }, []);
+
+    if (loading) return <div>..</div>;
+    if (error) return <div>error</div>;
+    if (!reivews) return null;
+
+  // useEffect(() => {
+  //   const name = 'test'
+  //   dispatch(userActions.getAll(name))
+  // }, [])
+
+  return (
     <div className={classes.location}>
       <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
@@ -63,23 +97,19 @@ export default function Review() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell> */}
-            {/* <TableRow>  
-              <TableCell align="center">{payment.stockName}</TableCell>
-              <TableCell align="center">{payment.type}</TableCell>
-              <TableCell align="center">{payment.date}</TableCell>
-              <TableCell align="center">{payment.price}</TableCell>
-              <TableCell align="center">{payment.count}</TableCell>
-            </TableRow> */}
-          {/* ))} */}
+        {reivews.map((row) => (
+            <TableRow key={row.username}>
+              <TableCell align="center">{row.stockname}</TableCell>
+              <TableCell align="center">{row.type}</TableCell>
+              <TableCell align="center">{row.date}</TableCell>
+              <TableCell align="center">{row.price}</TableCell>
+              <TableCell align="center">{row.cnt}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
     </div>
-    </Buying>
+   
   );
 }

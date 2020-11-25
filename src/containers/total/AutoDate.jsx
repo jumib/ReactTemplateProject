@@ -35,7 +35,7 @@ const AutoDate = () => {
 
     useEffect(() => {
         // let stockName = localStorage.getItem('stockName')
-        const stockName = '삼성전자'
+        const stockName = localStorage.getItem('stockName')
         dispatch(covidActions.getAutoLstm(stockName))
     }, [])
 

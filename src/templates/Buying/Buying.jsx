@@ -14,6 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
+import Review from 'containers/buying/Review';
 
 const useStyles = makeStyles(styles);
 
@@ -43,8 +44,9 @@ const Buying = ({children}) => {
           </GridContainer>
         </div>
       <div className={classNames(classes.main, classes.mainRaised)}>
-      <Menu />
-        {children}
+        <Review/>
+      {/* <Menu />
+        {children} */}
       </div>
             <Footer />
         </div>

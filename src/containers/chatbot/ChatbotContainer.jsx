@@ -140,9 +140,9 @@ class Review extends Component {
 
     super(props);
     this.state = {
-        userName: 'test',
+        username: '',
         money: '',
-        stockName: '',
+        stockname: '',
         type: '',
         date: '',
         price: '',
@@ -154,13 +154,13 @@ class Review extends Component {
   componentWillMount() {
     const { steps } = this.props;
     console.log('props : ' + this.props)
-    const { userName, money, stockName, type, date, price, cnt } = steps; 
+    const { username, money, stockname, type, date, price, cnt } = steps; 
     console.log('steps : ' + steps)
-    this.setState({ userName, money, stockName, type, date, price, cnt });
+    this.setState({ username, money, stockname, type, date, price, cnt });
   }
   render() {
-    const { userName, money, stockName, type, date, price, cnt } = this.state;
-    console.log(stockName)
+    const { username, money, stockname, type, date, price, cnt } = this.state;
+    // console.log(stockName)
     return (
       <div style={{ width: '100%' }}>
         <h3>거래 내역</h3>
@@ -168,7 +168,7 @@ class Review extends Component {
           <tbody>
             <tr>
               <td>구매자</td>
-              <td>{userName}</td>
+              <td>{username.value}</td>
             </tr>
             <tr>
               <td>충전 금액</td>
@@ -176,7 +176,7 @@ class Review extends Component {
             </tr>
             <tr>
               <td>종목명</td>
-              <td>{stockName.value}</td>
+              <td>{stockname.value}</td>
             </tr>
             <tr>
               <td>매매 타입</td>
@@ -217,18 +217,20 @@ class Answer extends Component {
     };
   }
   componentWillMount() {
-    const users = useSelector(state => (state.useReducer.user))
-    const username = users.name
-    alert(JSON.stringify(username))
+    // const users = useSelector(state => (state.useReducer.user))
+    // const username = users.name
+    // alert(JSON.stringify(username))
 
     const { steps } = this.props;
-    const { userName, money, stockName, type, date, price, cnt } = steps;
+    const { username, money, stockname, type, date, price, cnt } = steps;
     // ['age', 'real_name', 'religion', 'agency', 'spouse', 'children','debut_year', 'gender', 'state'])
-    axios.post(`http://192.168.0.24:8080/api/mypage`,
+    axios.post(`http://192.168.0.10:8080/api/mypage`,
     // {"age":50, "real_name":1, "religion":1,"agency":1,"spouse":1,"children":1, "debut":1991,"gender":1})
-    { "userName": userName, "stockName":stockName.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
+    { "username": username.value, "stockname":stockname.value, "money": money.value, "type":type.value, "date":date.value, "price":price.value, "cnt":cnt.value, })
     .then(res=>{
       alert("성공")
+      localStorage.removeItem('stockName')
+      alert(localStorage.getItem('stockName'))
       // this.setState(res.data)
       // this.state.target_name = res.data
       // localStorage.setItem("actor", this.state.target_name)
@@ -286,6 +288,16 @@ class MyChatbot extends Component {
         enableSmoothScroll = {true}
         steps={[
           { 
+            id: 'start',
+            message: "구매 전 본인확인을 위해 이름을 입력해주세요.",
+            trigger: "username"
+         },
+          { 
+            id: 'username',
+            user: true,
+            trigger: "0"
+         },
+          { 
             id: '0',
             message: "환영합니다. 충전하고 싶은 금액을 입력해주세요.",
             trigger: "money"
@@ -310,10 +322,10 @@ class MyChatbot extends Component {
           {
             id: '3',
             message: "구매할 종목명을 입력하세요.",
-            trigger: "stockName"
+            trigger: "stockname"
          },
          {
-            id: 'stockName',
+            id: 'stockname',
             user: true,
             trigger: '4',
          },

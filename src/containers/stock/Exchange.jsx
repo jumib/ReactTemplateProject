@@ -140,8 +140,9 @@ export default function Exchange() {
   };
 
   useEffect(() => {
-    const stockName = '삼성전자'
-    dispatch(stockActions.getExchangeRate(stockName))
+    const stockName = localStorage.getItem('stockName')
+    dispatch(stockActions.getExchangeData(stockName))
+    // dispatch(stockActions.getExchange)
   })
 
   return (

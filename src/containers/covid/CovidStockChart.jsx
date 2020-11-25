@@ -24,7 +24,7 @@ const CovidStockChart = () => {
 
   const stockprice = useSelector(state => (state.stockReducer.stock))
   useEffect(() => {
-    const stockName = '삼성전자'
+    const stockName = localStorage.getItem('stockName')
     dispatch(stockActions.getStockData(stockName))
 
   }, [])

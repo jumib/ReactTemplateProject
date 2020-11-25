@@ -51,11 +51,11 @@ async function getWords() {
 async function getTotalLstm(stockName,date) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.10:8080/api/predDate/${stockName}/${date}`
+        url: `http://192.168.0.11:8080/api/predDate/${stockName}/${date}`
     }
     const resp = await axios(req)
 
-    const data = resp.data.datas
+    const data = resp.data
 
     console.log('sucess get Total Lstm !')
 
@@ -65,7 +65,7 @@ async function getTotalLstm(stockName,date) {
 async function getAutoLstm(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/pred/${stockName}`
+        url: `http://192.168.0.11:8080/api/pred/${stockName}`
     }
     const resp = await axios(req)
 
