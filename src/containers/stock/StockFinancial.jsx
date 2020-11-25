@@ -137,7 +137,7 @@ export default function StockFinancial() {
 
   // const [finance, setFinance] = useState(null)
 
-  const stockName = localStorage.getItem('stockName')
+  
   // useEffect(() => {
   //   dispatch(stockActions.getFinance(stockName))
   // }, [finance]);
@@ -151,7 +151,7 @@ export default function StockFinancial() {
     useEffect(() => {
         const fetchReviews = async () => {
           try {
-            
+            const stockName = localStorage.getItem('stockName')
             setReviews(null);
             
             setLoading(true);

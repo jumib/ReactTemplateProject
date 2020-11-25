@@ -58,7 +58,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from "@material-ui/core/styles";
-import { SnackbarContent } from '@material-ui/core';
 
 const styles = {
     textCenter: {
@@ -76,7 +75,6 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 
-    const stockName = localStorage.getItem('stockName')
 
     const PickDate = () => {
 
@@ -84,15 +82,22 @@ const useStyles = makeStyles(styles);
     const [date, setDate] = useState('');
     const dispatch = useDispatch()
     const totalLstm = useSelector(state => (state.covidReducer.totalLstm))
-   
+    let rows = new Array()
+    let imgs = null
+
+    const stockName = localStorage.getItem('stockName')
     for(var key in totalLstm) {
 
       if(key === 'datas') {
           console.log(JSON.stringify(totalLstm[key]))
+          rows = totalLstm[key]
+      } else if(key === 'img') {
+          imgs = JSON.stringify(totalLstm[key])
       }
     }
-    const rows = JSON.stringify(totalLstm[key])
+    // const rows = JSON.stringify(totalLstm[key])
     console.log("rows : " + rows)
+    console.log("imgs : " + imgs)
     
     
     return (
@@ -101,7 +106,7 @@ const useStyles = makeStyles(styles);
         <div>
         <input type='text' onChange={e => setDate(`${e.target.value}`)}/>
         <button onClick={e => dispatch(covidActions.getTotalLstm(stockName,date))}>검색</button>
-            {/* <img src={require()} /> */}
+            {/* <img src={require(imgs)} /> */}
             <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
@@ -113,13 +118,11 @@ const useStyles = makeStyles(styles);
                 </TableHead>
                 { rows !== undefined ? 
                   <TableBody>
-                    {[rows].map((row) => (
-                      <TableRow key={row.date}>
-                        <TableCell component="th" scope="row">
-                          {row.date}
-                        </TableCell>
-                              <TableCell align="right">{row.pred}</TableCell>
-                              <TableCell align="right">{row.real}</TableCell>
+                    {rows.map((row) => (
+                      <TableRow key={rows.date}>
+                        <TableCell align="center">{row.date}</TableCell>
+                        <TableCell align="center">{row.pred}</TableCell>
+                        <TableCell align="center">{row.real}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

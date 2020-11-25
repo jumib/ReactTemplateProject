@@ -169,9 +169,9 @@ export default function CustomPaginationActionsTable() {
 
   useEffect(() => {
 
-     // let stockName = localStorage.getItem('stockName')
+     let stockName = localStorage.getItem('stockName')
      // dispatch(stockActions.getRecentNews(stockName))
-     const stockName = '삼성전자'
+     // const stockName = '삼성전자'
      dispatch(stockActions.getRecentNews(stockName))
   }, [])
 

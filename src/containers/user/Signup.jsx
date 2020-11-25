@@ -76,7 +76,7 @@ const Signup = () => {
 
     // const userInfo = JSON.stringify(user)
     // const userInfo = JSON.parse(user)
-    // const userInfo = user
+    const userInfo = user
 
     // console.log(userInfo)
 
@@ -184,7 +184,7 @@ const Signup = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={e => dispatch(userActions.register(user))}
+              onClick={e => dispatch(userActions.register(userInfo))}
             >
               가입하기
             </Button><br/><br/>

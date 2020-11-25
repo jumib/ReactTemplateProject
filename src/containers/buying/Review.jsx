@@ -54,12 +54,14 @@ export default function Review() {
   useEffect(() => {
       const fetchReviews = async () => {
         try {
-          const name = 'test'
+          
+          const user = sessionStorage.getItem('user')
+          
           setReviews(null);
           
           setLoading(true);
           const response = await axios.get(
-            `http://192.168.0.10:8080/api/mypage/${name}`
+            `http://192.168.0.10:8080/api/mypage/${user}`
           );
           setReviews(response.data);
           // alert(JSON.stringify(response.data)) 

@@ -60,11 +60,11 @@ export const userActions = {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-function register(user) {
+function register(userInfo) {
     return dispatch => {
-        alert("register action = " + JSON.stringify(user))
-        dispatch(request(user));
-        userService.register(user)
+        alert("register action = " + JSON.stringify(userInfo))
+        dispatch(request(userInfo));
+        userService.register(userInfo)
             .then(
                 user => { 
                     dispatch(success(user));
@@ -78,7 +78,7 @@ function register(user) {
             );
     };
   
-    function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
+    function request(userInfo) { return { type: userConstants.REGISTER_REQUEST, userInfo } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
@@ -92,11 +92,8 @@ function login(email,password){
             .then(
                 user => { 
                     console.log(user.name)
-                    dispatch(success(user))
-                    // alert(JSON.stringify(user))
-                    // alert(JSON.stringify(user.name))
-                    // alert(user.name)
-                    sessionStorage.setItem('user', user)
+                    dispatch(success(user[0]))
+                    sessionStorage.setItem('user', user[0].name)
                     history.push('/')
              },
             error => {
