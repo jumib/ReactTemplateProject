@@ -100,7 +100,7 @@ export default function Components(props) {
           {...rest}
         />
 
-        <Parallax image={require("assets/img/bg.jpg")}>
+        <Parallax image={require("assets/img/search2.jpg")}>
           <div className={classes.container}>
             <SearchComponent/>
           </div>
@@ -108,7 +108,7 @@ export default function Components(props) {
         
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
-            { recentNews !== '' ? (<MainInfo/> ) : (null) }
+            { recentNews !='' || null ? (<MainInfo/> ) : (null) }
           </div>
           {/* <MainInfo/> */}
         </div>
