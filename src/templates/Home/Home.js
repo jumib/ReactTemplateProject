@@ -65,7 +65,7 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-              <Fade top>
+              <Fade left>
                 <div>
                 <h1 className={classes.title}>오직 당신을 위한 AI 펀드매니저.</h1>
                 <br/><br/><br/><br/><br/><br/>

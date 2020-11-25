@@ -42,7 +42,7 @@ export default function Components({children}) {
 
         {...rest}
       />
-      <Parallax image={require("assets/img/log.jpg")}>
+      <Parallax image={require("assets/img/join2.jpg")}>
         {/* <Menu /> */}
         {children}
       </Parallax>
