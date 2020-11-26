@@ -83,14 +83,14 @@ const TotalLstm = () => {
             headerColor="info"
             tabs={[
             {
-                tabName: "Profile",
+                tabName: "pick date",
                 tabIcon: Face,
                 tabContent: (
                 <PickDate/>
                 )
             },
             {
-                tabName: "Messages",
+                tabName: "auto lstm",
                 tabIcon: Chat,
                 tabContent: (
                 <AutoDate/>

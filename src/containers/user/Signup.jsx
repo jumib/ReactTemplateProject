@@ -157,7 +157,7 @@ const Signup = () => {
             </FormControl>
    
             <FormControl className={classes.formControl}>
-              <FormLabel component="legend">* 질문 3 : 나이대는? </FormLabel><br/>
+              <FormLabel component="legend">* 질문 3 : 연령대는? </FormLabel><br/>
               {/* <InputLabel id="demo-controlled-open-select-label">Age</InputLabel> */}
               <Select
                 labelId="demo-controlled-open-select-label"

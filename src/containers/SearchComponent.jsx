@@ -77,7 +77,7 @@ const SearchComponent = () => {
     }
     
     localStorage.setItem('stockName', stockName);
-    console.log(stockName)
+    // console.log(stockName)
 
 
     const classes = useStyles()
@@ -95,11 +95,10 @@ const SearchComponent = () => {
               }}
               inputProps={{ 'aria-label': 'search' }}
               onChange={e => setStockName(`${e.target.value}`)}
-              onKeyUp={search}
             />
             {/* <label className={classes.label}>알아보고 싶은 종목을 검색해보세요</label>
         <input className={classes.search} type="text" size="100" onChange={e => setStockName(`${e.target.value}`)} /> */}
-        {/* <button onClick={search}>SEARCH</button> */}
+        <button onClick={search}>SEARCH</button>
           </div>        
     )
 }

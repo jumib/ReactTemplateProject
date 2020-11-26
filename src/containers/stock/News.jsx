@@ -172,7 +172,7 @@ export default function CustomPaginationActionsTable() {
      let stockName = localStorage.getItem('stockName')
      // dispatch(stockActions.getRecentNews(stockName))
      // const stockName = '삼성전자'
-     dispatch(stockActions.getRecentNews(stockName))
+     // dispatch(stockActions.getRecentNews(stockName))
   }, [])
 
   

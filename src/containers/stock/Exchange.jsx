@@ -125,6 +125,9 @@ function TabPanel(props) {
     tabs: {
       borderRight: `1px solid ${theme.palette.divider}`,
     },
+    location: {
+      width: '1000px'
+    }
   }));
 
 
@@ -133,6 +136,7 @@ export default function Exchange() {
   const dispatch = useDispatch()
   const recentNews = useSelector(state => (state.stockReducer.recentNews))
   const rows = [recentNews]
+  const exchangeData = useSelector(state => (state.stockReducer.exchangeData))
 
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
@@ -156,37 +160,36 @@ export default function Exchange() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="USD" {...a11yProps(0)} />
-        <Tab label="JPY" {...a11yProps(1)} />
-        <Tab label="EUR" {...a11yProps(2)} />
-        <Tab label="CNY" {...a11yProps(3)} />
-        <Tab label="ALL" {...a11yProps(4)} />
-        <Tab label="MIXED" {...a11yProps(5)} />
-        <Tab label="INFO" {...a11yProps(6)} />
+        <Tab label="INFO" {...a11yProps(0)} />
+        <Tab label="USD" {...a11yProps(1)} />
+        <Tab label="JPY" {...a11yProps(2)} />
+        <Tab label="EUR" {...a11yProps(3)} />
+        <Tab label="CNY" {...a11yProps(4)} />
+        <Tab label="ALL" {...a11yProps(5)} />
+        <Tab label="MIXED" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        <img src={require("assets/img/bg.jpg")} />
-      </TabPanel>
-      <TabPanel value={value} index={6}>
         <ExchangeInfo/>
       </TabPanel>
+      <TabPanel value={value} index={1}>
+        <img src={require("assets/img/usd.png")} className={classes.location} />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <img src={require("assets/img/jpy.png")} className={classes.location}/>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <img src={require("assets/img/bg.jpg")} className={classes.location}/>
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <img src={require("assets/img/bg.jpg")} className={classes.location}/>
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        <img src={require("assets/img/all.png")} className={classes.location}/>
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <img src={require("assets/img/samsung.png")} className={classes.location}/>
+      </TabPanel>
     </div>
-
     </div>
   );
 }

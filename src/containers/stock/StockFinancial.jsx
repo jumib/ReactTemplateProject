@@ -156,7 +156,7 @@ export default function StockFinancial() {
             
             setLoading(true);
             const response = await axios.get(
-              `http://192.168.0.24:8080/api/stock/finance/${stockName}`
+              `http://192.168.0.10:8080/api/stock/finance/${stockName}`
             );
             setReviews(response.data);
             // alert(JSON.stringify(response.data)) 

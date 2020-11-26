@@ -360,7 +360,7 @@ class MyChatbot extends Component {
             id: 'price',
             options: [
                 {value: 'select', label: '지정가', trigger: '7' },
-                {value: '453560', label: '시장가', trigger: '8'},
+                {value: '42300', label: '시장가', trigger: '8'},
             ],
          },
          {

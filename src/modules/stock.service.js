@@ -10,7 +10,7 @@ async function getStockData(stockName) {
     console.log('stockservice param = ' + stockName)
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/stock/${stockName}`,
+        url: `http://192.168.0.10:8080/api/stock/stock/${stockName}`,
     }
     const resp = await axios(req)
 
@@ -22,7 +22,7 @@ async function getStockData(stockName) {
 async function getFinance(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/finance/${stockName}`,
+        url: `http://192.168.0.10:8080/api/stock/finance/${stockName}`,
         auth: c.auth
     }
     const resp = await axios(req)
@@ -34,7 +34,7 @@ async function getFinance(stockName) {
 async function getRecentNews(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/mainNews/${stockName}`,
+        url: `http://192.168.0.10:8080/api/stock/mainNews/${stockName}`,
         auth: c.auth
     }
     const resp = await axios(req)
@@ -58,7 +58,7 @@ async function getRecentNews(stockName) {
 async function getExchange() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/stock/exchange`,
+        url: `http://192.168.0.10:8080/api/stock/exchange`,
         auth: c.auth
     }
     const resp = await axios(req)

@@ -9,7 +9,7 @@ export const covidService = {
 async function getDecide() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/status/covid`
+        url: `http://192.168.0.10:8080/api/status/covid`
     }
     const resp = await axios(req)
 
@@ -23,7 +23,7 @@ async function getDecide() {
 async function getStatus() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/board/covid`
+        url: `http://192.168.0.10:8080/api/board/covid`
     }
     const resp = await axios(req)
 
@@ -37,7 +37,7 @@ async function getStatus() {
 async function getWords() {
     const req = {
         method: c.get,
-        url: `http://192.168.0.24:8080/api/news/economy`
+        url: `http://192.168.0.10:8080/api/news/economy`
     }
     const resp = await axios(req)
 
@@ -51,7 +51,7 @@ async function getWords() {
 async function getTotalLstm(stockName,date) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/predDate/${stockName}/${date}`
+        url: `http://192.168.0.10:8080/api/predDate/${stockName}/${date}`
     }
     const resp = await axios(req)
 
@@ -65,7 +65,7 @@ async function getTotalLstm(stockName,date) {
 async function getAutoLstm(stockName) {
     const req = {
         method: c.get,
-        url: `http://192.168.0.11:8080/api/pred/${stockName}`
+        url: `http://192.168.0.10:8080/api/pred/${stockName}`
     }
     const resp = await axios(req)
 

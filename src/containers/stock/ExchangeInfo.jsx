@@ -40,7 +40,7 @@ const ExchangeInfo = () => {
             
             setLoading(true);
             const response = await axios.get(
-              `http://192.168.0.24:8080/api/stock/exchange`
+              `http://192.168.0.10:8080/api/stock/exchange`
             );
             setReviews(response.data);
             // alert(JSON.stringify(response.data)) 

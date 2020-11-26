@@ -86,10 +86,10 @@ export default function Components(props) {
                   aria-labelledby="alert-dialog-title"
                   aria-describedby="alert-dialog-description"
                 >
-                  <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                  <DialogTitle id="alert-dialog-title">{"추천알림"}</DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      오늘 (2020년 3월 3일) 삼성전자의 매수를 권해드립니다.<br/>
+                      오늘 (2020년 3월 19일) 삼성전자의 매수를 권해드립니다.<br/>
                       구매하시겠습니까?
                     </DialogContentText>
                   </DialogContent>

@@ -47,7 +47,7 @@ const CovidStatus = () => {
           
           setLoading(true);
           const response = await axios.get(
-            `http://192.168.0.24:8080/api/board/covid`
+            `http://192.168.0.10:8080/api/board/covid`
           );
           setStatus(response.data);
           // alert(JSON.stringify(response.data)) 
