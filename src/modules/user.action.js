@@ -62,13 +62,13 @@ export const userActions = {
 
 function register(userInfo) {
     return dispatch => {
-        alert("register action = " + JSON.stringify(userInfo))
+        // alert("register action = " + JSON.stringify(userInfo))
         dispatch(request(userInfo));
         userService.register(userInfo)
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/signin')
+                    history.push('/')
                     // dispatch(alertActions.success('Registration successful'));
                 },
                 error => {

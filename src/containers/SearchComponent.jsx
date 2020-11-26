@@ -6,6 +6,9 @@ import { stockActions } from '../modules/stock.action'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import Button from '@material-ui/core/Button';
+import { Grid } from '@material-ui/core'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         },
         alignContent: 'center',
         height: '50px',
-        width: '1000px',
+        width: '800px',
         maxWidth: 'auto',
       },
       searchIcon: {
@@ -83,12 +86,14 @@ const SearchComponent = () => {
     const classes = useStyles()
 
     return (
+      <Grid item xs={12}>
         <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
+            <div>
             <InputBase
-              placeholder="Search… 알아보고 싶은 종목을 검색해보세요"
+              placeholder="Search… 알아보고 싶은 종목을 검색해보세요 !"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -97,9 +102,14 @@ const SearchComponent = () => {
               onChange={e => setStockName(`${e.target.value}`)}
             />
             {/* <label className={classes.label}>알아보고 싶은 종목을 검색해보세요</label>
-        <input className={classes.search} type="text" size="100" onChange={e => setStockName(`${e.target.value}`)} /> */}
-        <button onClick={search}>SEARCH</button>
-          </div>        
+            <input className={classes.search} type="text" size="100" onChange={e => setStockName(`${e.target.value}`)} /> */}
+            </div>
+          </div>
+          <div>      
+              <Button variant="outlined" onClick={search}>search</Button>
+        {/* <button onClick={search}>SEARCH</button> */}
+        </div>   
+      </Grid>       
     )
 }
 

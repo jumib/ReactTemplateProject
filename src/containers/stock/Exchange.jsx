@@ -178,10 +178,10 @@ export default function Exchange() {
         <img src={require("assets/img/jpy.png")} className={classes.location}/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <img src={require("assets/img/bg.jpg")} className={classes.location}/>
+        <img src={require("assets/img/eur.png")} className={classes.location}/>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <img src={require("assets/img/bg.jpg")} className={classes.location}/>
+        <img src={require("assets/img/cny.png")} className={classes.location}/>
       </TabPanel>
       <TabPanel value={value} index={5}>
         <img src={require("assets/img/all.png")} className={classes.location}/>

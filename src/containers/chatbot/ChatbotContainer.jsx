@@ -230,7 +230,7 @@ class Answer extends Component {
     .then(res=>{
       alert("성공")
       localStorage.removeItem('stockName')
-      alert(localStorage.getItem('stockName'))
+      // alert(localStorage.getItem('stockName'))
       // this.setState(res.data)
       // this.state.target_name = res.data
       // localStorage.setItem("actor", this.state.target_name)

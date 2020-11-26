@@ -120,6 +120,9 @@ const useStyles = makeStyles({
   },
   location: {
     padding: '80px'
+  },
+  color: {
+    color: 'blue'
   }
 });
 
@@ -208,9 +211,9 @@ export default function StockFinancial() {
               <TableCell align="right">{row.f_2017_12}</TableCell>
               <TableCell align="right">{row.f_2018_12}</TableCell>
               <TableCell align="right">{row.f_2019_12}</TableCell>
-              <TableCell align="right">{row.f_2020_12}</TableCell>
-              <TableCell align="right">{row.f_2021_12}</TableCell>
-              <TableCell align="right">{row.f_2022_12}</TableCell>
+              <TableCell align="right" className={classes.color}>{row.f_2020_12}</TableCell>
+              <TableCell align="right" className={classes.color}>{row.f_2021_12}</TableCell>
+              <TableCell align="right" className={classes.color}>{row.f_2022_12}</TableCell>
             </TableRow>
           ))}
         </TableBody>

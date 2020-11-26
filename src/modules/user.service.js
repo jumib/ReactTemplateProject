@@ -35,7 +35,7 @@ export const userService = {
     }
     const resp = await axios(req)
     const data = resp.data
-    alert(`Welcome ! ${data.name}'s connection is successful. ! `)
+    alert(` FLISTOCK 에 오신 걸 환영합니다 ! `)
     return data
   }
   
@@ -70,7 +70,7 @@ export const userService = {
   }
   
   async function register(userInfo) {
-    alert("register service = " + JSON.stringify(userInfo))
+    // alert("register service = " + JSON.stringify(userInfo))
     // console.log(userInfo.type)
     const req = {
         method: c.post,
@@ -80,7 +80,7 @@ export const userService = {
     }
     const resp = await axios(req)
     const data = resp.data
-    alert(`Welcome ! ${data.name}'s connection is successful. ! `)
+    alert(`축하합니다 ! 가입이 완료되었습니다. `)
     return data
   }
   
